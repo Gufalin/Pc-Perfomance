@@ -141,18 +141,15 @@ document.getElementById("result").innerHTML =
     "FPS estimados: " + fps;
 
 }
-if (fps >= 240) {
-    resultado = "Excelente";
-} else if (fps >= 144) {
-    resultado = "Muy bueno";
-} else if (fps >= 60) {
-    resultado = "Bueno";
+let resultado;
+
+if (fps >= 144) {
+    resultado = "🔥 Excelente rendimiento";
 } else {
-    resultado = "Bajo";
+    resultado = "Rendimiento mejorable";
 }
-document.getElementById("result").innerHTML =
-    "Rendimiento: " + fps;
-    }
+
+document.getElementById("result").innerHTML = resultado;
 </script>
 
 </body>
