@@ -123,8 +123,22 @@ function calculateFPS() {
         return;
     }
 
-    document.getElementById("result").innerHTML =
-        "Tu PC podría alcanzar aproximadamente 120 FPS.";
+    let fps = 60;
+
+if (game === "fortnite" && gpu === "rtx3080" && resolution === "1440") {
+    fps = 180;
+}
+
+if (game === "cyberpunk" && gpu === "rtx3080" && resolution === "1440") {
+    fps = 80;
+}
+
+if (game === "warzone" && gpu === "rtx3080" && resolution === "1440") {
+    fps = 130;
+}
+
+document.getElementById("result").innerHTML =
+    "FPS estimados: " + fps;
 
 }
 
