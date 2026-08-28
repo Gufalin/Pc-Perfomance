@@ -141,7 +141,15 @@ document.getElementById("result").innerHTML =
     "FPS estimados: " + fps;
 
 }
-
+if (fps >= 240) {
+    resultado = "Excelente";
+} else if (fps >= 144) {
+    resultado = "Muy bueno";
+} else if (fps >= 60) {
+    resultado = "Bueno";
+} else {
+    resultado = "Bajo";
+}
 </script>
 
 </body>
