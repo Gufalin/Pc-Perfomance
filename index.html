@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PC Performance</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0f1117;
+            color: white;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 60px auto;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #aaa;
+        }
+
+        .calculator {
+            background: #181b24;
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+
+        select, button {
+            width: 100%;
+            padding: 14px;
+            margin-top: 12px;
+            border-radius: 8px;
+            border: none;
+            font-size: 16px;
+        }
+
+        button {
+            background: #5865f2;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 25px;
+            font-size: 22px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>PC Performance</h1>
+
+    <p>Calcula el rendimiento estimado de tu PC.</p>
+
+    <div class="calculator">
+
+        <select id="game">
+            <option value="">Selecciona un juego</option>
+            <option value="fortnite">Fortnite</option>
+            <option value="cyberpunk">Cyberpunk 2077</option>
+            <option value="warzone">Warzone</option>
+        </select>
+
+        <select id="gpu">
+            <option value="">Selecciona tu GPU</option>
+            <option value="rtx3080">RTX 3080</option>
+            <option value="rtx4070">RTX 4070</option>
+            <option value="rtx5070">RTX 5070</option>
+        </select>
+
+        <select id="cpu">
+            <option value="">Selecciona tu CPU</option>
+            <option value="14600k">i5-14600K</option>
+            <option value="7800x3d">Ryzen 7 7800X3D</option>
+            <option value="7600">Ryzen 5 7600</option>
+        </select>
+
+        <select id="resolution">
+            <option value="">Resolución</option>
+            <option value="1080">1080p</option>
+            <option value="1440">1440p</option>
+            <option value="2160">4K</option>
+        </select>
+
+        <button onclick="calculateFPS()">
+            CALCULAR RENDIMIENTO
+        </button>
+
+        <div id="result"></div>
+
+    </div>
+
+</div>
+
+<script>
+
+function calculateFPS() {
+
+    let game = document.getElementById("game").value;
+    let gpu = document.getElementById("gpu").value;
+    let cpu = document.getElementById("cpu").value;
+    let resolution = document.getElementById("resolution").value;
+
+    if (!game || !gpu || !cpu || !resolution) {
+        document.getElementById("result").innerHTML =
+            "Selecciona todos los campos.";
+        return;
+    }
+
+    document.getElementById("result").innerHTML =
+        "Tu PC podría alcanzar aproximadamente 120 FPS.";
+
+}
+
+</script>
+
+</body>
+</html>
