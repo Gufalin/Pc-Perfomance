@@ -293,6 +293,12 @@ function calculateFPS() {
     }
 
     let fps = 60;
+    
+    let data = fpsData[game]?.[gpu]?.[cpu]?.[resolution];
+
+if (data && data[target] !== undefined) {
+    fps = data[target];
+}
 
     if (game === "fortnite" && gpu === "rtx3080" && resolution === "1440" && cpu === "i5-14600kf") {
 
