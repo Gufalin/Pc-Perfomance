@@ -104,6 +104,34 @@
     object-fit: contain;
 }
 
+.gpu-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.gpu-info img {
+    width: 55px;
+    height: 45px;
+    object-fit: contain;
+}
+
+.gpu-info div {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.gpu-info strong {
+    font-size: 14px;
+}
+
+.gpu-info span {
+    color: #aaa;
+    font-size: 12px;
+    margin-top: 3px;
+}
+
 .result-card {
     margin-top: 25px;
     padding: 20px;
@@ -486,17 +514,35 @@ function showGPU() {
     if (gpu === "rtx3080") {
 
         document.getElementById("gpu-preview").innerHTML =
-            '<img src="./rtx3080.PNG">';
+            '<div class="gpu-info">' +
+                '<img src="./rtx3080.PNG">' +
+                '<div>' +
+                    '<strong>RTX 3080</strong>' +
+                    '<span>10 GB VRAM</span>' +
+                '</div>' +
+            '</div>';
 
     } else if (gpu === "rtx4070") {
 
         document.getElementById("gpu-preview").innerHTML =
-            '<img src="./rtx4070.PNG">';
+            '<div class="gpu-info">' +
+                '<img src="./rtx4070.PNG">' +
+                '<div>' +
+                    '<strong>RTX 4070</strong>' +
+                    '<span>12 GB VRAM</span>' +
+                '</div>' +
+            '</div>';
 
     } else if (gpu === "rtx5070") {
 
         document.getElementById("gpu-preview").innerHTML =
-            '<img src="./rtx5070.PNG">';
+            '<div class="gpu-info">' +
+                '<img src="./rtx5070.PNG">' +
+                '<div>' +
+                    '<strong>RTX 5070</strong>' +
+                    '<span>12 GB VRAM</span>' +
+                '</div>' +
+            '</div>';
 
     } else {
 
