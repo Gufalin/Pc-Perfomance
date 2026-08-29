@@ -1117,27 +1117,25 @@ button:active {
             </select>
 
 
-            <!-- OBJETIVO -->
-
             <select id="target">
 
-                <option value="">
-                    Objetivo...
-                </option>
+    <option value="">
+        Calidad...
+    </option>
 
-                <option value="competitive">
-                    Competitivo
-                </option>
+    <option value="competitive">
+        Baja
+    </option>
 
-                <option value="balanced">
-                    Equilibrado
-                </option>
+    <option value="balanced">
+        Media
+    </option>
 
-                <option value="quality">
-                    Calidad
-                </option>
+    <option value="quality">
+        Alta
+    </option>
 
-            </select>
+</select>
 
 
             <!-- OPCIONES CYBERPUNK -->
@@ -2156,39 +2154,28 @@ function calculateFPS() {
     ========================= */
 
     let objetivoTexto;
+let configuracion;
 
-    let configuracion;
+if (target === "competitive") {
 
+    objetivoTexto = "Baja";
+    configuracion = "Baja";
 
-    if (target === "competitive") {
+}
 
-        objetivoTexto =
-            "Competitivo";
+else if (target === "balanced") {
 
-        configuracion =
-            "Baja";
+    objetivoTexto = "Media";
+    configuracion = "Media";
 
-    }
+}
 
-    else if (target === "balanced") {
+else {
 
-        objetivoTexto =
-            "Equilibrado";
+    objetivoTexto = "Alta";
+    configuracion = "Alta";
 
-        configuracion =
-            "Media";
-
-    }
-
-    else {
-
-        objetivoTexto =
-            "Calidad";
-
-        configuracion =
-            "Alta";
-
-    }
+}
 
 
     /* =========================
