@@ -4,8 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PC Performance</title>
-
     <style>
+        /* =========================
+           GENERAL
+        ========================= */
+        * {
+            box-sizing: border-box;
+        }
         body {
             margin: 0;
             font-family: Arial, sans-serif;
@@ -13,33 +18,46 @@
             color: white;
             text-align: center;
         }
-
         .container {
-    width: 100%;
-    max-width: 850px;
-    margin: 0 auto;
-    padding: 40px 20px;
-    box-sizing: border-box;
-}
-
+            width: 100%;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
         h1 {
             font-size: 40px;
             margin-bottom: 10px;
         }
-
         p {
             color: #aaa;
         }
-
+        /* =========================
+           CALCULADORA
+        ========================= */
         .calculator {
-    background: #181b24;
-    padding: 30px;
-    border-radius: 18px;
-    margin-top: 30px;
-    box-sizing: border-box;
-}
-
-        select, button {
+            background: #181b24;
+            padding: 30px;
+            border-radius: 18px;
+            margin-top: 30px;
+            width: 100%;
+        }
+        /* =========================
+           GRID
+        ========================= */
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            width: 100%;
+        }
+        .form-full {
+            grid-column: 1 / -1;
+        }
+        /* =========================
+           SELECTS Y BOTÓN
+        ========================= */
+        select,
+        button {
             width: 100%;
             padding: 14px;
             margin-top: 12px;
@@ -47,320 +65,326 @@
             border: none;
             font-size: 16px;
         }
-
         button {
             background: #5865f2;
             color: white;
             font-weight: bold;
             cursor: pointer;
+            transition: 0.2s;
         }
-
+        button:hover {
+            transform: scale(1.01);
+        }
+        /* =========================
+           JUEGO
+        ========================= */
+        .game-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+            min-width: 0;
+        }
+        .game-container select {
+            flex: 1;
+            min-width: 0;
+            margin-top: 0;
+        }
+        #game-preview {
+            width: 55px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        #game-preview img {
+            width: 55px;
+            height: 45px;
+            object-fit: contain;
+        }
+        /* =========================
+           GPU
+        ========================= */
+        .gpu-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+            min-width: 0;
+        }
+        .gpu-container select {
+            flex: 1;
+            min-width: 0;
+            margin-top: 0;
+        }
+        #gpu-preview {
+            flex: 0 0 150px;
+            min-width: 0;
+        }
+        .gpu-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #222631;
+            padding: 6px 8px;
+            border-radius: 8px;
+            width: 100%;
+        }
+        .gpu-info img {
+            width: 45px;
+            height: 38px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+        .gpu-info div {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            min-width: 0;
+        }
+        .gpu-info strong {
+            font-size: 12px;
+            white-space: nowrap;
+        }
+        .gpu-info span {
+            color: #aaa;
+            font-size: 10px;
+            margin-top: 2px;
+            white-space: nowrap;
+        }
+        /* =========================
+           CPU
+        ========================= */
+        .cpu-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+            min-width: 0;
+        }
+        .cpu-container select {
+            flex: 1;
+            min-width: 0;
+            margin-top: 0;
+        }
+        #cpu-preview {
+            width: 55px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        #cpu-preview img {
+            width: 55px;
+            height: 45px;
+            object-fit: contain;
+        }
+        /* =========================
+           RESULTADO
+        ========================= */
         #result {
             margin-top: 25px;
             font-size: 22px;
             font-weight: bold;
         }
-        .gpu-card {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    background: #222631;
-    padding: 12px;
-    margin-top: 10px;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-.gpu-card img {
-    width: 70px;
-    height: 50px;
-    object-fit: contain;
-}
-
-.gpu-card:hover {
-    transform: scale(1.02);
-}
-
-        .gpu-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 12px;
-    width: 100%;
-}
-
-.gpu-container select {
-    flex: 1;
-    min-width: 0;
-    margin-top: 0;
-}
-
-#gpu-preview {
-    flex: 0 0 150px;
-    min-width: 0;
-}
-
-.gpu-info {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: #222631;
-    padding: 6px 8px;
-    border-radius: 8px;
-    box-sizing: border-box;
-    width: 100%;
-}
-
-.gpu-info img {
-    width: 45px;
-    height: 38px;
-    object-fit: contain;
-    flex-shrink: 0;
-}
-
-.gpu-info div {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    min-width: 0;
-}
-
-.gpu-info strong {
-    font-size: 12px;
-    white-space: nowrap;
-}
-
-.gpu-info span {
-    color: #aaa;
-    font-size: 10px;
-    margin-top: 2px;
-    white-space: nowrap;
-}
-
-.result-card {
-    margin-top: 25px;
-    padding: 20px;
-    background: #222631;
-    border-radius: 12px;
-}
-
-.result-card h2 {
-    margin-top: 0;
-}
-
-.fps-number {
-    font-size: 42px;
-    font-weight: bold;
-    margin: 10px 0;
-}
-
-.result-info {
-    color: #aaa;
-    font-size: 16px;
-    line-height: 1.8;
-}
-
-.performance-bar {
-    width: 100%;
-    height: 14px;
-    background: #11141b;
-    border-radius: 10px;
-    margin-top: 15px;
-}
-
-.performance-fill {
-    height: 14px;
-    background: #5865f2;
-    border-radius: 10px;
-}
-
-.game-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 12px;
-}
-
-.game-container select {
-    flex: 1;
-    margin-top: 0;
-}
-
-#game-preview {
-    width: 55px;
-    height: 45px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#game-preview img {
-    width: 55px;
-    height: 45px;
-    object-fit: contain;
-}
-
-.cpu-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 12px;
-}
-
-.cpu-container select {
-    flex: 1;
-    margin-top: 0;
-}
-
-#cpu-preview {
-    width: 55px;
-    height: 45px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#cpu-preview img {
-    width: 55px;
-    height: 45px;
-    object-fit: contain;
-}
-
-/* DISEÑO RESPONSIVE */
-
-.form-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-}
-
-.form-full {
-    grid-column: 1 / -1;
-}
-
-/* MÓVIL */
-
-@media (max-width: 600px) {
-
-    .container {
-        padding: 25px 12px;
-    }
-
-    h1 {
-        font-size: 32px;
-    }
-
-    .calculator {
-        padding: 18px;
-        margin-top: 20px;
-        border-radius: 15px;
-    }
-
-    .form-grid {
-        grid-template-columns: 1fr;
-        gap: 12px;
-    }
-
-    .form-full {
-        grid-column: auto;
-    }
-
-    select,
-    button {
-        font-size: 15px;
-        padding: 14px;
-    }
-
-}
-                        
-                                                                        
+        .result-card {
+            margin-top: 25px;
+            padding: 20px;
+            background: #222631;
+            border-radius: 12px;
+        }
+        .result-card h2 {
+            margin-top: 0;
+        }
+        .fps-number {
+            font-size: 42px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .result-info {
+            color: #aaa;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+        /* =========================
+           BARRA DE RENDIMIENTO
+        ========================= */
+        .performance-bar {
+            width: 100%;
+            height: 14px;
+            background: #11141b;
+            border-radius: 10px;
+            margin-top: 15px;
+            overflow: hidden;
+        }
+        .performance-fill {
+            height: 14px;
+            background: #5865f2;
+            border-radius: 10px;
+            transition: width 0.5s ease;
+        }
+        /* =========================
+           MÓVIL
+        ========================= */
+        @media (max-width: 600px) {
+            .container {
+                padding: 25px 12px;
+            }
+            h1 {
+                font-size: 32px;
+            }
+            .calculator {
+                padding: 18px;
+                margin-top: 20px;
+                border-radius: 15px;
+            }
+            .form-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            .form-full {
+                grid-column: auto;
+            }
+            select,
+            button {
+                font-size: 15px;
+                padding: 14px;
+            }
+            #gpu-preview {
+                flex: 0 0 135px;
+            }
+            .gpu-info {
+                padding: 5px 6px;
+            }
+            .gpu-info img {
+                width: 40px;
+                height: 35px;
+            }
+            .gpu-info strong {
+                font-size: 11px;
+            }
+            .gpu-info span {
+                font-size: 9px;
+            }
+            .fps-number {
+                font-size: 36px;
+            }
+        }
     </style>
 </head>
-
 <body>
-
 <div class="container">
-
     <h1>PC Performance</h1>
-
-    <p>Calcula el rendimiento estimado de tu PC.</p>
-
+    <p>
+        Calcula el rendimiento estimado de tu PC.
+    </p>
     <div class="calculator">
-        
+        <!-- =========================
+             SELECCIÓN
+        ========================= -->
         <div class="form-grid">
-
-       <div class="game-container">
-
-    <select id="game" class="form-full" onchange="showGame()">
-        <option value="">Selecciona un juego</option>
-        <option value="fortnite">Fortnite</option>
-        <option value="cyberpunk">Cyberpunk 2077</option>
-        <option value="warzone">Call of Duty:Warzone</option>
-    </select>
-
-    <div id="game-preview"></div>
-
-</div>
-
-       <div class="gpu-container">
-
-    <select id="gpu" onchange="showGPU()">
-        <option value="">Selecciona una GPU</option>
-        <option value="rtx3080">RTX 3080</option>
-        <option value="rtx4070">RTX 4070</option>
-        <option value="rtx5070">RTX 5070</option>
-    </select>
-
-    <div id="gpu-preview"></div>
-
-</div>
-
-        <div class="cpu-container">
-
-    <select id="cpu" onchange="showCPU()">
-        <option value="">Selecciona tu CPU</option>
-        <option value="i5-14600kf">i5-14600KF</option>
-        <option value="ryzen 7 7800X3D">Ryzen 7 7800X3D</option>
-        <option value="ryzen 5 7600">Ryzen 5 7600</option>
-    </select>
-
-    <div id="cpu-preview"></div>
-
-</div>
-
-        <select id="resolution">
-            <option value="">Resolución</option>
-            <option value="1080">1080p</option>
-            <option value="1440">1440p</option>
-            <option value="2160">4K</option>
-        </select>
-
-<select id="target">
-    <option value="">Selecciona un objetivo</option>
-    <option value="competitive"> Competitivo</option>
-    <option value="balanced"> Equilibrado</option>
-    <option value="quality"> Calidad</option>
-</select>
-</div>
-
+            <!-- JUEGO -->
+            <div class="game-container form-full">
+                <select id="game" onchange="showGame()">
+                    <option value="">
+                        Juego...
+                    </option>
+                    <option value="fortnite">
+                        Fortnite
+                    </option>
+                    <option value="cyberpunk">
+                        Cyberpunk 2077
+                    </option>
+                    <option value="warzone">
+                        Call of Duty: Warzone
+                    </option>
+                </select>
+                <div id="game-preview"></div>
+            </div>
+            <!-- GPU -->
+            <div class="gpu-container">
+                <select id="gpu" onchange="showGPU()">
+                    <option value="">
+                        GPU...
+                    </option>
+                    <option value="rtx3080">
+                        RTX 3080
+                    </option>
+                    <option value="rtx4070">
+                        RTX 4070
+                    </option>
+                    <option value="rtx5070">
+                        RTX 5070
+                    </option>
+                </select>
+                <div id="gpu-preview"></div>
+            </div>
+            <!-- CPU -->
+            <div class="cpu-container">
+                <select id="cpu" onchange="showCPU()">
+                    <option value="">
+                        CPU...
+                    </option>
+                    <option value="i5-14600kf">
+                        i5-14600KF
+                    </option>
+                    <option value="ryzen 7 7800X3D">
+                        Ryzen 7 7800X3D
+                    </option>
+                    <option value="ryzen 5 7600">
+                        Ryzen 5 7600
+                    </option>
+                </select>
+                <div id="cpu-preview"></div>
+            </div>
+            <!-- RESOLUCIÓN -->
+            <select id="resolution">
+                <option value="">
+                    Resolución...
+                </option>
+                <option value="1080">
+                    1080p
+                </option>
+                <option value="1440">
+                    1440p
+                </option>
+                <option value="2160">
+                    4K
+                </option>
+            </select>
+            <!-- OBJETIVO -->
+            <select id="target">
+                <option value="">
+                    Objetivo...
+                </option>
+                <option value="competitive">
+                    Competitivo
+                </option>
+                <option value="balanced">
+                    Equilibrado
+                </option>
+                <option value="quality">
+                    Calidad
+                </option>
+            </select>
+        </div>
+        <!-- BOTÓN -->
         <button onclick="calculateFPS()">
             CALCULAR RENDIMIENTO
         </button>
-
+        <!-- RESULTADO -->
         <div id="result"></div>
-
     </div>
-
 </div>
-
 <script>
-
+/* =========================
+   DATOS DE FPS
+========================= */
 let fpsData = {
-
     fortnite: {
-
         rtx3080: {
-
             "i5-14600kf": {
                 "1080": {
                     competitive: 324,
@@ -378,7 +402,6 @@ let fpsData = {
                     quality: 59
                 }
             },
-
             "ryzen 5 7600": {
                 "1080": {
                     competitive: 310,
@@ -396,7 +419,6 @@ let fpsData = {
                     quality: 57
                 }
             },
-
             "ryzen 7 7800X3D": {
                 "1080": {
                     competitive: 350,
@@ -414,11 +436,8 @@ let fpsData = {
                     quality: 60
                 }
             }
-
         },
-
         rtx4070: {
-
             "i5-14600kf": {
                 "1080": {
                     competitive: 350,
@@ -436,7 +455,6 @@ let fpsData = {
                     quality: 62
                 }
             },
-
             "ryzen 5 7600": {
                 "1080": {
                     competitive: 320,
@@ -454,7 +472,6 @@ let fpsData = {
                     quality: 64
                 }
             },
-
             "ryzen 7 7800X3D": {
                 "1080": {
                     competitive: 338,
@@ -472,11 +489,8 @@ let fpsData = {
                     quality: 61
                 }
             }
-
         },
-
         rtx5070: {
-
             "i5-14600kf": {
                 "1080": {
                     competitive: 362,
@@ -494,7 +508,6 @@ let fpsData = {
                     quality: 70
                 }
             },
-
             "ryzen 5 7600": {
                 "1080": {
                     competitive: 340,
@@ -512,7 +525,6 @@ let fpsData = {
                     quality: 68
                 }
             },
-
             "ryzen 7 7800X3D": {
                 "1080": {
                     competitive: 390,
@@ -530,44 +542,38 @@ let fpsData = {
                     quality: 73
                 }
             }
-
         }
-
     }
-
 };
-
+/* =========================
+   IMAGEN DEL JUEGO
+========================= */
 function showGame() {
-
-    let game = document.getElementById("game").value;
-
+    let game =
+        document.getElementById("game").value;
     if (game === "fortnite") {
-
         document.getElementById("game-preview").innerHTML =
             '<img src="./fortnite.PNG">';
-
-    } else if (game === "cyberpunk") {
-
+    }
+    else if (game === "cyberpunk") {
         document.getElementById("game-preview").innerHTML =
             '<img src="./cyberpunk.JPG">';
-
-    } else if (game === "warzone") {
-
+    }
+    else if (game === "warzone") {
         document.getElementById("game-preview").innerHTML =
             '<img src="./warzone.PNG">';
-
-    } else {
-
+    }
+    else {
         document.getElementById("game-preview").innerHTML = "";
     }
 }
-
+/* =========================
+   IMAGEN + VRAM GPU
+========================= */
 function showGPU() {
-
-    let gpu = document.getElementById("gpu").value;
-
+    let gpu =
+        document.getElementById("gpu").value;
     if (gpu === "rtx3080") {
-
         document.getElementById("gpu-preview").innerHTML =
             '<div class="gpu-info">' +
                 '<img src="./rtx3080.PNG">' +
@@ -576,9 +582,8 @@ function showGPU() {
                     '<span>10 GB VRAM</span>' +
                 '</div>' +
             '</div>';
-
-    } else if (gpu === "rtx4070") {
-
+    }
+    else if (gpu === "rtx4070") {
         document.getElementById("gpu-preview").innerHTML =
             '<div class="gpu-info">' +
                 '<img src="./rtx4070.PNG">' +
@@ -587,9 +592,8 @@ function showGPU() {
                     '<span>12 GB VRAM</span>' +
                 '</div>' +
             '</div>';
-
-    } else if (gpu === "rtx5070") {
-
+    }
+    else if (gpu === "rtx5070") {
         document.getElementById("gpu-preview").innerHTML =
             '<div class="gpu-info">' +
                 '<img src="./rtx5070.PNG">' +
@@ -598,105 +602,131 @@ function showGPU() {
                     '<span>12 GB VRAM</span>' +
                 '</div>' +
             '</div>';
-
-    } else {
-
+    }
+    else {
         document.getElementById("gpu-preview").innerHTML = "";
     }
 }
-
+/* =========================
+   IMAGEN CPU
+========================= */
 function showCPU() {
-
-    let cpu = document.getElementById("cpu").value;
-
+    let cpu =
+        document.getElementById("cpu").value;
     if (cpu === "i5-14600kf") {
-
         document.getElementById("cpu-preview").innerHTML =
             '<img src="./i5-14600kf.PNG">';
-
-    } else if (cpu === "ryzen 7 7800X3D") {
-
+    }
+    else if (cpu === "ryzen 7 7800X3D") {
         document.getElementById("cpu-preview").innerHTML =
             '<img src="./ryzen7-7800x3d.PNG">';
-
-    } else if (cpu === "ryzen 5 7600") {
-
+    }
+    else if (cpu === "ryzen 5 7600") {
         document.getElementById("cpu-preview").innerHTML =
             '<img src="./ryzen5-7600.WEBP">';
-
-    } else {
-
+    }
+    else {
         document.getElementById("cpu-preview").innerHTML = "";
     }
 }
-
+/* =========================
+   CALCULAR FPS
+========================= */
 function calculateFPS() {
-
-    let game = document.getElementById("game").value;
-    let gpu = document.getElementById("gpu").value;
-    let cpu = document.getElementById("cpu").value;
-    let resolution = document.getElementById("resolution").value;
-    let target = document.getElementById("target").value;
-
-    if (!game || !gpu || !cpu || !resolution || !target) {
+    let game =
+        document.getElementById("game").value;
+    let gpu =
+        document.getElementById("gpu").value;
+    let cpu =
+        document.getElementById("cpu").value;
+    let resolution =
+        document.getElementById("resolution").value;
+    let target =
+        document.getElementById("target").value;
+    /* COMPROBAR CAMPOS */
+    if (
+        !game ||
+        !gpu ||
+        !cpu ||
+        !resolution ||
+        !target
+    ) {
         document.getElementById("result").innerHTML =
             "Selecciona todos los campos.";
         return;
     }
-
+    /* BUSCAR FPS */
     let fps = 60;
-    
-    let data = fpsData[game]?.[gpu]?.[cpu]?.[resolution];
-
-if (data && data[target] !== undefined) {
-    fps = data[target];
-}
-
-    
-
-    let resultado;
-
-    if (fps >= 144) {
-        resultado = "Excelente rendimiento";
-    } else {
-        resultado = "Rendimiento mejorable";
+    let data =
+        fpsData[game]?.[gpu]?.[cpu]?.[resolution];
+    if (
+        data &&
+        data[target] !== undefined
+    ) {
+        fps = data[target];
     }
-
+    /* RESULTADO */
+    let resultado;
+    if (fps >= 144) {
+        resultado =
+            "Excelente rendimiento";
+    }
+    else {
+        resultado =
+            "Rendimiento mejorable";
+    }
+    /* TEXTO DEL OBJETIVO */
     let objetivoTexto;
     let configuracion;
-
     if (target === "competitive") {
-        objetivoTexto = "Competitivo";
-        configuracion = "Baja";
-    } else if (target === "balanced") {
-        objetivoTexto = "Equilibrado";
-        configuracion = "Media / Alta";
-    } else {
-        objetivoTexto = "Calidad";
-        configuracion = "Alta";
+        objetivoTexto =
+            "Competitivo";
+        configuracion =
+            "Baja";
     }
-
-    let performance = Math.min((fps / 200) * 100, 100);
-
+    else if (target === "balanced") {
+        objetivoTexto =
+            "Equilibrado";
+        configuracion =
+            "Media / Alta";
+    }
+    else {
+        objetivoTexto =
+            "Calidad";
+        configuracion =
+            "Alta";
+    }
+    /* BARRA */
+    let performance =
+        Math.min((fps / 200) * 100, 100);
+    /* MOSTRAR RESULTADO */
     document.getElementById("result").innerHTML =
         '<div class="result-card">' +
-            '<h2> Resultado</h2>' +
-            '<div class="fps-number">' + fps + ' FPS</div>' +
-
+            '<h2>Resultado</h2>' +
+            '<div class="fps-number">' +
+                fps +
+                ' FPS' +
+            '</div>' +
             '<div class="result-info">' +
-                '🎯 Objetivo: ' + objetivoTexto + '<br>' +
-                '🖥️ Resolución: ' + resolution + 'p<br>' +
-                '⚙️ Configuración: ' + configuracion + '<br>' +
-                '📊 Rendimiento: ' + resultado +
+                '🎯 Objetivo: ' +
+                objetivoTexto +
+                '<br>' +
+                '🖥️ Resolución: ' +
+                resolution +
+                'p<br>' +
+                '⚙️ Configuración: ' +
+                configuracion +
+                '<br>' +
+                '📊 Rendimiento: ' +
+                resultado +
             '</div>' +
-
             '<div class="performance-bar">' +
-                '<div class="performance-fill" style="width:' + performance + '%;"></div>' +
+                '<div class="performance-fill" style="width:' +
+                    performance +
+                    '%;"></div>' +
             '</div>' +
-
         '</div>';
 }
-    
 </script>
 </body>
 </html>
