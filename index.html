@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -439,7 +440,6 @@ select option {
 #resolution,
 #target {
     min-height: 54px;
-
     border-radius: 15px;
 }
 
@@ -537,7 +537,6 @@ select option {
 
 .cyberpunk-option.active .toggle::after {
     transform: translateX(14px);
-
     background: white;
 }
 
@@ -663,9 +662,9 @@ button:active {
 }
 
 .fps-number {
-    margin: 8px 0 18px;
+    margin: 8px 0 8px;
 
-    font-size: clamp(46px,8vw,58px);
+    font-size: clamp(42px,8vw,58px);
 
     font-weight: 800;
 
@@ -675,6 +674,12 @@ button:active {
 
     text-shadow:
         0 5px 25px rgba(88,101,242,.25);
+}
+
+.fps-label {
+    color: #777f90;
+    font-size: 12px;
+    margin-bottom: 18px;
 }
 
 .result-info {
@@ -769,7 +774,7 @@ button:active {
 
     font-size: 11px;
 
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
 /* =========================
@@ -899,7 +904,6 @@ button:active {
 
     button {
         min-height: 58px;
-
         margin-top: 17px;
     }
 
@@ -955,13 +959,11 @@ button:active {
 
         <div class="form-grid">
 
-            <!-- =========================
-                 JUEGO
-            ========================= -->
+            <!-- JUEGO -->
 
             <div class="game-container form-full">
 
-                <select id="game" onchange="showGame()">
+                <select id="game">
 
                     <option value="">
                         Juego...
@@ -978,21 +980,22 @@ button:active {
                     <option value="warzone">
                         Call of Duty: Warzone
                     </option>
+
                     <option value="eldenring">
-    Elden Ring
-</option>
+                        Elden Ring
+                    </option>
 
-<option value="valorant">
-    Valorant
-</option>
+                    <option value="valorant">
+                        Valorant
+                    </option>
 
-<option value="rdr2">
-    Red Dead Redemption 2
-</option>
+                    <option value="rdr2">
+                        Red Dead Redemption 2
+                    </option>
 
-<option value="tlou2">
-    The Last of Us Part II
-</option>
+                    <option value="tlou2">
+                        The Last of Us Part II
+                    </option>
 
                 </select>
 
@@ -1001,13 +1004,11 @@ button:active {
             </div>
 
 
-            <!-- =========================
-                 GPU
-            ========================= -->
+            <!-- GPU -->
 
             <div class="gpu-container">
 
-                <select id="gpu" onchange="showGPU()">
+                <select id="gpu">
 
                     <option value="">
                         GPU...
@@ -1021,24 +1022,25 @@ button:active {
                         RTX 4070
                     </option>
 
+                    <option value="rtx4070ti">
+                        RTX 4070 Ti
+                    </option>
+
+                    <option value="rtx4070tisuper">
+                        RTX 4070 Ti SUPER
+                    </option>
+
+                    <option value="rtx4080">
+                        RTX 4080
+                    </option>
+
+                    <option value="rtx5060">
+                        RTX 5060
+                    </option>
+
                     <option value="rtx5070">
                         RTX 5070
                     </option>
-                    <option value="rtx4070ti">
-    RTX 4070 Ti
-</option>
-
-<option value="rtx4070tisuper">
-    RTX 4070 Ti SUPER
-</option>
-
-<option value="rtx4080">
-    RTX 4080
-</option>
-
-<option value="rtx5060">
-    RTX 5060
-</option>
 
                 </select>
 
@@ -1047,13 +1049,11 @@ button:active {
             </div>
 
 
-            <!-- =========================
-                 CPU
-            ========================= -->
+            <!-- CPU -->
 
             <div class="cpu-container">
 
-                <select id="cpu" onchange="showCPU()">
+                <select id="cpu">
 
                     <option value="">
                         CPU...
@@ -1063,28 +1063,30 @@ button:active {
                         i5-14600KF
                     </option>
 
-                    <option value="ryzen 7 7800X3D">
+                    <option value="ryzen 7 7800x3d">
                         Ryzen 7 7800X3D
                     </option>
 
                     <option value="ryzen 5 7600">
                         Ryzen 5 7600
                     </option>
-<option value="i5-13600kf">
-    i5-13600KF
-</option>
 
-<option value="ryzen 7 9800x3d">
-    Ryzen 7 9800X3D
-</option>
+                    <option value="i5-13600kf">
+                        i5-13600KF
+                    </option>
 
-<option value="i7-14700kf">
-    i7-14700KF
-</option>
+                    <option value="ryzen 7 9800x3d">
+                        Ryzen 7 9800X3D
+                    </option>
 
-<option value="ryzen 7 5800x3d">
-    Ryzen 7 5800X3D
-</option>
+                    <option value="i7-14700kf">
+                        i7-14700KF
+                    </option>
+
+                    <option value="ryzen 7 5800x3d">
+                        Ryzen 7 5800X3D
+                    </option>
+
                 </select>
 
                 <div id="cpu-preview"></div>
@@ -1092,9 +1094,7 @@ button:active {
             </div>
 
 
-            <!-- =========================
-                 RESOLUCIÓN
-            ========================= -->
+            <!-- RESOLUCIÓN -->
 
             <select id="resolution">
 
@@ -1117,9 +1117,7 @@ button:active {
             </select>
 
 
-            <!-- =========================
-                 OBJETIVO
-            ========================= -->
+            <!-- OBJETIVO -->
 
             <select id="target">
 
@@ -1142,9 +1140,7 @@ button:active {
             </select>
 
 
-            <!-- =========================
-                 CYBERPUNK
-            ========================= -->
+            <!-- OPCIONES CYBERPUNK -->
 
             <div
                 class="cyberpunk-options"
@@ -1197,63 +1193,165 @@ button:active {
 </div>
 
 
-                    quality: 137
-    <script>
+<script>
 
 /* =========================================================
    DATOS BASE
    =========================================================
-   Todos los FPS son ESTIMADOS.
 
-   Se utiliza como referencia la RTX 3080 + i5-14600KF
-   y posteriormente se aplican factores relativos de GPU
-   y CPU.
+   IMPORTANTE:
 
-   Esto permite que TODAS las combinaciones funcionen.
+   Estos valores NO son datos exactos.
+
+   Son puntos de referencia aproximados para una
+   RTX 3080 + i5-14600KF.
+
+   El resultado final se convierte posteriormente
+   en un RANGO de FPS para representar mejor la
+   variación real que existe en un PC.
+
 ========================================================= */
 
 const baseData = {
 
     fortnite: {
-        "1080": { competitive: 324, balanced: 228, quality: 177 },
-        "1440": { competitive: 206, balanced: 145, quality: 112 },
-        "2160": { competitive: 109, balanced: 77, quality: 59 }
+        "1080": {
+            competitive: 324,
+            balanced: 228,
+            quality: 177
+        },
+
+        "1440": {
+            competitive: 206,
+            balanced: 145,
+            quality: 112
+        },
+
+        "2160": {
+            competitive: 109,
+            balanced: 77,
+            quality: 59
+        }
     },
 
     warzone: {
-        "1080": { competitive: 204, balanced: 203, quality: 184 },
-        "1440": { competitive: 182, balanced: 177, quality: 160 },
-        "2160": { competitive: 155, balanced: 153, quality: 137 }
+        "1080": {
+            competitive: 204,
+            balanced: 203,
+            quality: 184
+        },
+
+        "1440": {
+            competitive: 182,
+            balanced: 177,
+            quality: 160
+        },
+
+        "2160": {
+            competitive: 155,
+            balanced: 153,
+            quality: 137
+        }
     },
 
     cyberpunk: {
-        "1080": { competitive: 136, balanced: 103, quality: 73 },
-        "1440": { competitive: 103, balanced: 75, quality: 54 },
-        "2160": { competitive: 69, balanced: 48, quality: 38 }
+        "1080": {
+            competitive: 136,
+            balanced: 103,
+            quality: 73
+        },
+
+        "1440": {
+            competitive: 103,
+            balanced: 75,
+            quality: 54
+        },
+
+        "2160": {
+            competitive: 69,
+            balanced: 48,
+            quality: 38
+        }
     },
 
     eldenring: {
-        "1080": { competitive: 145, balanced: 105, quality: 88 },
-        "1440": { competitive: 125, balanced: 92, quality: 76 },
-        "2160": { competitive: 82, balanced: 61, quality: 52 }
+        "1080": {
+            competitive: 145,
+            balanced: 105,
+            quality: 88
+        },
+
+        "1440": {
+            competitive: 125,
+            balanced: 92,
+            quality: 76
+        },
+
+        "2160": {
+            competitive: 82,
+            balanced: 61,
+            quality: 52
+        }
     },
 
     valorant: {
-        "1080": { competitive: 430, balanced: 340, quality: 285 },
-        "1440": { competitive: 370, balanced: 300, quality: 250 },
-        "2160": { competitive: 275, balanced: 225, quality: 190 }
+        "1080": {
+            competitive: 430,
+            balanced: 340,
+            quality: 285
+        },
+
+        "1440": {
+            competitive: 370,
+            balanced: 300,
+            quality: 250
+        },
+
+        "2160": {
+            competitive: 275,
+            balanced: 225,
+            quality: 190
+        }
     },
 
     rdr2: {
-        "1080": { competitive: 165, balanced: 105, quality: 78 },
-        "1440": { competitive: 130, balanced: 88, quality: 64 },
-        "2160": { competitive: 82, balanced: 57, quality: 42 }
+        "1080": {
+            competitive: 165,
+            balanced: 105,
+            quality: 78
+        },
+
+        "1440": {
+            competitive: 130,
+            balanced: 88,
+            quality: 64
+        },
+
+        "2160": {
+            competitive: 82,
+            balanced: 57,
+            quality: 42
+        }
     },
 
     tlou2: {
-        "1080": { competitive: 145, balanced: 105, quality: 82 },
-        "1440": { competitive: 115, balanced: 84, quality: 65 },
-        "2160": { competitive: 72, balanced: 52, quality: 41 }
+        "1080": {
+            competitive: 145,
+            balanced: 105,
+            quality: 82
+        },
+
+        "1440": {
+            competitive: 115,
+            balanced: 84,
+            quality: 65
+        },
+
+        "2160": {
+            competitive: 72,
+            balanced: 52,
+            quality: 41
+        }
     }
 
 };
@@ -1315,7 +1413,7 @@ const cpuFactors = {
 
     "ryzen 5 7600": 0.94,
 
-    "ryzen 7 7800X3D": 1.06,
+    "ryzen 7 7800x3d": 1.06,
 
     "i5-13600kf": 0.98,
 
@@ -1329,7 +1427,7 @@ const cpuFactors = {
 
 
 /* =========================================================
-   IMPACTO CPU POR JUEGO
+   IMPACTO CPU
 ========================================================= */
 
 const gameCPUImpact = {
@@ -1352,7 +1450,7 @@ const gameCPUImpact = {
 
 
 /* =========================================================
-   NOMBRE DE GPU
+   NOMBRES GPU
 ========================================================= */
 
 const gpuNames = {
@@ -1398,14 +1496,14 @@ const gpuImages = {
 
 
 /* =========================================================
-   NOMBRE DE CPU
+   NOMBRES CPU
 ========================================================= */
 
 const cpuNames = {
 
     "i5-14600kf": "i5-14600KF",
 
-    "ryzen 7 7800X3D": "Ryzen 7 7800X3D",
+    "ryzen 7 7800x3d": "Ryzen 7 7800X3D",
 
     "ryzen 5 7600": "Ryzen 5 7600",
 
@@ -1429,7 +1527,7 @@ const cpuImages = {
     "i5-14600kf":
         "./i5-14600kf.PNG",
 
-    "ryzen 7 7800X3D":
+    "ryzen 7 7800x3d":
         "./ryzen7-7800x3d.PNG",
 
     "ryzen 5 7600":
@@ -1451,7 +1549,7 @@ const cpuImages = {
 
 
 /* =========================================================
-   OBTENER FPS
+   OBTENER FPS BASE
 ========================================================= */
 
 function getFPS(
@@ -1467,33 +1565,24 @@ function getFPS(
         ?. [resolution]
         ?. [target];
 
-
     if (!base) {
-
         return 0;
-
     }
-
 
     const gpuFactor =
         gpuFactors[gpu] || 1;
 
-
     const cpuFactor =
         cpuFactors[cpu] || 1;
-
 
     const cpuImpact =
         gameCPUImpact[game] || 0.30;
 
-
     const gpuContribution =
         1 - cpuImpact;
 
-
     const cpuContribution =
         cpuImpact;
-
 
     const relativePerformance =
 
@@ -1509,10 +1598,85 @@ function getFPS(
             cpuContribution
         );
 
-
     return Math.round(
         base * relativePerformance
     );
+
+}
+
+
+/* =========================================================
+   CREAR RANGO DE FPS
+=========================================================
+
+   El cálculo interno genera un punto aproximado.
+
+   Después añadimos un margen para representar:
+
+   - mapa
+   - drivers
+   - temperatura
+   - RAM
+   - versión del juego
+   - ajustes concretos
+   - escenas pesadas
+   - carga del sistema
+
+========================================================= */
+
+function createFPSRange(fps) {
+
+    let variation;
+
+    if (fps < 50) {
+
+        variation = 7;
+
+    }
+
+    else if (fps < 80) {
+
+        variation = 9;
+
+    }
+
+    else if (fps < 120) {
+
+        variation = 12;
+
+    }
+
+    else if (fps < 180) {
+
+        variation = 15;
+
+    }
+
+    else if (fps < 250) {
+
+        variation = 20;
+
+    }
+
+    else {
+
+        variation = 25;
+
+    }
+
+    const minimum =
+        Math.max(
+            1,
+            Math.round(fps - variation)
+        );
+
+    const maximum =
+        Math.round(fps + variation);
+
+    return {
+        min: minimum,
+        max: maximum
+    };
 
 }
 
@@ -1523,7 +1687,6 @@ function getFPS(
 
 function applyRayTracing(
     fps,
-    gpu,
     resolution
 ) {
 
@@ -1536,7 +1699,6 @@ function applyRayTracing(
         "2160": 0.60
 
     };
-
 
     return Math.round(
         fps * (rtLoss[resolution] || 0.65)
@@ -1567,14 +1729,11 @@ function showGame() {
     const game =
         document.getElementById("game").value;
 
-
     const preview =
         document.getElementById("game-preview");
 
-
     const cyberpunkOptions =
         document.getElementById("cyberpunk-options");
-
 
     if (game === "fortnite") {
 
@@ -1631,12 +1790,9 @@ function showGame() {
 
     }
 
-
     if (game === "cyberpunk") {
 
-        cyberpunkOptions.style.display =
-            "flex";
-
+        cyberpunkOptions.style.display = "flex";
 
         updateFrameGenerationVisibility();
 
@@ -1644,18 +1800,17 @@ function showGame() {
 
     else {
 
-        cyberpunkOptions.style.display =
-            "none";
-
+        cyberpunkOptions.style.display = "none";
 
         document
             .getElementById("raytracing-option")
-            .classList.remove("active");
-
+            .classList
+            .remove("active");
 
         document
             .getElementById("framegen-option")
-            .classList.remove("active");
+            .classList
+            .remove("active");
 
     }
 
@@ -1671,10 +1826,8 @@ function showGPU() {
     const gpu =
         document.getElementById("gpu").value;
 
-
     const preview =
         document.getElementById("gpu-preview");
-
 
     if (!gpu) {
 
@@ -1685,7 +1838,6 @@ function showGPU() {
         return;
 
     }
-
 
     preview.innerHTML =
 
@@ -1712,25 +1864,13 @@ function showGPU() {
 
         '</div>';
 
-
     updateFrameGenerationVisibility();
 
 }
 
 
 /* =========================================================
-   FRAME GENERATION SEGÚN GPU
-   =========================================================
-
-   RTX 3080:
-   NO Frame Generation.
-
-   RTX 40:
-   SÍ Frame Generation.
-
-   RTX 50:
-   SÍ Frame Generation.
-
+   FRAME GENERATION VISIBILIDAD
 ========================================================= */
 
 function updateFrameGenerationVisibility() {
@@ -1738,21 +1878,15 @@ function updateFrameGenerationVisibility() {
     const game =
         document.getElementById("game").value;
 
-
     const gpu =
         document.getElementById("gpu").value;
-
 
     const framegen =
         document.getElementById("framegen-option");
 
-
     if (!framegen) {
-
         return;
-
     }
-
 
     if (
         game === "cyberpunk" &&
@@ -1760,15 +1894,13 @@ function updateFrameGenerationVisibility() {
         gpu !== "rtx3080"
     ) {
 
-        framegen.style.display =
-            "flex";
+        framegen.style.display = "flex";
 
     }
 
     else {
 
-        framegen.style.display =
-            "none";
+        framegen.style.display = "none";
 
         framegen.classList.remove("active");
 
@@ -1786,10 +1918,8 @@ function showCPU() {
     const cpu =
         document.getElementById("cpu").value;
 
-
     const preview =
         document.getElementById("cpu-preview");
-
 
     if (!cpu) {
 
@@ -1798,7 +1928,6 @@ function showCPU() {
         return;
 
     }
-
 
     preview.innerHTML =
 
@@ -1820,14 +1949,8 @@ function toggleCyberpunkOption(option) {
     const game =
         document.getElementById("game").value;
 
-
     const gpu =
         document.getElementById("gpu").value;
-
-
-    /* =========================
-       FRAME GENERATION
-    ========================= */
 
     if (
         option === "framegen" &&
@@ -1842,7 +1965,6 @@ function toggleCyberpunkOption(option) {
 
     }
 
-
     const element =
 
         document.getElementById(
@@ -1851,62 +1973,9 @@ function toggleCyberpunkOption(option) {
                 : "framegen-option"
         );
 
-
     element.classList.toggle("active");
 
 }
-
-
-/* =========================================================
-   CAMBIO DE JUEGO
-========================================================= */
-
-document
-    .getElementById("game")
-    .addEventListener(
-        "change",
-        function() {
-
-            showGame();
-
-            updateFrameGenerationVisibility();
-
-        }
-    );
-
-
-/* =========================================================
-   CAMBIO DE GPU
-========================================================= */
-
-document
-    .getElementById("gpu")
-    .addEventListener(
-        "change",
-        function() {
-
-            showGPU();
-
-            updateFrameGenerationVisibility();
-
-        }
-    );
-
-
-/* =========================================================
-   CAMBIO DE CPU
-========================================================= */
-
-document
-    .getElementById("cpu")
-    .addEventListener(
-        "change",
-        function() {
-
-            showCPU();
-
-        }
-    );
 
 
 /* =========================================================
@@ -1918,22 +1987,17 @@ function calculateFPS() {
     const game =
         document.getElementById("game").value;
 
-
     const gpu =
         document.getElementById("gpu").value;
-
 
     const cpu =
         document.getElementById("cpu").value;
 
-
     const resolution =
         document.getElementById("resolution").value;
 
-
     const target =
         document.getElementById("target").value;
-
 
     const result =
         document.getElementById("result");
@@ -2042,11 +2106,7 @@ function calculateFPS() {
                 .contains("active");
 
 
-        /*
-         * Seguridad:
-         * La RTX 3080 nunca puede utilizar
-         * Frame Generation.
-         */
+        /* RTX 3080 no Frame Generation */
 
         if (gpu === "rtx3080") {
 
@@ -2065,7 +2125,6 @@ function calculateFPS() {
             fps =
                 applyRayTracing(
                     fps,
-                    gpu,
                     resolution
                 );
 
@@ -2082,6 +2141,14 @@ function calculateFPS() {
         }
 
     }
+
+
+    /* =========================
+       RANGO
+    ========================= */
+
+    const range =
+        createFPSRange(fps);
 
 
     /* =========================
@@ -2131,35 +2198,35 @@ function calculateFPS() {
     let resultado;
 
 
-    if (fps >= 240) {
+    if (range.min >= 240) {
 
         resultado =
             "Excelente para altas tasas de refresco";
 
     }
 
-    else if (fps >= 144) {
+    else if (range.min >= 144) {
 
         resultado =
             "Excelente rendimiento";
 
     }
 
-    else if (fps >= 100) {
+    else if (range.min >= 100) {
 
         resultado =
             "Muy buen rendimiento";
 
     }
 
-    else if (fps >= 60) {
+    else if (range.min >= 60) {
 
         resultado =
             "Buen rendimiento";
 
     }
 
-    else if (fps >= 40) {
+    else if (range.min >= 40) {
 
         resultado =
             "Rendimiento aceptable";
@@ -2267,13 +2334,20 @@ function calculateFPS() {
         <div class="result-card">
 
             <h2>
-                Resultado
+                Rendimiento estimado
             </h2>
 
 
             <div class="fps-number">
 
-                ${fps} FPS
+                ≈ ${range.min}–${range.max} FPS
+
+            </div>
+
+
+            <div class="fps-label">
+
+                Rango aproximado de rendimiento
 
             </div>
 
@@ -2393,10 +2467,12 @@ function calculateFPS() {
 
             <div class="data-note">
 
-                FPS estimados. El resultado puede variar
-                según ajustes gráficos, versión del juego,
-                drivers, mapa, temperatura y configuración
-                del sistema.
+                FPS aproximados, no datos exactos.
+                El resultado puede variar según los
+                ajustes gráficos, versión del juego,
+                drivers, mapa, temperatura, memoria RAM,
+                procesos en segundo plano y configuración
+                general del sistema.
 
             </div>
 
@@ -2405,6 +2481,34 @@ function calculateFPS() {
     `;
 
 }
+
+
+/* =========================================================
+   EVENTOS
+========================================================= */
+
+document
+    .getElementById("game")
+    .addEventListener(
+        "change",
+        showGame
+    );
+
+
+document
+    .getElementById("gpu")
+    .addEventListener(
+        "change",
+        showGPU
+    );
+
+
+document
+    .getElementById("cpu")
+    .addEventListener(
+        "change",
+        showCPU
+    );
 
 
 /* =========================================================
@@ -2420,7 +2524,6 @@ showCPU();
 updateFrameGenerationVisibility();
 
 </script>
-
 
 </body>
 </html>
