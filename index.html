@@ -451,11 +451,45 @@ button:active {
 .result-info {
     position: relative;
 
+    margin-top: 8px;
+
     color: #8f96a6;
 
     font-size: 14px;
+}
 
-    line-height: 1.9;
+
+/* FILAS DE INFORMACIÓN */
+
+.result-row {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 11px 0;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.055);
+}
+
+.result-row:last-child {
+    border-bottom: none;
+}
+
+.result-row span {
+    color: #777f90;
+
+    font-size: 13px;
+
+    font-weight: 500;
+}
+
+.result-row strong {
+    color: #e8ebf2;
+
+    font-size: 13px;
+
+    font-weight: 600;
 }
 
 
