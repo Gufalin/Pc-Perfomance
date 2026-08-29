@@ -201,8 +201,9 @@ function calculateFPS() {
     let gpu = document.getElementById("gpu").value;
     let cpu = document.getElementById("cpu").value;
     let resolution = document.getElementById("resolution").value;
+    let target = document.getElementById("target").value;
 
-    if (!game || !gpu || !cpu || !resolution) {
+    if (!game || !gpu || !cpu || !resolution || !target) {
         document.getElementById("result").innerHTML =
             "Selecciona todos los campos.";
         return;
@@ -211,8 +212,20 @@ function calculateFPS() {
     let fps = 60;
 
     if (game === "fortnite" && gpu === "rtx3080" && resolution === "1440" && cpu === "i5-14600kf") {
+
+    if (target === "competitive") {
         fps = 180;
     }
+
+    if (target === "balanced") {
+        fps = 150;
+    }
+
+    if (target === "quality") {
+        fps = 110;
+    }
+
+}
 
     if (game === "cyberpunk" && gpu === "rtx3080" && resolution === "1440") {
         fps = 80;
