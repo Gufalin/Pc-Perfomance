@@ -323,91 +323,214 @@ button:active {
         0 5px 15px rgba(35, 67, 160, 0.2);
 }
 /* =========================
-   RESULTADO
+   RESULTADO PREMIUM
 ========================= */
+
 #result {
     margin-top: 25px;
-    font-size: 22px;
-    font-weight: bold;
 }
+
 .result-card {
     position: relative;
+
     margin-top: 25px;
-    padding: 26px;
+    padding: 28px;
+
     background:
         linear-gradient(
             145deg,
             #202531,
-            #181c25
+            #171a22
         );
-    border: 1px solid rgba(255, 255, 255, 0.07);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
     border-radius: 18px;
+
     overflow: hidden;
+
     box-shadow:
-        0 15px 35px rgba(0, 0, 0, 0.25);
+        0 18px 40px rgba(0, 0, 0, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.035);
+
+    animation: resultAppear 0.4s ease;
 }
+
+
+/* Brillo superior */
+
 .result-card::before {
     content: "";
+
     position: absolute;
+
     top: 0;
     left: 15%;
     right: 15%;
+
     height: 1px;
+
     background:
         linear-gradient(
             90deg,
             transparent,
-            rgba(88, 101, 242, 0.7),
+            rgba(88, 101, 242, 0.9),
             transparent
         );
 }
+
+
+/* Brillo ambiental */
+
+.result-card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    top: -100px;
+    right: -70px;
+
+    background: rgba(88, 101, 242, 0.08);
+
+    border-radius: 50%;
+
+    filter: blur(40px);
+
+    pointer-events: none;
+}
+
+
+/* =========================
+   TÍTULO
+========================= */
+
 .result-card h2 {
-    margin: 0 0 5px;
-    font-size: 18px;
-    color: #dfe2ea;
+    position: relative;
+
+    margin: 0;
+
+    font-size: 17px;
+
+    font-weight: 600;
+
+    color: #aeb4c3;
+
+    letter-spacing: 0.3px;
 }
+
+
+/* =========================
+   FPS
+========================= */
+
 .fps-number {
-    margin: 10px 0 15px;
-    font-size: clamp(40px, 8vw, 52px);
+    position: relative;
+
+    margin: 8px 0 18px;
+
+    font-size: clamp(46px, 8vw, 58px);
+
     font-weight: 800;
-    letter-spacing: -1px;
+
+    letter-spacing: -2px;
+
     color: #ffffff;
+
     text-shadow:
-        0 4px 20px rgba(88, 101, 242, 0.25);
+        0 5px 25px rgba(88, 101, 242, 0.25);
 }
+
+
+/* =========================
+   INFORMACIÓN
+========================= */
+
 .result-info {
-    color: #8e95a5;
+    position: relative;
+
+    color: #8f96a6;
+
     font-size: 14px;
+
     line-height: 1.9;
 }
+
+
 /* =========================
-   BARRA DE RENDIMIENTO
+   BARRA
 ========================= */
+
 .performance-bar {
+    position: relative;
+
     width: 100%;
+
     height: 12px;
+
     margin-top: 20px;
+
     background: #10131a;
+
     border: 1px solid #292e39;
+
     border-radius: 20px;
+
     overflow: hidden;
+
+    box-shadow:
+        inset 0 2px 4px rgba(0, 0, 0, 0.35);
 }
+
 .performance-fill {
     height: 100%;
+
+    border-radius: 20px;
+
     background:
         linear-gradient(
             90deg,
             #4652d8,
             #6974ff
         );
-    border-radius: 20px;
+
+    box-shadow:
+        0 0 12px rgba(88, 101, 242, 0.35);
+
     transition:
-        width 0.7s cubic-bezier(
+        width 0.8s cubic-bezier(
             0.22,
             1,
             0.36,
             1
         );
+}
+
+
+/* =========================
+   ANIMACIÓN RESULTADO
+========================= */
+
+@keyframes resultAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(8px)
+            scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
 }
 /* =========================
    MÓVIL
