@@ -134,14 +134,20 @@
 <script>
 
 function showGPU() {
-    document.getElementById("gpu-preview").innerHTML =
-        "<p>¡GPU seleccionada!</p>";
+
+    let gpu = document.getElementById("gpu").value;
+
+    if (gpu === "rtx3080") {
+        document.getElementById("gpu-preview").innerHTML =
+            '<img src="rtx3080.png" width="150"><p>RTX 3080</p>';
+    }
+
 }
 
 function calculateFPS() {
 
     let game = document.getElementById("game").value;
-    let let gpu = selectedGPU;
+    let gpu = document.getElementById("gpu").value;
     let cpu = document.getElementById("cpu").value;
     let resolution = document.getElementById("resolution").value;
 
