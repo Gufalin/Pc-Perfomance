@@ -77,12 +77,20 @@
             <option value="warzone">Warzone</option>
         </select>
 
-        <select id="gpu">
-            <option value="">Selecciona tu GPU</option>
-            <option value="rtx3080">RTX 3080</option>
-            <option value="rtx4070">RTX 4070</option>
-            <option value="rtx5070">RTX 5070</option>
-        </select>
+        <div class="gpu-card" onclick="selectGPU('rtx3080')">
+    <img src="rtx3080.jpg" alt="RTX 3080">
+    <span>RTX 3080</span>
+</div>
+
+<div class="gpu-card" onclick="selectGPU('rtx4070')">
+    <img src="rtx4070.jpg" alt="RTX 4070">
+    <span>RTX 4070</span>
+</div>
+
+<div class="gpu-card" onclick="selectGPU('rtx5070')">
+    <img src="rtx5070.jpg" alt="RTX 5070">
+    <span>RTX 5070</span>
+</div>
 
         <select id="cpu">
             <option value="">Selecciona tu CPU</option>
