@@ -57,14 +57,11 @@
            SELECTS Y BOTÓN
         ========================= */
         select,
-        button {
-            width: 100%;
-            padding: 14px;
-            margin-top: 12px;
-            border-radius: 8px;
-            border: none;
-            font-size: 16px;
-        }
+button {
+    width: 100%;
+    margin-top: 12px;
+    font-size: 16px;
+}
         button {
             background: #5865f2;
             color: white;
@@ -248,10 +245,9 @@
                 grid-column: auto;
             }
             select,
-            button {
-                font-size: 15px;
-                padding: 14px;
-            }
+button {
+    font-size: 15px;
+}
             #gpu-preview {
                 flex: 0 0 135px;
             }
@@ -272,6 +268,66 @@
                 font-size: 36px;
             }
         }
+        
+        /* =========================
+   SELECTORES MODERNOS
+========================= */
+
+select {
+    appearance: none;
+    -webkit-appearance: none;
+
+    background-color: #222631;
+    color: white;
+
+    border: 1px solid #2f3442;
+    border-radius: 12px;
+
+    padding: 15px 42px 15px 16px;
+
+    font-size: 15px;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    outline: none;
+
+    background-image:
+        linear-gradient(45deg, transparent 50%, #aaa 50%),
+        linear-gradient(135deg, #aaa 50%, transparent 50%);
+
+    background-position:
+        calc(100% - 20px) 50%,
+        calc(100% - 14px) 50%;
+
+    background-size:
+        6px 6px,
+        6px 6px;
+
+    background-repeat: no-repeat;
+
+    transition:
+        border-color 0.2s ease,
+        background-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+select:hover {
+    background-color: #272c37;
+    border-color: #3b4252;
+}
+
+select:focus {
+    border-color: #5865f2;
+
+    box-shadow:
+        0 0 0 3px rgba(88, 101, 242, 0.15);
+}
+
+select option {
+    background: #222631;
+    color: white;
+}
     </style>
 </head>
 <body>
