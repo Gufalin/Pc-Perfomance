@@ -978,6 +978,21 @@ button:active {
                     <option value="warzone">
                         Call of Duty: Warzone
                     </option>
+                    <option value="eldenring">
+    Elden Ring
+</option>
+
+<option value="valorant">
+    Valorant
+</option>
+
+<option value="rdr2">
+    Red Dead Redemption 2
+</option>
+
+<option value="tlou2">
+    The Last of Us Part II
+</option>
 
                 </select>
 
@@ -1444,89 +1459,101 @@ function applyFrameGeneration(
 }
 
 
-/* =========================================================
-   IMAGEN DEL JUEGO
-========================================================= */
-
 function showGame() {
 
-    const game =
+    let game =
         document.getElementById("game").value;
 
-    const preview =
+    let preview =
         document.getElementById("game-preview");
 
-    const options =
+    let cyberpunkOptions =
         document.getElementById("cyberpunk-options");
 
-    const target =
-        document.getElementById("target");
 
-
-    preview.innerHTML = "";
-
+    /* =========================
+       IMÁGENES DE LOS JUEGOS
+    ========================= */
 
     if (game === "fortnite") {
 
         preview.innerHTML =
-            '<img src="./fortnite.PNG" alt="Fortnite">';
+            '<img src="./fortnite.PNG">';
 
     }
 
     else if (game === "cyberpunk") {
 
         preview.innerHTML =
-            '<img src="./cyberpunk.JPG" alt="Cyberpunk 2077">';
-
-        options.style.display = "flex";
-
-
-        /*
-         * Cyberpunk NO tiene modo competitivo.
-         * Al seleccionarlo automáticamente se cambia
-         * a "Bajo".
-         */
-
-        target.innerHTML = `
-
-            <option value="low">
-                Bajo
-            </option>
-
-            <option value="balanced">
-                Equilibrado
-            </option>
-
-            <option value="quality">
-                Calidad
-            </option>
-
-        `;
-
-        target.value = "low";
+            '<img src="./cyberpunk.JPG">';
 
     }
 
     else if (game === "warzone") {
 
         preview.innerHTML =
-            '<img src="./warzone.PNG" alt="Warzone">';
+            '<img src="./warzone.PNG">';
 
-        options.style.display = "none";
+    }
 
-        resetCyberpunk();
+    else if (game === "eldenring") {
 
-        setNormalTargets();
+        preview.innerHTML =
+            '<img src="./elden-ring.JPG">';
+
+    }
+
+    else if (game === "valorant") {
+
+        preview.innerHTML =
+            '<img src="./valorant.JPG">';
+
+    }
+
+    else if (game === "rdr2") {
+
+        preview.innerHTML =
+            '<img src="./rdr2.JPG">';
+
+    }
+
+    else if (game === "tlou2") {
+
+        preview.innerHTML =
+            '<img src="./tlou2.png">';
 
     }
 
     else {
 
-        options.style.display = "none";
+        preview.innerHTML = "";
 
-        resetCyberpunk();
+    }
 
-        setNormalTargets();
+
+    /* =========================
+       OPCIONES DE CYBERPUNK
+    ========================= */
+
+    if (game === "cyberpunk") {
+
+        cyberpunkOptions.style.display =
+            "flex";
+
+    }
+
+    else {
+
+        cyberpunkOptions.style.display =
+            "none";
+
+        document
+            .getElementById("raytracing-option")
+            .classList.remove("active");
+
+        document
+            .getElementById("framegen-option")
+            .classList.remove("active");
 
     }
 
