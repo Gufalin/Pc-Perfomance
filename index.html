@@ -210,31 +210,6 @@
 
 <script>
 
-function showGPU() {
-
-    let gpu = document.getElementById("gpu").value;
-
-    if (gpu === "rtx3080") {
-
-        document.getElementById("gpu-preview").innerHTML =
-            '<img src="./rtx3080.PNG">';
-
-    } else if (gpu === "rtx4070") {
-
-        document.getElementById("gpu-preview").innerHTML =
-            '<img src="./rtx4070.PNG">';
-
-    } else if (gpu === "rtx5070") {
-
-        document.getElementById("gpu-preview").innerHTML =
-            '<img src="./rtx5070.PNG">';
-
-    } else {
-
-        document.getElementById("gpu-preview").innerHTML = "";
-    }
-}
-
 function calculateFPS() {
 
     let game = document.getElementById("game").value;
@@ -253,19 +228,18 @@ function calculateFPS() {
 
     if (game === "fortnite" && gpu === "rtx3080" && resolution === "1440" && cpu === "i5-14600kf") {
 
-    if (target === "competitive") {
-        fps = 180;
-    }
+        if (target === "competitive") {
+            fps = 180;
+        }
 
-    if (target === "balanced") {
-        fps = 150;
-    }
+        if (target === "balanced") {
+            fps = 150;
+        }
 
-    if (target === "quality") {
-        fps = 110;
+        if (target === "quality") {
+            fps = 110;
+        }
     }
-
-}
 
     if (game === "cyberpunk" && gpu === "rtx3080" && resolution === "1440") {
         fps = 80;
@@ -283,36 +257,40 @@ function calculateFPS() {
         resultado = "Rendimiento mejorable";
     }
 
-let objetivoTexto;
-let configuracion;
-let performance = Math.min((fps / 200) * 100, 100);
+    let objetivoTexto;
+    let configuracion;
 
-if (target === "competitive") {
-    objetivoTexto = "Competitivo";
-    configuracion = "Baja";
-} else if (target === "balanced") {
-    objetivoTexto = "Equilibrado";
-    configuracion = "Media / Alta";
-} else if (target === "quality") {
-    objetivoTexto = "Calidad";
-    configuracion = "Alta";
-}
+    if (target === "competitive") {
+        objetivoTexto = "Competitivo";
+        configuracion = "Baja";
+    } else if (target === "balanced") {
+        objetivoTexto = "Equilibrado";
+        configuracion = "Media / Alta";
+    } else {
+        objetivoTexto = "Calidad";
+        configuracion = "Alta";
+    }
+
+    let performance = Math.min((fps / 200) * 100, 100);
 
     document.getElementById("result").innerHTML =
-    '<div class="result-info">' +
-    '🎯 Objetivo: ' + objetivoTexto + '<br>' +
-    '🖥️ Resolución: ' + resolution + 'p<br>' +
-    '⚙️ Configuración: ' + configuracion + '<br>' +
-    '📊 Rendimiento: ' + resultado +
-'</div>' +
+        '<div class="result-card">' +
+            '<h2>🎮 Resultado</h2>' +
+            '<div class="fps-number">' + fps + ' FPS</div>' +
 
-'<div class="performance-bar">' +
-    '<div class="performance-fill" style="width:' + performance + '%;"></div>' +
-'</div>' +
+            '<div class="result-info">' +
+                '🎯 Objetivo: ' + objetivoTexto + '<br>' +
+                '🖥️ Resolución: ' + resolution + 'p<br>' +
+                '⚙️ Configuración: ' + configuracion + '<br>' +
+                '📊 Rendimiento: ' + resultado +
+            '</div>' +
 
-    '</div>';
-    
-    }
+            '<div class="performance-bar">' +
+                '<div class="performance-fill" style="width:' + performance + '%;"></div>' +
+            '</div>' +
+
+        '</div>';
+}
     
 </script>
 </body>
