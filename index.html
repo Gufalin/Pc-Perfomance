@@ -15,10 +15,12 @@
         }
 
         .container {
-            max-width: 600px;
-            margin: 60px auto;
-            padding: 20px;
-        }
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
 
         h1 {
             font-size: 40px;
@@ -30,11 +32,12 @@
         }
 
         .calculator {
-            background: #181b24;
-            padding: 25px;
-            border-radius: 15px;
-            margin-top: 30px;
-        }
+    background: #181b24;
+    padding: 30px;
+    border-radius: 18px;
+    margin-top: 30px;
+    box-sizing: border-box;
+}
 
         select, button {
             width: 100%;
@@ -221,6 +224,53 @@
     width: 55px;
     height: 45px;
     object-fit: contain;
+}
+
+/* DISEÑO RESPONSIVE */
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.form-full {
+    grid-column: 1 / -1;
+}
+
+/* MÓVIL */
+
+@media (max-width: 600px) {
+
+    .container {
+        padding: 25px 12px;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    .calculator {
+        padding: 18px;
+        margin-top: 20px;
+        border-radius: 15px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .form-full {
+        grid-column: auto;
+    }
+
+    select,
+    button {
+        font-size: 15px;
+        padding: 14px;
+    }
+
 }
                         
                                                                         
