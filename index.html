@@ -134,31 +134,8 @@
 <script>
 
 function showGPU() {
-
-    let gpu = document.getElementById("gpu").value;
-
-    if (gpu === "rtx3080") {
-
-        document.getElementById("gpu-preview").innerHTML =
-            '<img src="rtx3080.png" width="150">' +
-            '<p>RTX 3080</p>';
-
-    } else if (gpu === "rtx4070") {
-
-        document.getElementById("gpu-preview").innerHTML =
-            '<img src="rtx4070.png" width="150">' +
-            '<p>RTX 4070</p>';
-
-    } else if (gpu === "rtx5070") {
-
-        document.getElementById("gpu-preview").innerHTML =
-            '<img src="rtx5070.png" width="150">' +
-            '<p>RTX 5070</p>';
-
-    } else {
-
-        document.getElementById("gpu-preview").innerHTML = "";
-    }
+    document.getElementById("gpu-preview").innerHTML =
+        "<p>¡GPU seleccionada!</p>";
 }
 
 function calculateFPS() {
