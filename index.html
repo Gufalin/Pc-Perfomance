@@ -1055,7 +1055,21 @@ button:active {
                     <option value="ryzen 5 7600">
                         Ryzen 5 7600
                     </option>
+<option value="i5-13600kf">
+    i5-13600KF
+</option>
 
+<option value="ryzen 7 9800x3d">
+    Ryzen 7 9800X3D
+</option>
+
+<option value="i7-14700kf">
+    i7-14700KF
+</option>
+
+<option value="ryzen 7 5800x3d">
+    Ryzen 7 5800X3D
+</option>
                 </select>
 
                 <div id="cpu-preview"></div>
@@ -1737,6 +1751,33 @@ function showCPU() {
             '<img src="./ryzen5-7600.WEBP" alt="Ryzen 5 7600">';
 
     }
+else if (cpu === "i5-13600kf") {
+
+    document.getElementById("cpu-preview").innerHTML =
+        '<img src="./i5-13600kf.PNG">';
+
+}
+
+else if (cpu === "ryzen 7 9800x3d") {
+
+    document.getElementById("cpu-preview").innerHTML =
+        '<img src="./ryzen7-9800x3d.PNG">';
+
+}
+
+else if (cpu === "i7-14700kf") {
+
+    document.getElementById("cpu-preview").innerHTML =
+        '<img src="./i7-14700kf.PNG">';
+
+}
+
+else if (cpu === "ryzen 7 5800x3d") {
+
+    document.getElementById("cpu-preview").innerHTML =
+        '<img src="./ryzen7-5800x3d.PNG">';
+
+}
 
     else {
 
