@@ -1688,21 +1688,39 @@ function applyRayTracing(
     resolution
 ) {
 
+    function applyRayTracing(
+    fps,
+    gpu,
+    resolution,
+    game
+) {
+
     const rtLoss = {
 
-        "1080": 0.69,
+        cyberpunk: {
+            "1080": 0.69,
+            "1440": 0.66,
+            "2160": 0.60
+        },
 
-        "1440": 0.66,
-
-        "2160": 0.60
+        eldenring: {
+            "1080": 0.82,
+            "1440": 0.78,
+            "2160": 0.70
+        }
 
     };
 
+    const gameLoss =
+        rtLoss[game] || rtLoss.cyberpunk;
+
     return Math.round(
-        fps * (rtLoss[resolution] || 0.65)
+        fps * (gameLoss[resolution] || 0.65)
     );
 
 }
+
+    
 
 
 /* =========================================================
@@ -1788,13 +1806,14 @@ function showGame() {
 
     }
 
-    if (game === "cyberpunk") {
+    if (game === "cyberpunk" || game === "eldenring") {
 
-        cyberpunkOptions.style.display = "flex";
+    cyberpunkOptions.style.display =
+        "flex";
 
-        updateFrameGenerationVisibility();
+    updateFrameGenerationVisibility();
 
-    }
+}
 
     else {
 
@@ -1951,17 +1970,27 @@ function toggleCyberpunkOption(option) {
         document.getElementById("gpu").value;
 
     if (
-        option === "framegen" &&
-        (
-            game !== "cyberpunk" ||
-            gpu === "rtx3080" ||
-            !gpu
-        )
-    ) {
+    option === "framegen" &&
+    (
+        game !== "cyberpunk" ||
+        gpu === "rtx3080" ||
+        !gpu
+    )
+) {
 
-        return;
+    return;
 
-    }
+}
+
+if (
+    option === "raytracing" &&
+    game !== "cyberpunk" &&
+    game !== "eldenring"
+) {
+
+    return;
+
+}
 
     const element =
 
@@ -2086,7 +2115,7 @@ function calculateFPS() {
     let frameGeneration = false;
 
 
-    if (game === "cyberpunk") {
+    if (game === "cyberpunk" || game === "eldenring") {
 
         rayTracing =
 
@@ -2121,10 +2150,12 @@ function calculateFPS() {
         if (rayTracing) {
 
             fps =
-                applyRayTracing(
-                    fps,
-                    resolution
-                );
+    applyRayTracing(
+        fps,
+        gpu,
+        resolution,
+        game
+    );
 
         }
 
@@ -2235,9 +2266,9 @@ else {
     let opcionesExtra = "";
 
 
-    if (game === "cyberpunk") {
+    if (game === "cyberpunk" || game === "eldenring") {
 
-        opcionesExtra = `
+    opcionesExtra = `
 
             <div class="result-row">
 
