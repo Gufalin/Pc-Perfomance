@@ -1609,106 +1609,71 @@ function toggleCyberpunkOption(option) {
 
 function showGPU() {
 
-    const gpu =
-        document.getElementById("gpu").value;
-
-    const preview =
-        document.getElementById("gpu-preview");
-
+    let gpu = document.getElementById("gpu").value;
 
     if (gpu === "rtx3080") {
 
-        preview.innerHTML = `
+        document.getElementById("gpu-preview").innerHTML =
 
-            <div class="gpu-info">
+            '<div class="gpu-info">' +
+                '<img src="./rtx3080.PNG">' +
+                '<div>' +
+                    '<strong>RTX 3080</strong>' +
+                    '<span>10 GB VRAM</span>' +
+                '</div>' +
+            '</div>';
 
-                <img
-                    src="./rtx3080.PNG"
-                    alt="RTX 3080"
-                >
+        // La RTX 3080 NO tiene Frame Generation
+        document.getElementById("framegen-option").style.display = "none";
 
-                <div>
-
-                    <strong>
-                        RTX 3080
-                    </strong>
-
-                    <span>
-                        10 GB VRAM
-                    </span>
-
-                </div>
-
-            </div>
-
-        `;
+        // Si estaba activado, lo desactivamos
+        document.getElementById("framegen-option")
+            .classList.remove("active");
 
     }
 
     else if (gpu === "rtx4070") {
 
-        preview.innerHTML = `
+        document.getElementById("gpu-preview").innerHTML =
 
-            <div class="gpu-info">
+            '<div class="gpu-info">' +
+                '<img src="./rtx4070.PNG">' +
+                '<div>' +
+                    '<strong>RTX 4070</strong>' +
+                    '<span>12 GB VRAM</span>' +
+                '</div>' +
+            '</div>';
 
-                <img
-                    src="./rtx4070.PNG"
-                    alt="RTX 4070"
-                >
-
-                <div>
-
-                    <strong>
-                        RTX 4070
-                    </strong>
-
-                    <span>
-                        12 GB VRAM
-                    </span>
-
-                </div>
-
-            </div>
-
-        `;
+        // La RTX 4070 sí permite Frame Generation
+        document.getElementById("framegen-option").style.display = "flex";
 
     }
 
     else if (gpu === "rtx5070") {
 
-        preview.innerHTML = `
+        document.getElementById("gpu-preview").innerHTML =
 
-            <div class="gpu-info">
+            '<div class="gpu-info">' +
+                '<img src="./rtx5070.PNG">' +
+                '<div>' +
+                    '<strong>RTX 5070</strong>' +
+                    '<span>12 GB VRAM</span>' +
+                '</div>' +
+            '</div>';
 
-                <img
-                    src="./rtx5070.PNG"
-                    alt="RTX 5070"
-                >
-
-                <div>
-
-                    <strong>
-                        RTX 5070
-                    </strong>
-
-                    <span>
-                        12 GB VRAM
-                    </span>
-
-                </div>
-
-            </div>
-
-        `;
+        // La RTX 5070 sí permite Frame Generation
+        document.getElementById("framegen-option").style.display = "flex";
 
     }
 
     else {
 
-        preview.innerHTML = "";
+        document.getElementById("gpu-preview").innerHTML = "";
+
+        // Ocultar Frame Generation si no hay GPU seleccionada
+        document.getElementById("framegen-option").style.display = "none";
 
     }
-
 }
 
 
