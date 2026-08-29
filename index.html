@@ -18,7 +18,6 @@ html {
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-
     background:
         radial-gradient(
             circle at 50% -10%,
@@ -26,7 +25,6 @@ body {
             transparent 38%
         ),
         #0b0d12;
-
     color: white;
     text-align: center;
     min-height: 100vh;
@@ -40,9 +38,7 @@ body {
 .container {
     width: 100%;
     max-width: 900px;
-
     margin: 0 auto;
-
     padding: 55px 20px 70px;
 }
 
@@ -53,11 +49,8 @@ body {
 
 h1 {
     margin: 0;
-
     font-size: clamp(34px, 6vw, 52px);
-
     font-weight: 800;
-
     letter-spacing: -1.5px;
 
     background:
@@ -69,15 +62,12 @@ h1 {
 
     -webkit-background-clip: text;
     background-clip: text;
-
     color: transparent;
 }
 
 p {
     margin-top: 12px;
-
     color: #858b9b;
-
     font-size: 15px;
 }
 
@@ -90,7 +80,6 @@ p {
     position: relative;
 
     margin-top: 38px;
-
     padding: 30px;
 
     background:
@@ -163,7 +152,6 @@ select {
     -webkit-appearance: none;
 
     width: 100%;
-
     min-height: 54px;
 
     padding: 0 45px 0 17px;
@@ -181,7 +169,6 @@ select {
     color: #dfe2ea;
 
     font-size: 15px;
-
     font-weight: 500;
 
     cursor: pointer;
@@ -217,7 +204,6 @@ select {
 
 select:hover {
     background-color: #1b1f29;
-
     border-color: #41495a;
 }
 
@@ -232,7 +218,6 @@ select:focus {
 
 select option {
     background: #171a22;
-
     color: white;
 }
 
@@ -253,11 +238,55 @@ select option {
     width: 100%;
 
     min-width: 0;
+
+    position: relative;
+
+    background:
+        linear-gradient(
+            145deg,
+            #1b1f29,
+            #151820
+        );
+
+    border: 1px solid rgba(255, 255, 255, 0.07);
+
+    border-radius: 15px;
+
+    padding: 6px;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.025),
+        0 6px 18px rgba(0, 0, 0, 0.12);
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.2s ease;
+}
+
+.game-container:hover,
+.gpu-container:hover,
+.cpu-container:hover {
+    border-color: rgba(255, 255, 255, 0.13);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.035),
+        0 8px 22px rgba(0, 0, 0, 0.18);
+}
+
+.game-container:focus-within,
+.gpu-container:focus-within,
+.cpu-container:focus-within {
+    border-color: rgba(88, 101, 242, 0.75);
+
+    box-shadow:
+        0 0 0 3px rgba(88, 101, 242, 0.08),
+        0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
 
 /* =========================
-   JUEGO
+   SELECT DENTRO CONTENEDORES
 ========================= */
 
 .game-container select,
@@ -266,11 +295,31 @@ select option {
     flex: 1;
 
     min-width: 0;
+
+    background: transparent;
+
+    border: none;
+
+    box-shadow: none;
 }
 
+.game-container select:focus,
+.gpu-container select:focus,
+.cpu-container select:focus {
+    border: none;
+    box-shadow: none;
+}
+
+
+/* =========================
+   JUEGO
+========================= */
+
 #game-preview {
-    width: 55px;
-    height: 54px;
+    width: 51px;
+    height: 48px;
+
+    margin-right: 3px;
 
     display: flex;
 
@@ -278,18 +327,36 @@ select option {
     justify-content: center;
 
     flex-shrink: 0;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #222733,
+            #1c2029
+        );
+
+    border: 1px solid rgba(255, 255, 255, 0.05);
+
+    overflow: hidden;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.03);
 }
 
 #game-preview img {
-    width: 48px;
-    height: 48px;
+    width: 40px;
+    height: 40px;
 
     object-fit: contain;
 
     filter:
         drop-shadow(
-            0 4px 8px rgba(0, 0, 0, 0.4)
+            0 4px 7px rgba(0, 0, 0, 0.4)
         );
+
+    animation: previewAppear 0.25s ease;
 }
 
 
@@ -299,6 +366,8 @@ select option {
 
 #gpu-preview {
     flex: 0 0 155px;
+
+    margin-right: 0;
 
     min-width: 0;
 }
@@ -312,36 +381,48 @@ select option {
 
     width: 100%;
 
-    min-height: 54px;
+    min-height: 48px;
 
-    padding: 6px 9px;
+    padding: 5px 8px;
 
     background:
         linear-gradient(
-            135deg,
+            145deg,
             #222733,
-            #1b1f29
+            #1c2029
         );
 
-    border: 1px solid #303644;
+    border: 1px solid rgba(255, 255, 255, 0.05);
 
-    border-radius: 12px;
+    border-radius: 10px;
 
     text-align: left;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.03);
 }
 
 .gpu-info img {
-    width: 46px;
-    height: 40px;
+    width: 43px;
+    height: 37px;
 
     object-fit: contain;
 
     flex-shrink: 0;
+
+    filter:
+        drop-shadow(
+            0 4px 7px rgba(0, 0, 0, 0.4)
+        );
+
+    animation:
+        gpuAppear
+        0.35s
+        cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .gpu-info div {
     display: flex;
-
     flex-direction: column;
 
     min-width: 0;
@@ -350,7 +431,7 @@ select option {
 .gpu-info strong {
     font-size: 12px;
 
-    color: #f1f3f8;
+    color: #f2f4f8;
 
     white-space: nowrap;
 }
@@ -371,8 +452,10 @@ select option {
 ========================= */
 
 #cpu-preview {
-    width: 55px;
-    height: 54px;
+    width: 51px;
+    height: 48px;
+
+    margin-right: 3px;
 
     display: flex;
 
@@ -380,18 +463,37 @@ select option {
     justify-content: center;
 
     flex-shrink: 0;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #222733,
+            #1c2029
+        );
+
+    border: 1px solid rgba(255, 255, 255, 0.05);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.03);
 }
 
 #cpu-preview img {
-    width: 48px;
-    height: 48px;
+    width: 40px;
+    height: 40px;
 
     object-fit: contain;
 
     filter:
         drop-shadow(
-            0 4px 8px rgba(0, 0, 0, 0.4)
+            0 4px 7px rgba(0, 0, 0, 0.4)
         );
+
+    animation:
+        previewAppear
+        0.25s
+        ease;
 }
 
 
@@ -408,7 +510,8 @@ button {
 
     padding: 0 24px;
 
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border:
+        1px solid rgba(255, 255, 255, 0.08);
 
     border-radius: 14px;
 
@@ -458,6 +561,135 @@ button:active {
 
 
 /* =========================
+   OPCIONES CYBERPUNK
+========================= */
+
+#cyber-options {
+    display: none;
+
+    grid-column: 1 / -1;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 14px;
+
+    margin-top: 0;
+}
+
+.cyber-option {
+    position: relative;
+
+    min-height: 54px;
+
+    padding: 0 17px;
+
+    display: flex;
+
+    align-items: center;
+
+    text-align: left;
+
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            #201d27,
+            #171820
+        );
+
+    border: 1px solid rgba(255, 195, 80, 0.22);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.025),
+        0 6px 18px rgba(0, 0, 0, 0.12);
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.2s ease;
+}
+
+.cyber-option:hover {
+    border-color: rgba(255, 195, 80, 0.45);
+
+    box-shadow:
+        0 8px 24px rgba(0, 0, 0, 0.2),
+        0 0 20px rgba(255, 195, 80, 0.05);
+}
+
+.cyber-option label {
+    width: 100%;
+
+    color: #d9dce5;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+.cyber-option small {
+    color: #8c8b91;
+
+    font-size: 10px;
+
+    font-weight: 400;
+}
+
+
+/* Selects especiales Cyberpunk */
+
+.cyber-option select {
+    width: 100%;
+
+    min-height: 42px;
+
+    margin-top: 6px;
+
+    padding-left: 0;
+    padding-right: 35px;
+
+    border: none;
+
+    background-color: transparent;
+
+    color: #f0c66a;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    box-shadow: none;
+
+    background-position:
+        calc(100% - 10px) 50%,
+        calc(100% - 4px) 50%;
+}
+
+.cyber-option select:focus {
+    border: none;
+
+    box-shadow: none;
+
+    background-color: transparent;
+}
+
+.cyber-option select option {
+    background: #171820;
+
+    color: white;
+}
+
+
+/* =========================
    RESULTADO PREMIUM
 ========================= */
 
@@ -479,7 +711,8 @@ button:active {
             #171a22
         );
 
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border:
+        1px solid rgba(255, 255, 255, 0.08);
 
     border-radius: 18px;
 
@@ -489,7 +722,10 @@ button:active {
         0 18px 40px rgba(0, 0, 0, 0.28),
         inset 0 1px 0 rgba(255, 255, 255, 0.035);
 
-    animation: resultAppear 0.4s ease;
+    animation:
+        resultAppear
+        0.4s
+        ease;
 }
 
 
@@ -530,7 +766,8 @@ button:active {
     top: -100px;
     right: -70px;
 
-    background: rgba(88, 101, 242, 0.08);
+    background:
+        rgba(88, 101, 242, 0.08);
 
     border-radius: 50%;
 
@@ -541,7 +778,7 @@ button:active {
 
 
 /* =========================
-   TÍTULO
+   TÍTULO RESULTADO
 ========================= */
 
 .result-card h2 {
@@ -596,7 +833,7 @@ button:active {
 }
 
 
-/* FILAS */
+/* Filas */
 
 .result-row {
     display: flex;
@@ -629,6 +866,8 @@ button:active {
     font-size: 13px;
 
     font-weight: 600;
+
+    text-align: right;
 }
 
 
@@ -675,7 +914,8 @@ button:active {
         0 0 12px rgba(88, 101, 242, 0.35);
 
     animation:
-        fillPerformance 0.9s
+        fillPerformance
+        0.9s
         cubic-bezier(
             0.22,
             1,
@@ -687,7 +927,7 @@ button:active {
 
 
 /* =========================
-   ANIMACIÓN RESULTADO
+   ANIMACIONES
 ========================= */
 
 @keyframes resultAppear {
@@ -722,19 +962,125 @@ button:active {
 
 }
 
+@keyframes previewAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            scale(0.85);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            scale(1);
+    }
+
+}
+
+@keyframes gpuAppear {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            scale(0.82)
+            translateY(3px);
+    }
+
+    60% {
+        opacity: 1;
+
+        transform:
+            scale(1.04)
+            translateY(0);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            scale(1);
+    }
+
+}
+
 
 /* =========================
-   OPCIONES CYBERPUNK
+   SELECTORES SIMPLES PREMIUM
 ========================= */
 
-#cyberpunk-options {
-    display: grid;
+#resolution,
+#target {
+    appearance: none;
+    -webkit-appearance: none;
 
-    grid-template-columns: 1fr 1fr;
+    background:
+        linear-gradient(
+            145deg,
+            #1b1f29,
+            #151820
+        );
 
-    gap: 14px;
+    border:
+        1px solid rgba(255, 255, 255, 0.07);
 
-    width: 100%;
+    border-radius: 15px;
+
+    color: #dfe2ea;
+
+    min-height: 54px;
+
+    padding:
+        0 45px 0 17px;
+
+    cursor: pointer;
+
+    background-image:
+        linear-gradient(
+            45deg,
+            transparent 50%,
+            #777f91 50%
+        ),
+        linear-gradient(
+            135deg,
+            #777f91 50%,
+            transparent 50%
+        );
+
+    background-position:
+        calc(100% - 20px) 50%,
+        calc(100% - 14px) 50%;
+
+    background-size:
+        6px 6px,
+        6px 6px;
+
+    background-repeat: no-repeat;
+
+    transition:
+        border-color 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+#resolution:hover,
+#target:hover {
+    background-color: #1c2029;
+
+    border-color:
+        rgba(255, 255, 255, 0.13);
+}
+
+#resolution:focus,
+#target:focus {
+    border-color:
+        rgba(88, 101, 242, 0.75);
+
+    box-shadow:
+        0 0 0 3px rgba(88, 101, 242, 0.08);
 }
 
 
@@ -745,7 +1091,8 @@ button:active {
 @media (max-width: 600px) {
 
     .container {
-        padding: 32px 12px 50px;
+        padding:
+            32px 12px 50px;
     }
 
     h1 {
@@ -787,7 +1134,8 @@ button:active {
     .gpu-info {
         min-height: 52px;
 
-        padding: 5px 7px;
+        padding:
+            5px 7px;
     }
 
     .gpu-info img {
@@ -805,28 +1153,6 @@ button:active {
 
     #game-preview,
     #cpu-preview {
-        width: 50px;
-        height: 52px;
-    }
-
-    #game-preview img,
-    #cpu-preview img {
-        width: 43px;
-        height: 43px;
-    }
-
-    button {
-        min-height: 58px;
-
-        margin-top: 17px;
-    }
-
-    .result-card {
-        padding: 22px 17px;
-    }
-
-    #game-preview,
-    #cpu-preview {
         width: 48px;
         height: 46px;
     }
@@ -837,18 +1163,29 @@ button:active {
         height: 38px;
     }
 
+    button {
+        min-height: 58px;
+
+        margin-top: 17px;
+    }
+
     .result-card {
-        padding: 24px 17px;
+        padding:
+            24px 17px;
     }
 
     .fps-number {
         font-size: 44px;
     }
 
-    #cyberpunk-options {
+    #cyber-options {
         grid-template-columns: 1fr;
 
         gap: 11px;
+    }
+
+    .cyber-option {
+        min-height: 52px;
     }
 }
 
@@ -867,380 +1204,6 @@ button:active {
 
     h1 {
         font-size: 36px;
-    }
-}
-
-
-/* =========================
-   SELECTORES PREMIUM
-========================= */
-
-.game-container,
-.gpu-container,
-.cpu-container {
-    position: relative;
-
-    background:
-        linear-gradient(
-            145deg,
-            #1b1f29,
-            #151820
-        );
-
-    border: 1px solid rgba(255, 255, 255, 0.07);
-
-    border-radius: 15px;
-
-    padding: 6px;
-
-    box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.025),
-        0 6px 18px rgba(0, 0, 0, 0.12);
-
-    transition:
-        border-color 0.25s ease,
-        box-shadow 0.25s ease,
-        transform 0.2s ease;
-}
-
-.game-container:hover,
-.gpu-container:hover,
-.cpu-container:hover {
-    border-color: rgba(255, 255, 255, 0.13);
-
-    box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.035),
-        0 8px 22px rgba(0, 0, 0, 0.18);
-}
-
-.game-container:focus-within,
-.gpu-container:focus-within,
-.cpu-container:focus-within {
-    border-color: rgba(88, 101, 242, 0.75);
-
-    box-shadow:
-        0 0 0 3px rgba(88, 101, 242, 0.08),
-        0 8px 25px rgba(0, 0, 0, 0.2);
-}
-
-
-/* =========================
-   SELECT
-========================= */
-
-.game-container select,
-.gpu-container select,
-.cpu-container select {
-    background: transparent;
-
-    border: none;
-
-    box-shadow: none;
-}
-
-.game-container select:focus,
-.gpu-container select:focus,
-.cpu-container select:focus {
-    border: none;
-
-    box-shadow: none;
-}
-
-
-/* =========================
-   PREVIEW JUEGO
-========================= */
-
-#game-preview {
-    width: 51px;
-    height: 48px;
-
-    margin-right: 3px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    flex-shrink: 0;
-
-    border-radius: 10px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #222733,
-            #1c2029
-        );
-
-    border: 1px solid rgba(255, 255, 255, 0.05);
-
-    overflow: hidden;
-
-    box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.03);
-}
-
-#game-preview img {
-    width: 40px;
-    height: 40px;
-
-    object-fit: contain;
-
-    filter:
-        drop-shadow(
-            0 4px 7px rgba(0, 0, 0, 0.4)
-        );
-
-    animation:
-        previewAppear 0.25s ease;
-}
-
-
-/* =========================
-   PREVIEW CPU
-========================= */
-
-#cpu-preview {
-    width: 51px;
-    height: 48px;
-
-    margin-right: 3px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    flex-shrink: 0;
-
-    border-radius: 10px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #222733,
-            #1c2029
-        );
-
-    border: 1px solid rgba(255, 255, 255, 0.05);
-
-    box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.03);
-}
-
-#cpu-preview img {
-    width: 40px;
-    height: 40px;
-
-    object-fit: contain;
-
-    filter:
-        drop-shadow(
-            0 4px 7px rgba(0, 0, 0, 0.4)
-        );
-
-    animation:
-        previewAppear 0.25s ease;
-}
-
-
-/* =========================
-   PREVIEW GPU
-========================= */
-
-#gpu-preview {
-    flex: 0 0 155px;
-
-    margin-right: 0;
-}
-
-.gpu-info {
-    min-height: 48px;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 9px;
-
-    padding: 5px 8px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #222733,
-            #1c2029
-        );
-
-    border: 1px solid rgba(255, 255, 255, 0.05);
-
-    border-radius: 10px;
-
-    box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.03);
-}
-
-.gpu-info img {
-    width: 43px;
-    height: 37px;
-
-    object-fit: contain;
-
-    filter:
-        drop-shadow(
-            0 4px 7px rgba(0, 0, 0, 0.4)
-        );
-
-    animation:
-        gpuAppear 0.35s
-        cubic-bezier(
-            0.22,
-            1,
-            0.36,
-            1
-        );
-}
-
-.gpu-info strong {
-    color: #f2f4f8;
-}
-
-.gpu-info span {
-    color: #858c9d;
-}
-
-
-/* =========================
-   ANIMACIÓN
-========================= */
-
-@keyframes previewAppear {
-
-    from {
-        opacity: 0;
-
-        transform: scale(0.85);
-    }
-
-    to {
-        opacity: 1;
-
-        transform: scale(1);
-    }
-
-}
-
-
-/* =========================
-   SELECTORES SIMPLES PREMIUM
-========================= */
-
-#resolution,
-#target,
-#raytracing,
-#framegeneration {
-    appearance: none;
-
-    -webkit-appearance: none;
-
-    background:
-        linear-gradient(
-            145deg,
-            #1b1f29,
-            #151820
-        );
-
-    border: 1px solid rgba(255, 255, 255, 0.07);
-
-    border-radius: 15px;
-
-    color: #dfe2ea;
-
-    min-height: 54px;
-
-    padding: 0 45px 0 17px;
-
-    cursor: pointer;
-
-    background-image:
-        linear-gradient(
-            45deg,
-            transparent 50%,
-            #777f91 50%
-        ),
-        linear-gradient(
-            135deg,
-            #777f91 50%,
-            transparent 50%
-        );
-
-    background-position:
-        calc(100% - 20px) 50%,
-        calc(100% - 14px) 50%;
-
-    background-size:
-        6px 6px,
-        6px 6px;
-
-    background-repeat: no-repeat;
-
-    transition:
-        border-color 0.25s ease,
-        background 0.25s ease,
-        box-shadow 0.25s ease;
-}
-
-#resolution:hover,
-#target:hover,
-#raytracing:hover,
-#framegeneration:hover {
-    background-color: #1c2029;
-
-    border-color: rgba(255, 255, 255, 0.13);
-}
-
-#resolution:focus,
-#target:focus,
-#raytracing:focus,
-#framegeneration:focus {
-    border-color: rgba(88, 101, 242, 0.75);
-
-    box-shadow:
-        0 0 0 3px rgba(88, 101, 242, 0.08);
-}
-
-#framegeneration:disabled {
-    opacity: 0.5;
-
-    cursor: not-allowed;
-}
-
-
-@keyframes gpuAppear {
-
-    0% {
-        opacity: 0;
-
-        transform:
-            scale(0.82)
-            translateY(3px);
-    }
-
-    60% {
-        opacity: 1;
-
-        transform:
-            scale(1.04)
-            translateY(0);
-    }
-
-    100% {
-        opacity: 1;
-
-        transform:
-            scale(1)
-            translateY(0);
     }
 
 }
@@ -1262,6 +1225,7 @@ button:active {
 
     <div class="calculator">
 
+
         <!-- =========================
              SELECCIÓN
         ========================= -->
@@ -1273,7 +1237,10 @@ button:active {
 
             <div class="game-container form-full">
 
-                <select id="game" onchange="showGame()">
+                <select
+                    id="game"
+                    onchange="showGame()"
+                >
 
                     <option value="">
                         Juego...
@@ -1293,6 +1260,7 @@ button:active {
 
                 </select>
 
+
                 <div id="game-preview"></div>
 
             </div>
@@ -1302,7 +1270,10 @@ button:active {
 
             <div class="gpu-container">
 
-                <select id="gpu" onchange="showGPU()">
+                <select
+                    id="gpu"
+                    onchange="showGPU()"
+                >
 
                     <option value="">
                         GPU...
@@ -1322,6 +1293,7 @@ button:active {
 
                 </select>
 
+
                 <div id="gpu-preview"></div>
 
             </div>
@@ -1331,7 +1303,10 @@ button:active {
 
             <div class="cpu-container">
 
-                <select id="cpu" onchange="showCPU()">
+                <select
+                    id="cpu"
+                    onchange="showCPU()"
+                >
 
                     <option value="">
                         CPU...
@@ -1350,6 +1325,7 @@ button:active {
                     </option>
 
                 </select>
+
 
                 <div id="cpu-preview"></div>
 
@@ -1406,52 +1382,89 @@ button:active {
                  OPCIONES CYBERPUNK
             ========================= -->
 
-            <div
-                id="cyberpunk-options"
-                class="form-full"
-                style="display:none;"
-            >
-
-                <select id="raytracing">
-
-                    <option value="off">
-                        Ray Tracing: Desactivado
-                    </option>
-
-                    <option value="on">
-                        Ray Tracing: Activado
-                    </option>
-
-                </select>
+            <div id="cyber-options">
 
 
-                <select id="framegeneration">
+                <!-- RAY TRACING -->
 
-                    <option value="off">
-                        Frame Generation: Desactivado
-                    </option>
+                <div class="cyber-option">
 
-                    <option value="on">
-                        Frame Generation: Activado
-                    </option>
+                    <label>
 
-                </select>
+                        Ray Tracing
+
+                        <small>
+                            Iluminación y reflejos avanzados
+                        </small>
+
+                        <select id="raytracing">
+
+                            <option value="off">
+                                Desactivado
+                            </option>
+
+                            <option value="on">
+                                Activado
+                            </option>
+
+                        </select>
+
+                    </label>
+
+                </div>
+
+
+                <!-- FRAME GENERATION -->
+
+                <div class="cyber-option">
+
+                    <label>
+
+                        Frame Generation
+
+                        <small>
+                            Generación de frames mediante IA
+                        </small>
+
+                        <select id="framegeneration">
+
+                            <option value="off">
+                                Desactivado
+                            </option>
+
+                            <option value="on">
+                                Activado
+                            </option>
+
+                        </select>
+
+                    </label>
+
+                </div>
 
             </div>
+
 
         </div>
 
 
-        <!-- BOTÓN -->
+        <!-- =========================
+             BOTÓN
+        ========================= -->
 
         <button onclick="calculateFPS()">
+
             CALCULAR RENDIMIENTO
+
         </button>
 
 
-        <!-- RESULTADO -->
+        <!-- =========================
+             RESULTADO
+        ========================= -->
 
         <div id="result"></div>
+
 
     </div>
 
@@ -1468,78 +1481,226 @@ button:active {
 let fpsData = {
 
 
-/* =========================
-   FORTNITE
-========================= */
+    /* =================================================
+       FORTNITE
+    ================================================= */
 
-fortnite: {
+    fortnite: {
 
-    rtx3080: {
+        rtx3080: {
 
-        "i5-14600kf": {
+            "i5-14600kf": {
 
-            "1080": {
-                competitive: 324,
-                balanced: 228,
-                quality: 177
+                "1080": {
+                    competitive: 324,
+                    balanced: 228,
+                    quality: 177
+                },
+
+                "1440": {
+                    competitive: 206,
+                    balanced: 145,
+                    quality: 112
+                },
+
+                "2160": {
+                    competitive: 109,
+                    balanced: 77,
+                    quality: 59
+                }
+
             },
 
-            "1440": {
-                competitive: 206,
-                balanced: 145,
-                quality: 112
+
+            "ryzen 5 7600": {
+
+                "1080": {
+                    competitive: 310,
+                    balanced: 220,
+                    quality: 170
+                },
+
+                "1440": {
+                    competitive: 195,
+                    balanced: 140,
+                    quality: 108
+                },
+
+                "2160": {
+                    competitive: 105,
+                    balanced: 75,
+                    quality: 57
+                }
+
             },
 
-            "2160": {
-                competitive: 109,
-                balanced: 77,
-                quality: 59
+
+            "ryzen 7 7800X3D": {
+
+                "1080": {
+                    competitive: 350,
+                    balanced: 235,
+                    quality: 180
+                },
+
+                "1440": {
+                    competitive: 215,
+                    balanced: 150,
+                    quality: 115
+                },
+
+                "2160": {
+                    competitive: 112,
+                    balanced: 79,
+                    quality: 60
+                }
+
             }
 
         },
 
 
-        "ryzen 5 7600": {
+        rtx4070: {
 
-            "1080": {
-                competitive: 310,
-                balanced: 220,
-                quality: 170
+            "i5-14600kf": {
+
+                "1080": {
+                    competitive: 350,
+                    balanced: 245,
+                    quality: 185
+                },
+
+                "1440": {
+                    competitive: 215,
+                    balanced: 155,
+                    quality: 115
+                },
+
+                "2160": {
+                    competitive: 115,
+                    balanced: 80,
+                    quality: 62
+                }
+
             },
 
-            "1440": {
-                competitive: 195,
-                balanced: 140,
-                quality: 108
+
+            "ryzen 5 7600": {
+
+                "1080": {
+                    competitive: 320,
+                    balanced: 230,
+                    quality: 175
+                },
+
+                "1440": {
+                    competitive: 190,
+                    balanced: 165,
+                    quality: 120
+                },
+
+                "2160": {
+                    competitive: 105,
+                    balanced: 82,
+                    quality: 64
+                }
+
             },
 
-            "2160": {
-                competitive: 105,
-                balanced: 75,
-                quality: 57
+
+            "ryzen 7 7800X3D": {
+
+                "1080": {
+                    competitive: 338,
+                    balanced: 241,
+                    quality: 184
+                },
+
+                "1440": {
+                    competitive: 213,
+                    balanced: 151,
+                    quality: 115
+                },
+
+                "2160": {
+                    competitive: 116,
+                    balanced: 78,
+                    quality: 61
+                }
+
             }
 
         },
 
 
-        "ryzen 7 7800X3D": {
+        rtx5070: {
 
-            "1080": {
-                competitive: 350,
-                balanced: 235,
-                quality: 180
+            "i5-14600kf": {
+
+                "1080": {
+                    competitive: 362,
+                    balanced: 260,
+                    quality: 201
+                },
+
+                "1440": {
+                    competitive: 233,
+                    balanced: 161,
+                    quality: 125
+                },
+
+                "2160": {
+                    competitive: 122,
+                    balanced: 87,
+                    quality: 70
+                }
+
             },
 
-            "1440": {
-                competitive: 215,
-                balanced: 150,
-                quality: 115
+
+            "ryzen 5 7600": {
+
+                "1080": {
+                    competitive: 340,
+                    balanced: 245,
+                    quality: 190
+                },
+
+                "1440": {
+                    competitive: 205,
+                    balanced: 150,
+                    quality: 118
+                },
+
+                "2160": {
+                    competitive: 110,
+                    balanced: 84,
+                    quality: 68
+                }
+
             },
 
-            "2160": {
-                competitive: 112,
-                balanced: 79,
-                quality: 60
+
+            "ryzen 7 7800X3D": {
+
+                "1080": {
+                    competitive: 390,
+                    balanced: 270,
+                    quality: 205
+                },
+
+                "1440": {
+                    competitive: 250,
+                    balanced: 170,
+                    quality: 130
+                },
+
+                "2160": {
+                    competitive: 128,
+                    balanced: 92,
+                    quality: 73
+                }
+
             }
 
         }
@@ -1547,635 +1708,237 @@ fortnite: {
     },
 
 
-    rtx4070: {
+    /* =================================================
+       CYBERPUNK 2077
+       
+       Valores base:
+       RT OFF + FG OFF
+       
+       Los multiplicadores se aplican después
+       según Ray Tracing y Frame Generation.
+    ================================================= */
 
-        "i5-14600kf": {
+    cyberpunk: {
 
-            "1080": {
-                competitive: 350,
-                balanced: 245,
-                quality: 185
+        rtx3080: {
+
+            "i5-14600kf": {
+
+                "1080": {
+                    low: 142,
+                    balanced: 112,
+                    quality: 86
+                },
+
+                "1440": {
+                    low: 108,
+                    balanced: 84,
+                    quality: 65
+                },
+
+                "2160": {
+                    low: 62,
+                    balanced: 49,
+                    quality: 38
+                }
+
             },
 
-            "1440": {
-                competitive: 215,
-                balanced: 155,
-                quality: 115
+
+            "ryzen 5 7600": {
+
+                "1080": {
+                    low: 137,
+                    balanced: 108,
+                    quality: 83
+                },
+
+                "1440": {
+                    low: 103,
+                    balanced: 81,
+                    quality: 63
+                },
+
+                "2160": {
+                    low: 60,
+                    balanced: 47,
+                    quality: 37
+                }
+
             },
 
-            "2160": {
-                competitive: 115,
-                balanced: 80,
-                quality: 62
+
+            "ryzen 7 7800X3D": {
+
+                "1080": {
+                    low: 150,
+                    balanced: 116,
+                    quality: 89
+                },
+
+                "1440": {
+                    low: 112,
+                    balanced: 88,
+                    quality: 68
+                },
+
+                "2160": {
+                    low: 64,
+                    balanced: 51,
+                    quality: 40
+                }
+
             }
 
         },
 
 
-        "ryzen 5 7600": {
+        rtx4070: {
 
-            "1080": {
-                competitive: 320,
-                balanced: 230,
-                quality: 175
+            "i5-14600kf": {
+
+                "1080": {
+                    low: 158,
+                    balanced: 125,
+                    quality: 96
+                },
+
+                "1440": {
+                    low: 121,
+                    balanced: 95,
+                    quality: 74
+                },
+
+                "2160": {
+                    low: 69,
+                    balanced: 55,
+                    quality: 43
+                }
+
             },
 
-            "1440": {
-                competitive: 190,
-                balanced: 165,
-                quality: 120
+
+            "ryzen 5 7600": {
+
+                "1080": {
+                    low: 151,
+                    balanced: 119,
+                    quality: 91
+                },
+
+                "1440": {
+                    low: 115,
+                    balanced: 91,
+                    quality: 71
+                },
+
+                "2160": {
+                    low: 66,
+                    balanced: 53,
+                    quality: 41
+                }
+
             },
 
-            "2160": {
-                competitive: 105,
-                balanced: 82,
-                quality: 64
+
+            "ryzen 7 7800X3D": {
+
+                "1080": {
+                    low: 165,
+                    balanced: 129,
+                    quality: 99
+                },
+
+                "1440": {
+                    low: 125,
+                    balanced: 98,
+                    quality: 76
+                },
+
+                "2160": {
+                    low: 71,
+                    balanced: 57,
+                    quality: 44
+                }
+
             }
 
         },
 
 
-        "ryzen 7 7800X3D": {
+        rtx5070: {
 
-            "1080": {
-                competitive: 338,
-                balanced: 241,
-                quality: 184
+            "i5-14600kf": {
+
+                "1080": {
+                    low: 185,
+                    balanced: 147,
+                    quality: 113
+                },
+
+                "1440": {
+                    low: 143,
+                    balanced: 113,
+                    quality: 88
+                },
+
+                "2160": {
+                    low: 82,
+                    balanced: 65,
+                    quality: 51
+                }
+
             },
 
-            "1440": {
-                competitive: 213,
-                balanced: 151,
-                quality: 115
+
+            "ryzen 5 7600": {
+
+                "1080": {
+                    low: 177,
+                    balanced: 140,
+                    quality: 108
+                },
+
+                "1440": {
+                    low: 136,
+                    balanced: 107,
+                    quality: 84
+                },
+
+                "2160": {
+                    low: 78,
+                    balanced: 62,
+                    quality: 48
+                }
+
             },
 
-            "2160": {
-                competitive: 116,
-                balanced: 78,
-                quality: 61
-            }
 
-        }
+            "ryzen 7 7800X3D": {
 
-    },
+                "1080": {
+                    low: 193,
+                    balanced: 153,
+                    quality: 117
+                },
 
+                "1440": {
+                    low: 149,
+                    balanced: 118,
+                    quality: 91
+                },
 
-    rtx5070: {
+                "2160": {
+                    low: 85,
+                    balanced: 68,
+                    quality: 53
+                }
 
-        "i5-14600kf": {
-
-            "1080": {
-                competitive: 362,
-                balanced: 260,
-                quality: 201
-            },
-
-            "1440": {
-                competitive: 233,
-                balanced: 161,
-                quality: 125
-            },
-
-            "2160": {
-                competitive: 122,
-                balanced: 87,
-                quality: 70
-            }
-
-        },
-
-
-        "ryzen 5 7600": {
-
-            "1080": {
-                competitive: 340,
-                balanced: 245,
-                quality: 190
-            },
-
-            "1440": {
-                competitive: 205,
-                balanced: 150,
-                quality: 118
-            },
-
-            "2160": {
-                competitive: 110,
-                balanced: 84,
-                quality: 68
-            }
-
-        },
-
-
-        "ryzen 7 7800X3D": {
-
-            "1080": {
-                competitive: 390,
-                balanced: 270,
-                quality: 205
-            },
-
-            "1440": {
-                competitive: 250,
-                balanced: 170,
-                quality: 130
-            },
-
-            "2160": {
-                competitive: 128,
-                balanced: 92,
-                quality: 73
             }
 
         }
 
     }
-
-},
-
-
-/* =========================
-   CYBERPUNK 2077
-========================= */
-
-cyberpunk: {
-
-
-    /* =========================
-       RTX 3080
-    ========================= */
-
-    rtx3080: {
-
-        "i5-14600kf": {
-
-            "1080": {
-                low: {
-                    off: 145,
-                    on: 105
-                },
-                balanced: {
-                    off: 118,
-                    on: 82
-                },
-                quality: {
-                    off: 95,
-                    on: 65
-                }
-            },
-
-            "1440": {
-                low: {
-                    off: 112,
-                    on: 80
-                },
-                balanced: {
-                    off: 88,
-                    on: 62
-                },
-                quality: {
-                    off: 70,
-                    on: 48
-                }
-            },
-
-            "2160": {
-                low: {
-                    off: 66,
-                    on: 45
-                },
-                balanced: {
-                    off: 52,
-                    on: 36
-                },
-                quality: {
-                    off: 40,
-                    on: 28
-                }
-            }
-
-        },
-
-
-        "ryzen 5 7600": {
-
-            "1080": {
-                low: {
-                    off: 138,
-                    on: 100
-                },
-                balanced: {
-                    off: 112,
-                    on: 78
-                },
-                quality: {
-                    off: 91,
-                    on: 62
-                }
-            },
-
-            "1440": {
-                low: {
-                    off: 106,
-                    on: 75
-                },
-                balanced: {
-                    off: 84,
-                    on: 58
-                },
-                quality: {
-                    off: 67,
-                    on: 46
-                }
-            },
-
-            "2160": {
-                low: {
-                    off: 63,
-                    on: 43
-                },
-                balanced: {
-                    off: 50,
-                    on: 34
-                },
-                quality: {
-                    off: 38,
-                    on: 26
-                }
-            }
-
-        },
-
-
-        "ryzen 7 7800X3D": {
-
-            "1080": {
-                low: {
-                    off: 150,
-                    on: 108
-                },
-                balanced: {
-                    off: 120,
-                    on: 84
-                },
-                quality: {
-                    off: 98,
-                    on: 68
-                }
-            },
-
-            "1440": {
-                low: {
-                    off: 116,
-                    on: 82
-                },
-                balanced: {
-                    off: 91,
-                    on: 64
-                },
-                quality: {
-                    off: 73,
-                    on: 50
-                }
-            },
-
-            "2160": {
-                low: {
-                    off: 68,
-                    on: 47
-                },
-                balanced: {
-                    off: 54,
-                    on: 37
-                },
-                quality: {
-                    off: 42,
-                    on: 29
-                }
-            }
-
-        }
-
-    },
-
-
-    /* =========================
-       RTX 4070
-    ========================= */
-
-    rtx4070: {
-
-        "i5-14600kf": {
-
-            "1080": {
-                low: {
-                    off: 165,
-                    on: 115
-                },
-                balanced: {
-                    off: 135,
-                    on: 92
-                },
-                quality: {
-                    off: 108,
-                    on: 73
-                }
-            },
-
-            "1440": {
-                low: {
-                    off: 128,
-                    on: 90
-                },
-                balanced: {
-                    off: 101,
-                    on: 70
-                },
-                quality: {
-                    off: 81,
-                    on: 55
-                }
-            },
-
-            "2160": {
-                low: {
-                    off: 76,
-                    on: 52
-                },
-                balanced: {
-                    off: 61,
-                    on: 42
-                },
-                quality: {
-                    off: 48,
-                    on: 33
-                }
-            }
-
-        },
-
-
-        "ryzen 5 7600": {
-
-            "1080": {
-                low: {
-                    off: 158,
-                    on: 110
-                },
-                balanced: {
-                    off: 129,
-                    on: 88
-                },
-                quality: {
-                    off: 103,
-                    on: 70
-                }
-            },
-
-            "1440": {
-                low: {
-                    off: 122,
-                    on: 85
-                },
-                balanced: {
-                    off: 96,
-                    on: 66
-                },
-                quality: {
-                    off: 77,
-                    on: 52
-                }
-            },
-
-            "2160": {
-                low: {
-                    off: 73,
-                    on: 50
-                },
-                balanced: {
-                    off: 58,
-                    on: 40
-                },
-                quality: {
-                    off: 46,
-                    on: 31
-                }
-            }
-
-        },
-
-
-        "ryzen 7 7800X3D": {
-
-            "1080": {
-                low: {
-                    off: 172,
-                    on: 120
-                },
-                balanced: {
-                    off: 140,
-                    on: 96
-                },
-                quality: {
-                    off: 112,
-                    on: 76
-                }
-            },
-
-            "1440": {
-                low: {
-                    off: 133,
-                    on: 93
-                },
-                balanced: {
-                    off: 105,
-                    on: 73
-                },
-                quality: {
-                    off: 84,
-                    on: 57
-                }
-            },
-
-            "2160": {
-                low: {
-                    off: 79,
-                    on: 54
-                },
-                balanced: {
-                    off: 63,
-                    on: 44
-                },
-                quality: {
-                    off: 50,
-                    on: 34
-                }
-            }
-
-        }
-
-    },
-
-
-    /* =========================
-       RTX 5070
-    ========================= */
-
-    rtx5070: {
-
-        "i5-14600kf": {
-
-            "1080": {
-                low: {
-                    off: 190,
-                    on: 132
-                },
-                balanced: {
-                    off: 157,
-                    on: 108
-                },
-                quality: {
-                    off: 125,
-                    on: 86
-                }
-            },
-
-            "1440": {
-                low: {
-                    off: 151,
-                    on: 105
-                },
-                balanced: {
-                    off: 121,
-                    on: 84
-                },
-                quality: {
-                    off: 97,
-                    on: 67
-                }
-            },
-
-            "2160": {
-                low: {
-                    off: 91,
-                    on: 63
-                },
-                balanced: {
-                    off: 73,
-                    on: 50
-                },
-                quality: {
-                    off: 58,
-                    on: 40
-                }
-            }
-
-        },
-
-
-        "ryzen 5 7600": {
-
-            "1080": {
-                low: {
-                    off: 182,
-                    on: 126
-                },
-                balanced: {
-                    off: 150,
-                    on: 104
-                },
-                quality: {
-                    off: 120,
-                    on: 83
-                }
-            },
-
-            "1440": {
-                low: {
-                    off: 143,
-                    on: 99
-                },
-                balanced: {
-                    off: 115,
-                    on: 80
-                },
-                quality: {
-                    off: 92,
-                    on: 64
-                }
-            },
-
-            "2160": {
-                low: {
-                    off: 86,
-                    on: 59
-                },
-                balanced: {
-                    off: 69,
-                    on: 47
-                },
-                quality: {
-                    off: 55,
-                    on: 38
-                }
-            }
-
-        },
-
-
-        "ryzen 7 7800X3D": {
-
-            "1080": {
-                low: {
-                    off: 198,
-                    on: 138
-                },
-                balanced: {
-                    off: 164,
-                    on: 113
-                },
-                quality: {
-                    off: 131,
-                    on: 90
-                }
-            },
-
-            "1440": {
-                low: {
-                    off: 157,
-                    on: 109
-                },
-                balanced: {
-                    off: 126,
-                    on: 87
-                },
-                quality: {
-                    off: 101,
-                    on: 70
-                }
-            },
-
-            "2160": {
-                low: {
-                    off: 94,
-                    on: 65
-                },
-                balanced: {
-                    off: 76,
-                    on: 52
-                },
-                quality: {
-                    off: 60,
-                    on: 41
-                }
-            }
-
-        }
-
-    }
-
-}
 
 };
 
@@ -2189,110 +1952,51 @@ function showGame() {
     let game =
         document.getElementById("game").value;
 
-    let cyberpunkOptions =
-        document.getElementById("cyberpunk-options");
-
-    let target =
-        document.getElementById("target");
-
 
     if (game === "fortnite") {
 
         document.getElementById("game-preview").innerHTML =
             '<img src="./fortnite.PNG">';
 
-        cyberpunkOptions.style.display = "none";
-
-        target.innerHTML =
-            '<option value="">Objetivo...</option>' +
-            '<option value="competitive">Competitivo</option>' +
-            '<option value="balanced">Equilibrado</option>' +
-            '<option value="quality">Calidad</option>';
-
     }
-
 
     else if (game === "cyberpunk") {
 
         document.getElementById("game-preview").innerHTML =
             '<img src="./cyberpunk.JPG">';
 
-        cyberpunkOptions.style.display = "grid";
-
-        target.innerHTML =
-            '<option value="">Objetivo...</option>' +
-            '<option value="low">Bajo</option>' +
-            '<option value="balanced">Equilibrado</option>' +
-            '<option value="quality">Calidad</option>';
-
-        updateFrameGeneration();
-
     }
-
 
     else if (game === "warzone") {
 
         document.getElementById("game-preview").innerHTML =
             '<img src="./warzone.PNG">';
 
-        cyberpunkOptions.style.display = "none";
-
-        target.innerHTML =
-            '<option value="">Objetivo...</option>' +
-            '<option value="competitive">Competitivo</option>' +
-            '<option value="balanced">Equilibrado</option>' +
-            '<option value="quality">Calidad</option>';
-
     }
-
 
     else {
 
-        document.getElementById("game-preview").innerHTML = "";
-
-        cyberpunkOptions.style.display = "none";
-
-        target.innerHTML =
-            '<option value="">Objetivo...</option>' +
-            '<option value="competitive">Competitivo</option>' +
-            '<option value="balanced">Equilibrado</option>' +
-            '<option value="quality">Calidad</option>';
+        document.getElementById("game-preview").innerHTML =
+            "";
 
     }
 
-}
+
+    /* Mostrar opciones especiales */
+
+    let cyberOptions =
+        document.getElementById("cyber-options");
 
 
-/* =========================
-   FRAME GENERATION
-========================= */
+    if (game === "cyberpunk") {
 
-function updateFrameGeneration() {
-
-    let gpu =
-        document.getElementById("gpu").value;
-
-    let frameGeneration =
-        document.getElementById("framegeneration");
-
-
-    if (gpu === "rtx3080") {
-
-        frameGeneration.value = "off";
-
-        frameGeneration.disabled = true;
-
-        frameGeneration.options[1].text =
-            "Frame Generation: No disponible";
+        cyberOptions.style.display = "grid";
 
     }
 
     else {
 
-        frameGeneration.disabled = false;
-
-        frameGeneration.options[1].text =
-            "Frame Generation: Activado";
+        cyberOptions.style.display = "none";
 
     }
 
@@ -2312,6 +2016,7 @@ function showGPU() {
     if (gpu === "rtx3080") {
 
         document.getElementById("gpu-preview").innerHTML =
+
             '<div class="gpu-info">' +
 
                 '<img src="./rtx3080.PNG">' +
@@ -2332,6 +2037,7 @@ function showGPU() {
     else if (gpu === "rtx4070") {
 
         document.getElementById("gpu-preview").innerHTML =
+
             '<div class="gpu-info">' +
 
                 '<img src="./rtx4070.PNG">' +
@@ -2352,6 +2058,7 @@ function showGPU() {
     else if (gpu === "rtx5070") {
 
         document.getElementById("gpu-preview").innerHTML =
+
             '<div class="gpu-info">' +
 
                 '<img src="./rtx5070.PNG">' +
@@ -2371,12 +2078,10 @@ function showGPU() {
 
     else {
 
-        document.getElementById("gpu-preview").innerHTML = "";
+        document.getElementById("gpu-preview").innerHTML =
+            "";
 
     }
-
-
-    updateFrameGeneration();
 
 }
 
@@ -2417,7 +2122,8 @@ function showCPU() {
 
     else {
 
-        document.getElementById("cpu-preview").innerHTML = "";
+        document.getElementById("cpu-preview").innerHTML =
+            "";
 
     }
 
@@ -2430,17 +2136,22 @@ function showCPU() {
 
 function calculateFPS() {
 
+
     let game =
         document.getElementById("game").value;
+
 
     let gpu =
         document.getElementById("gpu").value;
 
+
     let cpu =
         document.getElementById("cpu").value;
 
+
     let resolution =
         document.getElementById("resolution").value;
+
 
     let target =
         document.getElementById("target").value;
@@ -2462,81 +2173,140 @@ function calculateFPS() {
             "Selecciona todos los campos.";
 
         return;
-    }
-
-
-    /* =========================
-       VARIABLES CYBERPUNK
-    ========================= */
-
-    let raytracing = "off";
-
-    let framegeneration = "off";
-
-
-    if (game === "cyberpunk") {
-
-        raytracing =
-            document.getElementById("raytracing").value;
-
-        framegeneration =
-            document.getElementById("framegeneration").value;
 
     }
 
 
     /* =========================
-       BUSCAR FPS
+       VARIABLES
     ========================= */
 
     let fps = 60;
 
+    let objetivoTexto;
+
+    let configuracion;
+
+
+    /* =================================================
+       CYBERPUNK
+    ================================================= */
 
     if (game === "cyberpunk") {
 
-        let data =
-            fpsData
-                [game]
-                ?.[gpu]
-                ?.[cpu]
-                ?.[resolution]
-                ?.[target];
+
+        /* Comprobar opciones */
+
+        let raytracing =
+            document.getElementById("raytracing").value;
 
 
-        if (data) {
-
-            fps =
-                data[raytracing];
-
-        }
+        let framegeneration =
+            document.getElementById("framegeneration").value;
 
 
-        /*
-         * Frame Generation aumenta
-         * los FPS mostrados.
-         */
+        /* Datos base */
+
+        let cyberData =
+            fpsData.cyberpunk?.[gpu]?.[cpu]?.[resolution];
+
 
         if (
-            framegeneration === "on" &&
-            gpu !== "rtx3080"
+            cyberData &&
+            cyberData[target] !== undefined
         ) {
 
             fps =
-                Math.round(fps * 1.65);
+                cyberData[target];
 
         }
+
+
+        /* =========================
+           RAY TRACING
+        ========================= */
+
+        if (raytracing === "on") {
+
+            /*
+                Penalización aproximada
+                por activar RT.
+            */
+
+            fps =
+                Math.round(
+                    fps * 0.68
+                );
+
+        }
+
+
+        /* =========================
+           FRAME GENERATION
+        ========================= */
+
+        if (framegeneration === "on") {
+
+            /*
+                Aumento aproximado
+                de FPS percibidos.
+            */
+
+            fps =
+                Math.round(
+                    fps * 1.65
+                );
+
+        }
+
+
+        /* =========================
+           OBJETIVO CYBERPUNK
+        ========================= */
+
+        if (target === "low") {
+
+            objetivoTexto =
+                "Bajo";
+
+            configuracion =
+                "Baja";
+
+        }
+
+        else if (target === "balanced") {
+
+            objetivoTexto =
+                "Equilibrado";
+
+            configuracion =
+                "Media / Alta";
+
+        }
+
+        else {
+
+            objetivoTexto =
+                "Calidad";
+
+            configuracion =
+                "Alta";
+
+        }
+
 
     }
 
 
+    /* =================================================
+       FORTNITE
+    ================================================= */
+
     else {
 
+
         let data =
-            fpsData
-                [game]
-                ?.[gpu]
-                ?.[cpu]
-                ?.[resolution];
+            fpsData[game]?.[gpu]?.[cpu]?.[resolution];
 
 
         if (
@@ -2546,6 +2316,39 @@ function calculateFPS() {
 
             fps =
                 data[target];
+
+        }
+
+
+        /* Resultado */
+
+        if (target === "competitive") {
+
+            objetivoTexto =
+                "Competitivo";
+
+            configuracion =
+                "Baja";
+
+        }
+
+        else if (target === "balanced") {
+
+            objetivoTexto =
+                "Equilibrado";
+
+            configuracion =
+                "Media / Alta";
+
+        }
+
+        else {
+
+            objetivoTexto =
+                "Calidad";
+
+            configuracion =
+                "Alta";
 
         }
 
@@ -2582,80 +2385,59 @@ function calculateFPS() {
 
 
     /* =========================
-       TEXTO DEL OBJETIVO
+       INFORMACIÓN EXTRA
     ========================= */
 
-    let objetivoTexto;
-
-    let configuracion;
+    let extraHTML = "";
 
 
     if (game === "cyberpunk") {
 
-        if (target === "low") {
 
-            objetivoTexto =
-                "Bajo";
-
-            configuracion =
-                "Baja";
-
-        }
-
-        else if (target === "balanced") {
-
-            objetivoTexto =
-                "Equilibrado";
-
-            configuracion =
-                "Media / Alta";
-
-        }
-
-        else {
-
-            objetivoTexto =
-                "Calidad";
-
-            configuracion =
-                "Alta";
-
-        }
-
-    }
+        let raytracing =
+            document.getElementById("raytracing").value;
 
 
-    else {
+        let framegeneration =
+            document.getElementById("framegeneration").value;
 
-        if (target === "competitive") {
 
-            objetivoTexto =
-                "Competitivo";
+        extraHTML +=
 
-            configuracion =
-                "Baja";
+            '<div class="result-row">' +
 
-        }
+                '<span>Ray Tracing</span>' +
 
-        else if (target === "balanced") {
+                '<strong>' +
 
-            objetivoTexto =
-                "Equilibrado";
+                    (
+                        raytracing === "on"
+                        ? "Activado"
+                        : "Desactivado"
+                    ) +
 
-            configuracion =
-                "Media / Alta";
+                '</strong>' +
 
-        }
+            '</div>';
 
-        else {
 
-            objetivoTexto =
-                "Calidad";
+        extraHTML +=
 
-            configuracion =
-                "Alta";
+            '<div class="result-row">' +
 
-        }
+                '<span>Frame Generation</span>' +
+
+                '<strong>' +
+
+                    (
+                        framegeneration === "on"
+                        ? "Activado"
+                        : "Desactivado"
+                    ) +
+
+                '</strong>' +
+
+            '</div>';
 
     }
 
@@ -2669,53 +2451,6 @@ function calculateFPS() {
             (fps / 200) * 100,
             100
         );
-
-
-    /* =========================
-       INFORMACIÓN EXTRA CYBERPUNK
-    ========================= */
-
-    let cyberpunkExtra = "";
-
-
-    if (game === "cyberpunk") {
-
-        cyberpunkExtra =
-
-            '<div class="result-row">' +
-
-                '<span>Ray Tracing</span>' +
-
-                '<strong>' +
-
-                    (
-                        raytracing === "on"
-                            ? "Activado"
-                            : "Desactivado"
-                    ) +
-
-                '</strong>' +
-
-            '</div>' +
-
-
-            '<div class="result-row">' +
-
-                '<span>Frame Generation</span>' +
-
-                '<strong>' +
-
-                    (
-                        framegeneration === "on"
-                            ? "Activado"
-                            : "Desactivado"
-                    ) +
-
-                '</strong>' +
-
-            '</div>';
-
-    }
 
 
     /* =========================
@@ -2781,7 +2516,7 @@ function calculateFPS() {
                 '</div>' +
 
 
-                cyberpunkExtra +
+                extraHTML +
 
 
                 '<div class="result-row">' +
@@ -2808,11 +2543,11 @@ function calculateFPS() {
 
                     'style="--performance-width:' +
 
-                    performance +
+                        performance +
 
-                    '%;">' +
+                        '%;"' +
 
-                '</div>' +
+                '></div>' +
 
             '</div>' +
 
