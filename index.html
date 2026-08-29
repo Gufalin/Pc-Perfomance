@@ -125,42 +125,30 @@ function calculateFPS() {
 
     let fps = 60;
 
-if (game === "fortnite" && gpu === "rtx3080" && resolution === "1440" && cpu === "i5-14600kf") {
-    fps = 180;
+    if (game === "fortnite" && gpu === "rtx3080" && resolution === "1440" && cpu === "i5-14600kf") {
+        fps = 180;
+    }
+
+    if (game === "cyberpunk" && gpu === "rtx3080" && resolution === "1440") {
+        fps = 80;
+    }
+
+    if (game === "warzone" && gpu === "rtx3080" && resolution === "1440") {
+        fps = 130;
+    }
+
+    let resultado;
+
+    if (fps >= 144) {
+        resultado = "🔥 Excelente rendimiento";
+    } else {
+        resultado = "Rendimiento mejorable";
+    }
+
+    document.getElementById("result").innerHTML =
+        "FPS estimados: " + fps + "<br>" + resultado;
 }
 
-let resultado;
-
-if (fps >= 144) {
-
-    resultado = "🔥 Excelente rendimiento";
-
-} else {
-
-    resultado = "Rendimiento mejorable";
-
-}
-
-document.getElementById("result").innerHTML =
-
-    "FPS estimados: " + fps + "<br>" + resultado;
-    
-}
-if (game === "cyberpunk" && gpu === "rtx3080" && resolution === "1440") {
-    fps = 80;
-}
-
-if (game === "warzone" && gpu === "rtx3080" && resolution === "1440") {
-    fps = 130;
-}
-
-document.getElementById("result").innerHTML =
-    "FPS estimados: " + fps;
-
-}
-
-
-document.getElementById("result").innerHTML = resultado;
 </script>
 
 </body>
