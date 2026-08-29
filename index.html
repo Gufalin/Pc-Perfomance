@@ -1208,6 +1208,104 @@ button:active {
 
 }
 
+/* =========================
+   OPCIONES CYBERPUNK
+========================= */
+
+.cyberpunk-options {
+    display: none;
+    grid-column: 1 / -1;
+    gap: 10px;
+    margin-top: -2px;
+}
+
+.cyberpunk-option {
+    flex: 1;
+    min-height: 46px;
+    padding: 0 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: #151820;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 12px;
+
+    color: #aeb4c3;
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.cyberpunk-option:hover {
+    background: #1a1e27;
+    border-color: rgba(255, 190, 80, 0.35);
+}
+
+.cyberpunk-option.active {
+    background: rgba(190, 125, 40, 0.10);
+    border-color: rgba(255, 190, 80, 0.55);
+    color: #f0c77a;
+}
+
+.cyberpunk-option .toggle {
+    width: 32px;
+    height: 18px;
+
+    position: relative;
+
+    background: #292e38;
+    border-radius: 20px;
+
+    transition: background 0.2s ease;
+}
+
+.cyberpunk-option .toggle::after {
+    content: "";
+
+    position: absolute;
+
+    width: 12px;
+    height: 12px;
+
+    top: 3px;
+    left: 3px;
+
+    background: #858b99;
+    border-radius: 50%;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+.cyberpunk-option.active .toggle {
+    background: rgba(190, 125, 40, 0.65);
+}
+
+.cyberpunk-option.active .toggle::after {
+    transform: translateX(14px);
+    background: #ffffff;
+}
+
+@media (max-width: 600px) {
+    .cyberpunk-options {
+        display: none;
+        flex-direction: column;
+    }
+
+    .cyberpunk-option {
+        width: 100%;
+    }
+}
+
     </style>
 </head>
 
@@ -1376,6 +1474,28 @@ button:active {
                 </option>
 
             </select>
+            
+            <div class="cyberpunk-options" id="cyberpunk-options">
+
+    <div
+        class="cyberpunk-option"
+        id="raytracing-option"
+        onclick="toggleCyberpunkOption('raytracing')"
+    >
+        <span>Ray Tracing</span>
+        <div class="toggle"></div>
+    </div>
+
+    <div
+        class="cyberpunk-option"
+        id="framegen-option"
+        onclick="toggleCyberpunkOption('framegen')"
+    >
+        <span>Frame Generation</span>
+        <div class="toggle"></div>
+    </div>
+
+</div>
 
 
             <!-- =========================
@@ -1952,54 +2072,62 @@ function showGame() {
     let game =
         document.getElementById("game").value;
 
-
     if (game === "fortnite") {
 
         document.getElementById("game-preview").innerHTML =
             '<img src="./fortnite.PNG">';
 
     }
-
     else if (game === "cyberpunk") {
 
         document.getElementById("game-preview").innerHTML =
             '<img src="./cyberpunk.JPG">';
 
-    }
+        document.getElementById("cyberpunk-options").style.display =
+            "flex";
 
+    }
     else if (game === "warzone") {
 
         document.getElementById("game-preview").innerHTML =
             '<img src="./warzone.PNG">';
 
     }
-
     else {
 
-        document.getElementById("game-preview").innerHTML =
-            "";
+        document.getElementById("game-preview").innerHTML = "";
 
     }
 
+    if (game !== "cyberpunk") {
 
-    /* Mostrar opciones especiales */
+        document.getElementById("cyberpunk-options").style.display =
+            "none";
 
-    let cyberOptions =
-        document.getElementById("cyber-options");
+        document.getElementById("raytracing-option")
+            .classList.remove("active");
 
-
-    if (game === "cyberpunk") {
-
-        cyberOptions.style.display = "grid";
-
-    }
-
-    else {
-
-        cyberOptions.style.display = "none";
+        document.getElementById("framegen-option")
+            .classList.remove("active");
 
     }
+}
 
+function toggleCyberpunkOption(option) {
+
+    let element;
+
+    if (option === "raytracing") {
+        element =
+            document.getElementById("raytracing-option");
+    }
+
+    if (option === "framegen") {
+        element =
+            document.getElementById("framegen-option");
+    }
+
+    element.classList.toggle("active");
 }
 
 
