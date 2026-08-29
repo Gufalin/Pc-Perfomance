@@ -77,7 +77,33 @@
 .gpu-card:hover {
     transform: scale(1.02);
 }
-        
+
+        .gpu-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.gpu-container select {
+    flex: 1;
+    margin-top: 0;
+}
+
+#gpu-preview {
+    width: 55px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#gpu-preview img {
+    width: 55px;
+    height: 45px;
+    object-fit: contain;
+}
+                        
     </style>
 </head>
 
@@ -98,14 +124,18 @@
             <option value="warzone">Warzone</option>
         </select>
 
-       <select id="gpu" onchange="showGPU()">
-    <option value="">Selecciona una GPU</option>
-    <option value="rtx3080">RTX 3080</option>
-    <option value="rtx4070">RTX 4070</option>
-    <option value="rtx5070">RTX 5070</option>
-</select>
+       <div class="gpu-container">
 
-<div id="gpu-preview"></div>
+    <select id="gpu" onchange="showGPU()">
+        <option value="">Selecciona una GPU</option>
+        <option value="rtx3080">RTX 3080</option>
+        <option value="rtx4070">RTX 4070</option>
+        <option value="rtx5070">RTX 5070</option>
+    </select>
+
+    <div id="gpu-preview"></div>
+
+</div>
 
         <select id="cpu">
             <option value="">Selecciona tu CPU</option>
