@@ -267,14 +267,28 @@ function calculateFPS() {
         resultado = "Rendimiento mejorable";
     }
 
+let objetivoTexto;
+let configuracion;
+
+if (target === "competitive") {
+    objetivoTexto = "Competitivo";
+    configuracion = "Baja";
+} else if (target === "balanced") {
+    objetivoTexto = "Equilibrado";
+    configuracion = "Media / Alta";
+} else if (target === "quality") {
+    objetivoTexto = "Calidad";
+    configuracion = "Alta";
+}
+
     document.getElementById("result").innerHTML =
     '<div class="result-card">' +
-        '<h2>🎮 Resultado</h2>' +
+        '<h2> Resultado</h2>' +
         '<div class="fps-number">' + fps + ' FPS</div>' +
         '<div class="result-info">' +
-            '🎯 Objetivo: ' + target + '<br>' +
-            '🖥️ Resolución: ' + resolution + 'p<br>' +
-            '📊 Rendimiento: ' + resultado +
+            ' Objetivo: ' + objetivoTexto + '<br>' +
+            ' Resolución: ' + resolution + 'p<br>' +
+            ' Configuración: ' + configuracion + '<br>' +
         '</div>' +
     '</div>';
     
