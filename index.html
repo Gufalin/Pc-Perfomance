@@ -286,10 +286,12 @@
     <p>Calcula el rendimiento estimado de tu PC.</p>
 
     <div class="calculator">
+        
+        <div class="form-grid">
 
        <div class="game-container">
 
-    <select id="game" onchange="showGame()">
+    <select id="game" class="form-full" onchange="showGame()">
         <option value="">Selecciona un juego</option>
         <option value="fortnite">Fortnite</option>
         <option value="cyberpunk">Cyberpunk 2077</option>
@@ -339,6 +341,7 @@
     <option value="balanced"> Equilibrado</option>
     <option value="quality"> Calidad</option>
 </select>
+</div>
 
         <button onclick="calculateFPS()">
             CALCULAR RENDIMIENTO
