@@ -168,10 +168,14 @@ function showGPU() {
     let gpu = document.getElementById("gpu").value;
 
     if (gpu === "rtx3080") {
-        document.getElementById("gpu-preview").innerHTML =
-            '<img src="./rtx3080.PNG" width="150"><p>RTX 3080</p>';
-    }
 
+        document.getElementById("gpu-preview").innerHTML =
+            '<img src="./rtx3080.PNG" alt="RTX 3080">';
+
+    } else {
+
+        document.getElementById("gpu-preview").innerHTML = "";
+    }
 }
 
 function calculateFPS() {
