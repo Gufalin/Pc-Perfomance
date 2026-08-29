@@ -208,6 +208,76 @@
 
 <script>
 
+let fpsData = {
+
+    fortnite: {
+
+        rtx3080: {
+
+            "i5-14600kf": {
+                "1080": {
+                    competitive: 324,
+                    balanced: 228,
+                    quality: 177
+                },
+                "1440": {
+                    competitive: 206,
+                    balanced: 145,
+                    quality: 112
+                },
+                "2160": {
+                    competitive: 109,
+                    balanced: 77,
+                    quality: 59
+                }
+            },
+
+            "ryzen 5 7600": {
+                "1080": {
+                    competitive: 322,
+                    balanced: 228,
+                    quality: 179
+                },
+                "1440": {
+                    competitive: 205,
+                    balanced: 146,
+                    quality: 111
+                },
+                "2160": {
+                    competitive: 107,
+                    balanced: 76,
+                    quality: 56
+                }
+            }
+
+        },
+
+        rtx5070: {
+
+            "i5-14600kf": {
+                "1080": {
+                    competitive: 362,
+                    balanced: 260,
+                    quality: 201
+                },
+                "1440": {
+                    competitive: 233,
+                    balanced: 161,
+                    quality: 125
+                },
+                "2160": {
+                    competitive: 122,
+                    balanced: 87,
+                    quality: 70
+                }
+            }
+
+        }
+
+    }
+
+};
+
 function calculateFPS() {
 
     let game = document.getElementById("game").value;
