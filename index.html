@@ -140,6 +140,32 @@
     background: #5865f2;
     border-radius: 10px;
 }
+
+.game-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.game-container select {
+    flex: 1;
+    margin-top: 0;
+}
+
+#game-preview {
+    width: 55px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#game-preview img {
+    width: 55px;
+    height: 45px;
+    object-fit: contain;
+}
                         
                                                                         
     </style>
@@ -155,12 +181,18 @@
 
     <div class="calculator">
 
-        <select id="game">
-            <option value="">Selecciona un juego</option>
-            <option value="fortnite">Fortnite</option>
-            <option value="cyberpunk">Cyberpunk 2077</option>
-            <option value="warzone">Warzone</option>
-        </select>
+       <div class="game-container">
+
+    <select id="game" onchange="showGame()">
+        <option value="">Selecciona un juego</option>
+        <option value="fortnite">Fortnite</option>
+        <option value="cyberpunk">Cyberpunk 2077</option>
+        <option value="warzone">Call of Duty:Warzone</option>
+    </select>
+
+    <div id="game-preview"></div>
+
+</div>
 
        <div class="gpu-container">
 
@@ -389,6 +421,31 @@ let fpsData = {
     }
 
 };
+
+function showGame() {
+
+    let game = document.getElementById("game").value;
+
+    if (game === "fortnite") {
+
+        document.getElementById("game-preview").innerHTML =
+            '<img src="./fortnite.PNG">';
+
+    } else if (game === "cyberpunk") {
+
+        document.getElementById("game-preview").innerHTML =
+            '<img src="./cyberpunk.PNG">';
+
+    } else if (game === "warzone") {
+
+        document.getElementById("game-preview").innerHTML =
+            '<img src="./warzone.PNG">';
+
+    } else {
+
+        document.getElementById("game-preview").innerHTML = "";
+    }
+}
 
 function showGPU() {
 
