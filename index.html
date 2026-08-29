@@ -485,6 +485,131 @@ button:active {
         font-size: 36px;
     }
 }
+
+/* =========================
+   TARJETAS DE SELECCIÓN
+========================= */
+
+.game-container,
+.gpu-container,
+.cpu-container {
+    position: relative;
+
+    background: #171a22;
+
+    border: 1px solid #303644;
+
+    border-radius: 14px;
+
+    padding: 6px;
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.game-container:hover,
+.gpu-container:hover,
+.cpu-container:hover {
+    background: #1b1f29;
+
+    border-color: #41495a;
+}
+
+.game-container:focus-within,
+.gpu-container:focus-within,
+.cpu-container:focus-within {
+    border-color: #5865f2;
+
+    box-shadow:
+        0 0 0 3px rgba(88, 101, 242, 0.10);
+}
+
+
+/* Quitamos el aspecto de bloque del select */
+
+.game-container select,
+.gpu-container select,
+.cpu-container select {
+    background-color: transparent;
+
+    border: none;
+
+    box-shadow: none;
+}
+
+.game-container select:focus,
+.gpu-container select:focus,
+.cpu-container select:focus {
+    border: none;
+
+    box-shadow: none;
+}
+
+
+/* Imagen del juego */
+
+#game-preview {
+    width: 55px;
+    height: 50px;
+
+    margin-right: 3px;
+
+    border-radius: 10px;
+
+    background: #202530;
+
+    overflow: hidden;
+}
+
+#game-preview img {
+    width: 44px;
+    height: 44px;
+
+    object-fit: contain;
+}
+
+
+/* Imagen CPU */
+
+#cpu-preview {
+    width: 55px;
+    height: 50px;
+
+    margin-right: 3px;
+
+    border-radius: 10px;
+
+    background: #202530;
+}
+
+#cpu-preview img {
+    width: 43px;
+    height: 43px;
+
+    object-fit: contain;
+}
+
+
+/* GPU */
+
+#gpu-preview {
+    flex: 0 0 155px;
+
+    margin-right: 0;
+}
+
+.gpu-info {
+    min-height: 48px;
+
+    background: #202530;
+
+    border: 1px solid #2c3240;
+
+    border-radius: 10px;
+}
+
     </style>
 </head>
 <body>
