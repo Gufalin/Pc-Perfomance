@@ -57,6 +57,27 @@
             font-size: 22px;
             font-weight: bold;
         }
+        .gpu-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #222631;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.gpu-card img {
+    width: 70px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.gpu-card:hover {
+    transform: scale(1.02);
+}
+        
     </style>
 </head>
 
@@ -118,10 +139,16 @@
 
 <script>
 
+let selectedGPU = "";
+
+function selectGPU(gpu) {
+    selectedGPU = gpu;
+}
+
 function calculateFPS() {
 
     let game = document.getElementById("game").value;
-    let gpu = document.getElementById("gpu").value;
+    let let gpu = selectedGPU;
     let cpu = document.getElementById("cpu").value;
     let resolution = document.getElementById("resolution").value;
 
