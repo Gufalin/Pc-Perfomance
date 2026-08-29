@@ -1024,6 +1024,21 @@ button:active {
                     <option value="rtx5070">
                         RTX 5070
                     </option>
+                    <option value="rtx4070ti">
+    RTX 4070 Ti
+</option>
+
+<option value="rtx4070tisuper">
+    RTX 4070 Ti SUPER
+</option>
+
+<option value="rtx4080">
+    RTX 4080
+</option>
+
+<option value="rtx5060">
+    RTX 5060
+</option>
 
                 </select>
 
@@ -1650,24 +1665,32 @@ function toggleCyberpunkOption(option) {
 
 function showGPU() {
 
-    let gpu = document.getElementById("gpu").value;
+    let gpu =
+        document.getElementById("gpu").value;
 
     if (gpu === "rtx3080") {
 
         document.getElementById("gpu-preview").innerHTML =
 
             '<div class="gpu-info">' +
+
                 '<img src="./rtx3080.PNG">' +
+
                 '<div>' +
+
                     '<strong>RTX 3080</strong>' +
+
                     '<span>10 GB VRAM</span>' +
+
                 '</div>' +
+
             '</div>';
 
-        // La RTX 3080 NO tiene Frame Generation
-        document.getElementById("framegen-option").style.display = "none";
+        // RTX 3080 NO tiene Frame Generation
+        document.getElementById("framegen-option").style.display =
+            "none";
 
-        // Si estaba activado, lo desactivamos
+        // Por seguridad, lo dejamos desactivado
         document.getElementById("framegen-option")
             .classList.remove("active");
 
@@ -1678,15 +1701,22 @@ function showGPU() {
         document.getElementById("gpu-preview").innerHTML =
 
             '<div class="gpu-info">' +
+
                 '<img src="./rtx4070.PNG">' +
+
                 '<div>' +
+
                     '<strong>RTX 4070</strong>' +
+
                     '<span>12 GB VRAM</span>' +
+
                 '</div>' +
+
             '</div>';
 
-        // La RTX 4070 sí permite Frame Generation
-        document.getElementById("framegen-option").style.display = "flex";
+        // RTX 4070 SÍ tiene Frame Generation
+        document.getElementById("framegen-option").style.display =
+            "flex";
 
     }
 
@@ -1695,15 +1725,22 @@ function showGPU() {
         document.getElementById("gpu-preview").innerHTML =
 
             '<div class="gpu-info">' +
+
                 '<img src="./rtx5070.PNG">' +
+
                 '<div>' +
+
                     '<strong>RTX 5070</strong>' +
+
                     '<span>12 GB VRAM</span>' +
+
                 '</div>' +
+
             '</div>';
 
-        // La RTX 5070 sí permite Frame Generation
-        document.getElementById("framegen-option").style.display = "flex";
+        // RTX 5070 SÍ tiene Frame Generation
+        document.getElementById("framegen-option").style.display =
+            "flex";
 
     }
 
@@ -1711,10 +1748,14 @@ function showGPU() {
 
         document.getElementById("gpu-preview").innerHTML = "";
 
-        // Ocultar Frame Generation si no hay GPU seleccionada
-        document.getElementById("framegen-option").style.display = "none";
+        document.getElementById("framegen-option").style.display =
+            "none";
+
+        document.getElementById("framegen-option")
+            .classList.remove("active");
 
     }
+
 }
 
 
@@ -1951,8 +1992,31 @@ function calculateFPS() {
                 );
 
         }
+if (game === "cyberpunk") {
+
+    document.getElementById("cyberpunk-options").style.display =
+        "flex";
+
+    let gpu =
+        document.getElementById("gpu").value;
+
+    if (gpu === "rtx3080") {
+
+        document.getElementById("framegen-option").style.display =
+            "none";
+
+        document.getElementById("framegen-option")
+            .classList.remove("active");
+
+    } else {
+
+        document.getElementById("framegen-option").style.display =
+            "flex";
 
     }
+
+}
+    
 
 
     /* =========================
