@@ -7,1304 +7,1305 @@
 
     <style>
 
-* {
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
+        /* =========================
+           PC PERFORMANCE — PREMIUM
+        ========================= */
 
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background:
-        radial-gradient(
-            circle at 50% -10%,
-            rgba(88, 101, 242, 0.16),
-            transparent 38%
-        ),
-        #0b0d12;
-    color: white;
-    text-align: center;
-    min-height: 100vh;
-}
-
-
-/* =========================
-   CONTENEDOR
-========================= */
+        * {
+            box-sizing: border-box;
+        }
 
-.container {
-    width: 100%;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 55px 20px 70px;
-}
+        html {
+            scroll-behavior: smooth;
+        }
 
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
 
-/* =========================
-   CABECERA
-========================= */
+            background:
+                radial-gradient(
+                    circle at 50% -10%,
+                    rgba(88, 101, 242, 0.16),
+                    transparent 38%
+                ),
+                #0b0d12;
 
-h1 {
-    margin: 0;
-    font-size: clamp(34px, 6vw, 52px);
-    font-weight: 800;
-    letter-spacing: -1.5px;
+            color: white;
+            text-align: center;
+            min-height: 100vh;
+        }
 
-    background:
-        linear-gradient(
-            135deg,
-            #ffffff 20%,
-            #aeb5ff 80%
-        );
 
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-}
+        /* =========================
+           CONTENEDOR
+        ========================= */
 
-p {
-    margin-top: 12px;
-    color: #858b9b;
-    font-size: 15px;
-}
+        .container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 55px 20px 70px;
+        }
 
 
-/* =========================
-   CALCULADORA
-========================= */
+        /* =========================
+           CABECERA
+        ========================= */
 
-.calculator {
-    position: relative;
+        h1 {
+            margin: 0;
 
-    margin-top: 38px;
-    padding: 30px;
+            font-size: clamp(34px, 6vw, 52px);
 
-    background:
-        linear-gradient(
-            145deg,
-            rgba(30, 34, 46, 0.96),
-            rgba(19, 22, 30, 0.96)
-        );
+            font-weight: 800;
 
-    border: 1px solid rgba(255, 255, 255, 0.07);
+            letter-spacing: -1.5px;
 
-    border-radius: 22px;
+            background:
+                linear-gradient(
+                    135deg,
+                    #ffffff 20%,
+                    #aeb5ff 80%
+                );
 
-    box-shadow:
-        0 25px 70px rgba(0, 0, 0, 0.45),
-        inset 0 1px 0 rgba(255, 255, 255, 0.035);
+            -webkit-background-clip: text;
+            background-clip: text;
 
-    overflow: hidden;
-}
+            color: transparent;
+        }
 
+        p {
+            margin-top: 12px;
 
-/* Línea superior */
+            color: #858b9b;
 
-.calculator::before {
-    content: "";
+            font-size: 15px;
+        }
 
-    position: absolute;
 
-    top: 0;
-    left: 10%;
-    right: 10%;
+        /* =========================
+           CALCULADORA
+        ========================= */
 
-    height: 1px;
+        .calculator {
+            position: relative;
 
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(88, 101, 242, 0.8),
-            transparent
-        );
-}
+            margin-top: 38px;
 
+            padding: 30px;
 
-/* =========================
-   GRID
-========================= */
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(30, 34, 46, 0.96),
+                    rgba(19, 22, 30, 0.96)
+                );
 
-.form-grid {
-    display: grid;
+            border: 1px solid rgba(255, 255, 255, 0.07);
 
-    grid-template-columns: 1fr 1fr;
+            border-radius: 22px;
 
-    gap: 14px;
+            box-shadow:
+                0 25px 70px rgba(0, 0, 0, 0.45),
+                inset 0 1px 0 rgba(255, 255, 255, 0.035);
 
-    width: 100%;
-}
+            overflow: hidden;
+        }
 
-.form-full {
-    grid-column: 1 / -1;
-}
 
+        /* Línea superior */
 
-/* =========================
-   SELECTORES
-========================= */
+        .calculator::before {
+            content: "";
 
-select {
-    appearance: none;
-    -webkit-appearance: none;
+            position: absolute;
 
-    width: 100%;
-    min-height: 54px;
+            top: 0;
+            left: 10%;
+            right: 10%;
 
-    padding: 0 45px 0 17px;
+            height: 1px;
 
-    margin-top: 0;
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(88, 101, 242, 0.8),
+                    transparent
+                );
+        }
 
-    border-radius: 13px;
 
-    border: 1px solid #303644;
+        /* =========================
+           GRID
+        ========================= */
 
-    outline: none;
+        .form-grid {
+            display: grid;
 
-    background-color: #171a22;
+            grid-template-columns: 1fr 1fr;
 
-    color: #dfe2ea;
+            gap: 14px;
 
-    font-size: 15px;
-    font-weight: 500;
+            width: 100%;
+        }
 
-    cursor: pointer;
+        .form-full {
+            grid-column: 1 / -1;
+        }
 
-    background-image:
-        linear-gradient(
-            45deg,
-            transparent 50%,
-            #777f91 50%
-        ),
-        linear-gradient(
-            135deg,
-            #777f91 50%,
-            transparent 50%
-        );
 
-    background-position:
-        calc(100% - 20px) 50%,
-        calc(100% - 14px) 50%;
+        /* =========================
+           SELECTORES
+        ========================= */
 
-    background-size:
-        6px 6px,
-        6px 6px;
+        select {
+            appearance: none;
+            -webkit-appearance: none;
 
-    background-repeat: no-repeat;
+            width: 100%;
 
-    transition:
-        border-color 0.2s ease,
-        background-color 0.2s ease,
-        box-shadow 0.2s ease,
-        transform 0.2s ease;
-}
+            min-height: 54px;
 
-select:hover {
-    background-color: #1b1f29;
-    border-color: #41495a;
-}
+            padding: 0 45px 0 17px;
 
-select:focus {
-    border-color: #5865f2;
+            margin-top: 0;
 
-    background-color: #1b1f29;
+            border-radius: 13px;
 
-    box-shadow:
-        0 0 0 3px rgba(88, 101, 242, 0.12);
-}
+            border: 1px solid #303644;
 
-select option {
-    background: #171a22;
-    color: white;
-}
+            outline: none;
 
+            background-color: #171a22;
 
-/* =========================
-   CONTENEDORES
-========================= */
+            color: #dfe2ea;
 
-.game-container,
-.gpu-container,
-.cpu-container {
-    display: flex;
+            font-size: 15px;
 
-    align-items: center;
+            font-weight: 500;
 
-    gap: 10px;
+            cursor: pointer;
 
-    width: 100%;
+            background-image:
+                linear-gradient(
+                    45deg,
+                    transparent 50%,
+                    #777f91 50%
+                ),
+                linear-gradient(
+                    135deg,
+                    #777f91 50%,
+                    transparent 50%
+                );
 
-    min-width: 0;
+            background-position:
+                calc(100% - 20px) 50%,
+                calc(100% - 14px) 50%;
 
-    position: relative;
+            background-size:
+                6px 6px,
+                6px 6px;
 
-    background:
-        linear-gradient(
-            145deg,
-            #1b1f29,
-            #151820
-        );
+            background-repeat: no-repeat;
 
-    border: 1px solid rgba(255, 255, 255, 0.07);
+            transition:
+                border-color 0.2s ease,
+                background-color 0.2s ease,
+                box-shadow 0.2s ease,
+                transform 0.2s ease;
+        }
 
-    border-radius: 15px;
+        select:hover {
+            background-color: #1b1f29;
+            border-color: #41495a;
+        }
 
-    padding: 6px;
+        select:focus {
+            border-color: #5865f2;
 
-    box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.025),
-        0 6px 18px rgba(0, 0, 0, 0.12);
+            background-color: #1b1f29;
 
-    transition:
-        border-color 0.25s ease,
-        box-shadow 0.25s ease,
-        transform 0.2s ease;
-}
+            box-shadow:
+                0 0 0 3px rgba(88, 101, 242, 0.12);
+        }
 
-.game-container:hover,
-.gpu-container:hover,
-.cpu-container:hover {
-    border-color: rgba(255, 255, 255, 0.13);
+        select option {
+            background: #171a22;
+            color: white;
+        }
 
-    box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.035),
-        0 8px 22px rgba(0, 0, 0, 0.18);
-}
 
-.game-container:focus-within,
-.gpu-container:focus-within,
-.cpu-container:focus-within {
-    border-color: rgba(88, 101, 242, 0.75);
+        /* =========================
+           CONTENEDORES
+        ========================= */
 
-    box-shadow:
-        0 0 0 3px rgba(88, 101, 242, 0.08),
-        0 8px 25px rgba(0, 0, 0, 0.2);
-}
+        .game-container,
+        .gpu-container,
+        .cpu-container {
+            display: flex;
 
+            align-items: center;
 
-/* =========================
-   SELECT DENTRO CONTENEDORES
-========================= */
+            gap: 10px;
 
-.game-container select,
-.gpu-container select,
-.cpu-container select {
-    flex: 1;
+            width: 100%;
 
-    min-width: 0;
+            min-width: 0;
+        }
 
-    background: transparent;
 
-    border: none;
+        /* =========================
+           JUEGO
+        ========================= */
 
-    box-shadow: none;
-}
+        .game-container select,
+        .gpu-container select,
+        .cpu-container select {
+            flex: 1;
 
-.game-container select:focus,
-.gpu-container select:focus,
-.cpu-container select:focus {
-    border: none;
-    box-shadow: none;
-}
+            min-width: 0;
+        }
 
+        #game-preview {
+            width: 55px;
+            height: 54px;
 
-/* =========================
-   JUEGO
-========================= */
+            display: flex;
 
-#game-preview {
-    width: 51px;
-    height: 48px;
+            align-items: center;
+            justify-content: center;
 
-    margin-right: 3px;
+            flex-shrink: 0;
+        }
 
-    display: flex;
+        #game-preview img {
+            width: 48px;
+            height: 48px;
 
-    align-items: center;
-    justify-content: center;
+            object-fit: contain;
 
-    flex-shrink: 0;
+            filter:
+                drop-shadow(
+                    0 4px 8px rgba(0, 0, 0, 0.4)
+                );
+        }
 
-    border-radius: 10px;
 
-    background:
-        linear-gradient(
-            145deg,
-            #222733,
-            #1c2029
-        );
+        /* =========================
+           GPU
+        ========================= */
 
-    border: 1px solid rgba(255, 255, 255, 0.05);
+        #gpu-preview {
+            flex: 0 0 155px;
 
-    overflow: hidden;
+            min-width: 0;
+        }
 
-    box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.03);
-}
+        .gpu-info {
+            display: flex;
 
-#game-preview img {
-    width: 40px;
-    height: 40px;
+            align-items: center;
 
-    object-fit: contain;
+            gap: 9px;
 
-    filter:
-        drop-shadow(
-            0 4px 7px rgba(0, 0, 0, 0.4)
-        );
+            width: 100%;
 
-    animation: previewAppear 0.25s ease;
-}
+            min-height: 54px;
 
+            padding: 6px 9px;
 
-/* =========================
-   GPU
-========================= */
+            background:
+                linear-gradient(
+                    135deg,
+                    #222733,
+                    #1b1f29
+                );
 
-#gpu-preview {
-    flex: 0 0 155px;
+            border: 1px solid #303644;
 
-    margin-right: 0;
+            border-radius: 12px;
 
-    min-width: 0;
-}
+            text-align: left;
+        }
 
-.gpu-info {
-    display: flex;
+        .gpu-info img {
+            width: 46px;
+            height: 40px;
 
-    align-items: center;
+            object-fit: contain;
 
-    gap: 9px;
+            flex-shrink: 0;
+        }
 
-    width: 100%;
+        .gpu-info div {
+            display: flex;
 
-    min-height: 48px;
+            flex-direction: column;
 
-    padding: 5px 8px;
+            min-width: 0;
+        }
 
-    background:
-        linear-gradient(
-            145deg,
-            #222733,
-            #1c2029
-        );
+        .gpu-info strong {
+            font-size: 12px;
 
-    border: 1px solid rgba(255, 255, 255, 0.05);
+            color: #f1f3f8;
 
-    border-radius: 10px;
+            white-space: nowrap;
+        }
 
-    text-align: left;
+        .gpu-info span {
+            margin-top: 3px;
 
-    box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.03);
-}
+            color: #858c9d;
 
-.gpu-info img {
-    width: 43px;
-    height: 37px;
+            font-size: 10px;
 
-    object-fit: contain;
+            white-space: nowrap;
+        }
 
-    flex-shrink: 0;
 
-    filter:
-        drop-shadow(
-            0 4px 7px rgba(0, 0, 0, 0.4)
-        );
+        /* =========================
+           CPU
+        ========================= */
 
-    animation:
-        gpuAppear
-        0.35s
-        cubic-bezier(0.22, 1, 0.36, 1);
-}
+        #cpu-preview {
+            width: 55px;
+            height: 54px;
 
-.gpu-info div {
-    display: flex;
-    flex-direction: column;
+            display: flex;
 
-    min-width: 0;
-}
+            align-items: center;
+            justify-content: center;
 
-.gpu-info strong {
-    font-size: 12px;
+            flex-shrink: 0;
+        }
 
-    color: #f2f4f8;
+        #cpu-preview img {
+            width: 48px;
+            height: 48px;
 
-    white-space: nowrap;
-}
+            object-fit: contain;
 
-.gpu-info span {
-    margin-top: 3px;
+            filter:
+                drop-shadow(
+                    0 4px 8px rgba(0, 0, 0, 0.4)
+                );
+        }
 
-    color: #858c9d;
 
-    font-size: 10px;
+        /* =========================
+           BOTÓN PRINCIPAL
+        ========================= */
 
-    white-space: nowrap;
-}
+        button {
+            width: 100%;
 
+            min-height: 64px;
 
-/* =========================
-   CPU
-========================= */
+            margin-top: 22px;
 
-#cpu-preview {
-    width: 51px;
-    height: 48px;
+            padding: 0 24px;
 
-    margin-right: 3px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
 
-    display: flex;
+            border-radius: 14px;
 
-    align-items: center;
-    justify-content: center;
+            background:
+                linear-gradient(
+                    135deg,
+                    #263b8f,
+                    #3156c9
+                );
 
-    flex-shrink: 0;
+            color: #ffffff;
 
-    border-radius: 10px;
+            font-size: 15px;
 
-    background:
-        linear-gradient(
-            145deg,
-            #222733,
-            #1c2029
-        );
+            font-weight: 800;
 
-    border: 1px solid rgba(255, 255, 255, 0.05);
+            letter-spacing: 1px;
 
-    box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.03);
-}
+            cursor: pointer;
 
-#cpu-preview img {
-    width: 40px;
-    height: 40px;
+            box-shadow:
+                0 8px 25px rgba(35, 67, 160, 0.25),
+                inset 0 1px 0 rgba(255, 255, 255, 0.08);
 
-    object-fit: contain;
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease,
+                filter 0.2s ease;
+        }
 
-    filter:
-        drop-shadow(
-            0 4px 7px rgba(0, 0, 0, 0.4)
-        );
+        button:hover {
+            transform: translateY(-2px);
 
-    animation:
-        previewAppear
-        0.25s
-        ease;
-}
+            filter: brightness(1.12);
 
+            box-shadow:
+                0 12px 32px rgba(35, 67, 160, 0.35),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
 
-/* =========================
-   BOTÓN
-========================= */
+        button:active {
+            transform: translateY(0);
 
-button {
-    width: 100%;
+            box-shadow:
+                0 5px 15px rgba(35, 67, 160, 0.2);
+        }
 
-    min-height: 64px;
 
-    margin-top: 22px;
+        /* =========================
+           RESULTADO PREMIUM
+        ========================= */
 
-    padding: 0 24px;
+        #result {
+            margin-top: 25px;
+        }
 
-    border:
-        1px solid rgba(255, 255, 255, 0.08);
+        .result-card {
+            position: relative;
 
-    border-radius: 14px;
+            margin-top: 25px;
 
-    background:
-        linear-gradient(
-            135deg,
-            #263b8f,
-            #3156c9
-        );
+            padding: 28px;
 
-    color: #ffffff;
+            background:
+                linear-gradient(
+                    145deg,
+                    #202531,
+                    #171a22
+                );
 
-    font-size: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
 
-    font-weight: 800;
+            border-radius: 18px;
 
-    letter-spacing: 1px;
+            overflow: hidden;
 
-    cursor: pointer;
+            box-shadow:
+                0 18px 40px rgba(0, 0, 0, 0.28),
+                inset 0 1px 0 rgba(255, 255, 255, 0.035);
 
-    box-shadow:
-        0 8px 25px rgba(35, 67, 160, 0.25),
-        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+            animation: resultAppear 0.4s ease;
+        }
 
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease,
-        filter 0.2s ease;
-}
 
-button:hover {
-    transform: translateY(-2px);
+        /* Brillo superior */
 
-    filter: brightness(1.12);
+        .result-card::before {
+            content: "";
 
-    box-shadow:
-        0 12px 32px rgba(35, 67, 160, 0.35),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
-}
+            position: absolute;
 
-button:active {
-    transform: translateY(0);
+            top: 0;
+            left: 15%;
+            right: 15%;
 
-    box-shadow:
-        0 5px 15px rgba(35, 67, 160, 0.2);
-}
+            height: 1px;
 
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(88, 101, 242, 0.9),
+                    transparent
+                );
+        }
 
-/* =========================
-   OPCIONES CYBERPUNK
-========================= */
 
-#cyber-options {
-    display: none;
+        /* Brillo ambiental */
 
-    grid-column: 1 / -1;
+        .result-card::after {
+            content: "";
 
-    grid-template-columns: 1fr 1fr;
+            position: absolute;
 
-    gap: 14px;
+            width: 180px;
+            height: 180px;
 
-    margin-top: 0;
-}
+            top: -100px;
+            right: -70px;
 
-.cyber-option {
-    position: relative;
+            background: rgba(88, 101, 242, 0.08);
 
-    min-height: 54px;
+            border-radius: 50%;
 
-    padding: 0 17px;
+            filter: blur(40px);
 
-    display: flex;
+            pointer-events: none;
+        }
 
-    align-items: center;
 
-    text-align: left;
+        /* =========================
+           TÍTULO
+        ========================= */
 
-    border-radius: 15px;
+        .result-card h2 {
+            position: relative;
 
-    overflow: hidden;
+            margin: 0;
 
-    background:
-        linear-gradient(
-            145deg,
-            #201d27,
-            #171820
-        );
+            font-size: 17px;
 
-    border: 1px solid rgba(255, 195, 80, 0.22);
+            font-weight: 600;
 
-    box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.025),
-        0 6px 18px rgba(0, 0, 0, 0.12);
+            color: #aeb4c3;
 
-    transition:
-        border-color 0.25s ease,
-        box-shadow 0.25s ease,
-        transform 0.2s ease;
-}
+            letter-spacing: 0.3px;
+        }
 
-.cyber-option:hover {
-    border-color: rgba(255, 195, 80, 0.45);
 
-    box-shadow:
-        0 8px 24px rgba(0, 0, 0, 0.2),
-        0 0 20px rgba(255, 195, 80, 0.05);
-}
+        /* =========================
+           FPS
+        ========================= */
 
-.cyber-option label {
-    width: 100%;
+        .fps-number {
+            position: relative;
 
-    color: #d9dce5;
+            margin: 8px 0 18px;
 
-    font-size: 13px;
+            font-size: clamp(46px, 8vw, 58px);
 
-    font-weight: 600;
+            font-weight: 800;
 
-    display: flex;
+            letter-spacing: -2px;
 
-    flex-direction: column;
+            color: #ffffff;
 
-    gap: 3px;
-}
+            text-shadow:
+                0 5px 25px rgba(88, 101, 242, 0.25);
+        }
 
-.cyber-option small {
-    color: #8c8b91;
 
-    font-size: 10px;
+        /* =========================
+           INFORMACIÓN
+        ========================= */
 
-    font-weight: 400;
-}
+        .result-info {
+            position: relative;
 
+            margin-top: 8px;
 
-/* Selects especiales Cyberpunk */
+            color: #8f96a6;
 
-.cyber-option select {
-    width: 100%;
+            font-size: 14px;
+        }
 
-    min-height: 42px;
+        .result-row {
+            display: flex;
 
-    margin-top: 6px;
+            align-items: center;
 
-    padding-left: 0;
-    padding-right: 35px;
+            justify-content: space-between;
 
-    border: none;
+            padding: 11px 0;
 
-    background-color: transparent;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.055);
+        }
 
-    color: #f0c66a;
+        .result-row:last-child {
+            border-bottom: none;
+        }
 
-    font-size: 14px;
+        .result-row span {
+            color: #777f90;
 
-    font-weight: 700;
+            font-size: 13px;
 
-    box-shadow: none;
+            font-weight: 500;
+        }
 
-    background-position:
-        calc(100% - 10px) 50%,
-        calc(100% - 4px) 50%;
-}
+        .result-row strong {
+            color: #e8ebf2;
 
-.cyber-option select:focus {
-    border: none;
+            font-size: 13px;
 
-    box-shadow: none;
+            font-weight: 600;
+        }
 
-    background-color: transparent;
-}
 
-.cyber-option select option {
-    background: #171820;
+        /* =========================
+           BARRA
+        ========================= */
 
-    color: white;
-}
+        .performance-bar {
+            position: relative;
 
+            width: 100%;
 
-/* =========================
-   RESULTADO PREMIUM
-========================= */
+            height: 12px;
 
-#result {
-    margin-top: 25px;
-}
+            margin-top: 20px;
 
-.result-card {
-    position: relative;
+            background: #10131a;
 
-    margin-top: 25px;
+            border: 1px solid #292e39;
 
-    padding: 28px;
+            border-radius: 20px;
 
-    background:
-        linear-gradient(
-            145deg,
-            #202531,
-            #171a22
-        );
+            overflow: hidden;
 
-    border:
-        1px solid rgba(255, 255, 255, 0.08);
+            box-shadow:
+                inset 0 2px 4px rgba(0, 0, 0, 0.35);
+        }
 
-    border-radius: 18px;
+        .performance-fill {
+            height: 100%;
 
-    overflow: hidden;
+            width: 0;
 
-    box-shadow:
-        0 18px 40px rgba(0, 0, 0, 0.28),
-        inset 0 1px 0 rgba(255, 255, 255, 0.035);
+            border-radius: 20px;
 
-    animation:
-        resultAppear
-        0.4s
-        ease;
-}
+            background:
+                linear-gradient(
+                    90deg,
+                    #4652d8,
+                    #6974ff
+                );
 
+            box-shadow:
+                0 0 12px rgba(88, 101, 242, 0.35);
 
-/* Brillo superior */
+            animation:
+                fillPerformance 0.9s cubic-bezier(
+                    0.22,
+                    1,
+                    0.36,
+                    1
+                ) forwards;
+        }
 
-.result-card::before {
-    content: "";
 
-    position: absolute;
+        /* =========================
+           CYBERPUNK
+        ========================= */
 
-    top: 0;
+        .cyberpunk-options {
+            display: none;
 
-    left: 15%;
-    right: 15%;
+            grid-column: 1 / -1;
 
-    height: 1px;
+            gap: 10px;
 
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(88, 101, 242, 0.9),
-            transparent
-        );
-}
+            margin-top: -2px;
+        }
 
+        .cyberpunk-option {
+            flex: 1;
 
-/* Brillo ambiental */
+            min-height: 46px;
 
-.result-card::after {
-    content: "";
+            padding: 0 15px;
 
-    position: absolute;
+            display: flex;
 
-    width: 180px;
-    height: 180px;
+            align-items: center;
 
-    top: -100px;
-    right: -70px;
+            justify-content: space-between;
 
-    background:
-        rgba(88, 101, 242, 0.08);
+            background: #151820;
 
-    border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.07);
 
-    filter: blur(40px);
+            border-radius: 12px;
 
-    pointer-events: none;
-}
+            color: #aeb4c3;
 
+            font-size: 13px;
 
-/* =========================
-   TÍTULO RESULTADO
-========================= */
+            font-weight: 600;
 
-.result-card h2 {
-    position: relative;
+            cursor: pointer;
 
-    margin: 0;
+            transition:
+                border-color 0.2s ease,
+                background 0.2s ease,
+                color 0.2s ease;
+        }
 
-    font-size: 17px;
+        .cyberpunk-option:hover {
+            background: #1a1e27;
 
-    font-weight: 600;
+            border-color:
+                rgba(255, 190, 80, 0.35);
+        }
 
-    color: #aeb4c3;
+        .cyberpunk-option.active {
+            background:
+                rgba(190, 125, 40, 0.10);
 
-    letter-spacing: 0.3px;
-}
+            border-color:
+                rgba(255, 190, 80, 0.55);
 
+            color: #f0c77a;
+        }
 
-/* =========================
-   FPS
-========================= */
+        .cyberpunk-option .toggle {
+            width: 32px;
+            height: 18px;
 
-.fps-number {
-    position: relative;
+            position: relative;
 
-    margin: 8px 0 18px;
+            background: #292e38;
 
-    font-size: clamp(46px, 8vw, 58px);
+            border-radius: 20px;
 
-    font-weight: 800;
+            transition:
+                background 0.2s ease;
+        }
 
-    letter-spacing: -2px;
+        .cyberpunk-option .toggle::after {
+            content: "";
 
-    color: #ffffff;
+            position: absolute;
 
-    text-shadow:
-        0 5px 25px rgba(88, 101, 242, 0.25);
-}
+            width: 12px;
+            height: 12px;
 
+            top: 3px;
+            left: 3px;
 
-/* =========================
-   INFORMACIÓN
-========================= */
+            background: #858b99;
 
-.result-info {
-    position: relative;
+            border-radius: 50%;
 
-    margin-top: 8px;
+            transition:
+                transform 0.2s ease,
+                background 0.2s ease;
+        }
 
-    color: #8f96a6;
+        .cyberpunk-option.active .toggle {
+            background:
+                rgba(190, 125, 40, 0.65);
+        }
 
-    font-size: 14px;
-}
+        .cyberpunk-option.active .toggle::after {
+            transform: translateX(14px);
 
+            background: #ffffff;
+        }
 
-/* Filas */
 
-.result-row {
-    display: flex;
+        /* =========================
+           SELECTORES PREMIUM
+        ========================= */
 
-    align-items: center;
+        .game-container,
+        .gpu-container,
+        .cpu-container {
+            position: relative;
 
-    justify-content: space-between;
+            background:
+                linear-gradient(
+                    145deg,
+                    #1b1f29,
+                    #151820
+                );
 
-    padding: 11px 0;
+            border: 1px solid rgba(255, 255, 255, 0.07);
 
-    border-bottom:
-        1px solid rgba(255, 255, 255, 0.055);
-}
+            border-radius: 15px;
 
-.result-row:last-child {
-    border-bottom: none;
-}
+            padding: 6px;
 
-.result-row span {
-    color: #777f90;
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.025),
+                0 6px 18px rgba(0, 0, 0, 0.12);
 
-    font-size: 13px;
+            transition:
+                border-color 0.25s ease,
+                box-shadow 0.25s ease,
+                transform 0.2s ease;
+        }
 
-    font-weight: 500;
-}
+        .game-container:hover,
+        .gpu-container:hover,
+        .cpu-container:hover {
+            border-color:
+                rgba(255, 255, 255, 0.13);
 
-.result-row strong {
-    color: #e8ebf2;
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.035),
+                0 8px 22px rgba(0, 0, 0, 0.18);
+        }
 
-    font-size: 13px;
+        .game-container:focus-within,
+        .gpu-container:focus-within,
+        .cpu-container:focus-within {
+            border-color:
+                rgba(88, 101, 242, 0.75);
 
-    font-weight: 600;
+            box-shadow:
+                0 0 0 3px rgba(88, 101, 242, 0.08),
+                0 8px 25px rgba(0, 0, 0, 0.2);
+        }
 
-    text-align: right;
-}
 
+        /* =========================
+           SELECT
+        ========================= */
 
-/* =========================
-   BARRA
-========================= */
+        .game-container select,
+        .gpu-container select,
+        .cpu-container select {
+            background: transparent;
 
-.performance-bar {
-    position: relative;
+            border: none;
 
-    width: 100%;
+            box-shadow: none;
+        }
 
-    height: 12px;
+        .game-container select:focus,
+        .gpu-container select:focus,
+        .cpu-container select:focus {
+            border: none;
 
-    margin-top: 20px;
+            box-shadow: none;
+        }
 
-    background: #10131a;
 
-    border: 1px solid #292e39;
+        /* =========================
+           PREVIEW JUEGO
+        ========================= */
 
-    border-radius: 20px;
+        #game-preview {
+            width: 51px;
+            height: 48px;
 
-    overflow: hidden;
+            margin-right: 3px;
 
-    box-shadow:
-        inset 0 2px 4px rgba(0, 0, 0, 0.35);
-}
+            display: flex;
 
-.performance-fill {
-    height: 100%;
+            align-items: center;
+            justify-content: center;
 
-    width: 0;
+            flex-shrink: 0;
 
-    border-radius: 20px;
+            border-radius: 10px;
 
-    background:
-        linear-gradient(
-            90deg,
-            #4652d8,
-            #6974ff
-        );
+            background:
+                linear-gradient(
+                    145deg,
+                    #222733,
+                    #1c2029
+                );
 
-    box-shadow:
-        0 0 12px rgba(88, 101, 242, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.05);
 
-    animation:
-        fillPerformance
-        0.9s
-        cubic-bezier(
-            0.22,
-            1,
-            0.36,
-            1
-        )
-        forwards;
-}
+            overflow: hidden;
 
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.03);
+        }
 
-/* =========================
-   ANIMACIONES
-========================= */
+        #game-preview img {
+            width: 40px;
+            height: 40px;
 
-@keyframes resultAppear {
+            object-fit: contain;
 
-    from {
-        opacity: 0;
+            filter:
+                drop-shadow(
+                    0 4px 7px rgba(0, 0, 0, 0.4)
+                );
 
-        transform:
-            translateY(8px)
-            scale(0.98);
-    }
+            animation:
+                previewAppear 0.25s ease;
+        }
 
-    to {
-        opacity: 1;
 
-        transform:
-            translateY(0)
-            scale(1);
-    }
+        /* =========================
+           PREVIEW CPU
+        ========================= */
 
-}
+        #cpu-preview {
+            width: 51px;
+            height: 48px;
 
-@keyframes fillPerformance {
+            margin-right: 3px;
 
-    from {
-        width: 0;
-    }
+            display: flex;
 
-    to {
-        width: var(--performance-width);
-    }
+            align-items: center;
+            justify-content: center;
 
-}
+            flex-shrink: 0;
 
-@keyframes previewAppear {
+            border-radius: 10px;
 
-    from {
-        opacity: 0;
+            background:
+                linear-gradient(
+                    145deg,
+                    #222733,
+                    #1c2029
+                );
 
-        transform:
-            scale(0.85);
-    }
+            border: 1px solid rgba(255, 255, 255, 0.05);
 
-    to {
-        opacity: 1;
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.03);
+        }
 
-        transform:
-            scale(1);
-    }
+        #cpu-preview img {
+            width: 40px;
+            height: 40px;
 
-}
+            object-fit: contain;
 
-@keyframes gpuAppear {
+            filter:
+                drop-shadow(
+                    0 4px 7px rgba(0, 0, 0, 0.4)
+                );
 
-    0% {
-        opacity: 0;
+            animation:
+                previewAppear 0.25s ease;
+        }
 
-        transform:
-            scale(0.82)
-            translateY(3px);
-    }
 
-    60% {
-        opacity: 1;
+        /* =========================
+           PREVIEW GPU
+        ========================= */
 
-        transform:
-            scale(1.04)
-            translateY(0);
-    }
+        #gpu-preview {
+            flex: 0 0 155px;
 
-    100% {
-        opacity: 1;
+            margin-right: 0;
+        }
 
-        transform:
-            scale(1);
-    }
+        .gpu-info {
+            min-height: 48px;
 
-}
+            display: flex;
 
+            align-items: center;
 
-/* =========================
-   SELECTORES SIMPLES PREMIUM
-========================= */
+            gap: 9px;
 
-#resolution,
-#target {
-    appearance: none;
-    -webkit-appearance: none;
+            padding: 5px 8px;
 
-    background:
-        linear-gradient(
-            145deg,
-            #1b1f29,
-            #151820
-        );
+            background:
+                linear-gradient(
+                    145deg,
+                    #222733,
+                    #1c2029
+                );
 
-    border:
-        1px solid rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.05);
 
-    border-radius: 15px;
+            border-radius: 10px;
 
-    color: #dfe2ea;
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.03);
+        }
 
-    min-height: 54px;
+        .gpu-info img {
+            width: 43px;
+            height: 37px;
 
-    padding:
-        0 45px 0 17px;
+            object-fit: contain;
 
-    cursor: pointer;
+            filter:
+                drop-shadow(
+                    0 4px 7px rgba(0, 0, 0, 0.4)
+                );
 
-    background-image:
-        linear-gradient(
-            45deg,
-            transparent 50%,
-            #777f91 50%
-        ),
-        linear-gradient(
-            135deg,
-            #777f91 50%,
-            transparent 50%
-        );
+            animation:
+                gpuAppear 0.35s cubic-bezier(
+                    0.22,
+                    1,
+                    0.36,
+                    1
+                );
+        }
 
-    background-position:
-        calc(100% - 20px) 50%,
-        calc(100% - 14px) 50%;
+        .gpu-info strong {
+            color: #f2f4f8;
+        }
 
-    background-size:
-        6px 6px,
-        6px 6px;
+        .gpu-info span {
+            color: #858c9d;
+        }
 
-    background-repeat: no-repeat;
 
-    transition:
-        border-color 0.25s ease,
-        background 0.25s ease,
-        box-shadow 0.25s ease;
-}
+        /* =========================
+           SELECTORES SIMPLES
+        ========================= */
 
-#resolution:hover,
-#target:hover {
-    background-color: #1c2029;
+        #resolution,
+        #target {
+            appearance: none;
 
-    border-color:
-        rgba(255, 255, 255, 0.13);
-}
+            -webkit-appearance: none;
 
-#resolution:focus,
-#target:focus {
-    border-color:
-        rgba(88, 101, 242, 0.75);
+            background:
+                linear-gradient(
+                    145deg,
+                    #1b1f29,
+                    #151820
+                );
 
-    box-shadow:
-        0 0 0 3px rgba(88, 101, 242, 0.08);
-}
+            border: 1px solid rgba(255, 255, 255, 0.07);
 
+            border-radius: 15px;
 
-/* =========================
-   MÓVIL
-========================= */
+            color: #dfe2ea;
 
-@media (max-width: 600px) {
+            min-height: 54px;
 
-    .container {
-        padding:
-            32px 12px 50px;
-    }
+            padding: 0 45px 0 17px;
 
-    h1 {
-        font-size: 34px;
-    }
+            cursor: pointer;
 
-    p {
-        font-size: 14px;
-    }
+            background-image:
+                linear-gradient(
+                    45deg,
+                    transparent 50%,
+                    #777f91 50%
+                ),
+                linear-gradient(
+                    135deg,
+                    #777f91 50%,
+                    transparent 50%
+                );
 
-    .calculator {
-        margin-top: 28px;
+            background-position:
+                calc(100% - 20px) 50%,
+                calc(100% - 14px) 50%;
 
-        padding: 17px;
+            background-size:
+                6px 6px,
+                6px 6px;
 
-        border-radius: 18px;
-    }
+            background-repeat: no-repeat;
 
-    .form-grid {
-        grid-template-columns: 1fr;
+            transition:
+                border-color 0.25s ease,
+                background 0.25s ease,
+                box-shadow 0.25s ease;
+        }
 
-        gap: 11px;
-    }
+        #resolution:hover,
+        #target:hover {
+            background-color: #1c2029;
 
-    .form-full {
-        grid-column: auto;
-    }
+            border-color:
+                rgba(255, 255, 255, 0.13);
+        }
 
-    select {
-        min-height: 52px;
+        #resolution:focus,
+        #target:focus {
+            border-color:
+                rgba(88, 101, 242, 0.75);
 
-        font-size: 14px;
-    }
+            box-shadow:
+                0 0 0 3px rgba(88, 101, 242, 0.08);
+        }
 
-    #gpu-preview {
-        flex: 0 0 135px;
-    }
 
-    .gpu-info {
-        min-height: 52px;
+        /* =========================
+           ANIMACIONES
+        ========================= */
 
-        padding:
-            5px 7px;
-    }
+        @keyframes previewAppear {
 
-    .gpu-info img {
-        width: 40px;
-        height: 36px;
-    }
+            from {
+                opacity: 0;
 
-    .gpu-info strong {
-        font-size: 11px;
-    }
+                transform: scale(0.85);
+            }
 
-    .gpu-info span {
-        font-size: 9px;
-    }
+            to {
+                opacity: 1;
 
-    #game-preview,
-    #cpu-preview {
-        width: 48px;
-        height: 46px;
-    }
+                transform: scale(1);
+            }
 
-    #game-preview img,
-    #cpu-preview img {
-        width: 38px;
-        height: 38px;
-    }
+        }
 
-    button {
-        min-height: 58px;
+        @keyframes gpuAppear {
 
-        margin-top: 17px;
-    }
+            0% {
+                opacity: 0;
 
-    .result-card {
-        padding:
-            24px 17px;
-    }
+                transform:
+                    scale(0.82)
+                    translateY(3px);
+            }
 
-    .fps-number {
-        font-size: 44px;
-    }
+            60% {
+                opacity: 1;
 
-    #cyber-options {
-        grid-template-columns: 1fr;
+                transform:
+                    scale(1.04)
+                    translateY(0);
+            }
 
-        gap: 11px;
-    }
+            100% {
+                opacity: 1;
 
-    .cyber-option {
-        min-height: 52px;
-    }
-}
+                transform:
+                    scale(1);
+            }
 
+        }
 
-/* =========================
-   MÓVIL HORIZONTAL
-========================= */
+        @keyframes resultAppear {
 
-@media (min-width: 601px) and (max-height: 500px) {
+            from {
+                opacity: 0;
 
-    .container {
-        padding-top: 25px;
+                transform:
+                    translateY(8px)
+                    scale(0.98);
+            }
 
-        padding-bottom: 40px;
-    }
+            to {
+                opacity: 1;
 
-    h1 {
-        font-size: 36px;
-    }
+                transform:
+                    translateY(0)
+                    scale(1);
+            }
 
-}
+        }
 
-/* =========================
-   OPCIONES CYBERPUNK
-========================= */
+        @keyframes fillPerformance {
 
-.cyberpunk-options {
-    display: none;
-    grid-column: 1 / -1;
-    gap: 10px;
-    margin-top: -2px;
-}
+            from {
+                width: 0;
+            }
 
-.cyberpunk-option {
-    flex: 1;
-    min-height: 46px;
-    padding: 0 15px;
+            to {
+                width: var(--performance-width);
+            }
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+        }
 
-    background: #151820;
-    border: 1px solid rgba(255, 255, 255, 0.07);
-    border-radius: 12px;
 
-    color: #aeb4c3;
-    font-size: 13px;
-    font-weight: 600;
+        /* =========================
+           MÓVIL
+        ========================= */
 
-    cursor: pointer;
+        @media (max-width: 600px) {
 
-    transition:
-        border-color 0.2s ease,
-        background 0.2s ease,
-        color 0.2s ease;
-}
+            .container {
+                padding: 32px 12px 50px;
+            }
 
-.cyberpunk-option:hover {
-    background: #1a1e27;
-    border-color: rgba(255, 190, 80, 0.35);
-}
+            h1 {
+                font-size: 34px;
+            }
 
-.cyberpunk-option.active {
-    background: rgba(190, 125, 40, 0.10);
-    border-color: rgba(255, 190, 80, 0.55);
-    color: #f0c77a;
-}
+            p {
+                font-size: 14px;
+            }
 
-.cyberpunk-option .toggle {
-    width: 32px;
-    height: 18px;
+            .calculator {
+                margin-top: 28px;
 
-    position: relative;
+                padding: 17px;
 
-    background: #292e38;
-    border-radius: 20px;
+                border-radius: 18px;
+            }
 
-    transition: background 0.2s ease;
-}
+            .form-grid {
+                grid-template-columns: 1fr;
 
-.cyberpunk-option .toggle::after {
-    content: "";
+                gap: 11px;
+            }
 
-    position: absolute;
+            .form-full {
+                grid-column: auto;
+            }
 
-    width: 12px;
-    height: 12px;
+            select {
+                min-height: 52px;
 
-    top: 3px;
-    left: 3px;
+                font-size: 14px;
+            }
 
-    background: #858b99;
-    border-radius: 50%;
+            #gpu-preview {
+                flex: 0 0 135px;
+            }
 
-    transition:
-        transform 0.2s ease,
-        background 0.2s ease;
-}
+            .gpu-info {
+                min-height: 52px;
 
-.cyberpunk-option.active .toggle {
-    background: rgba(190, 125, 40, 0.65);
-}
+                padding: 5px 7px;
+            }
 
-.cyberpunk-option.active .toggle::after {
-    transform: translateX(14px);
-    background: #ffffff;
-}
+            .gpu-info img {
+                width: 40px;
+                height: 36px;
+            }
 
-@media (max-width: 600px) {
-    .cyberpunk-options {
-        display: none;
-        flex-direction: column;
-    }
+            .gpu-info strong {
+                font-size: 11px;
+            }
 
-    .cyberpunk-option {
-        width: 100%;
-    }
-}
+            .gpu-info span {
+                font-size: 9px;
+            }
+
+            #game-preview,
+            #cpu-preview {
+                width: 48px;
+                height: 46px;
+            }
+
+            #game-preview img,
+            #cpu-preview img {
+                width: 38px;
+                height: 38px;
+            }
+
+            button {
+                min-height: 58px;
+
+                margin-top: 17px;
+            }
+
+            .result-card {
+                padding: 24px 17px;
+            }
+
+            .fps-number {
+                font-size: 44px;
+            }
+
+            .cyberpunk-options {
+                display: none;
+
+                flex-direction: column;
+            }
+
+            .cyberpunk-option {
+                width: 100%;
+            }
+
+        }
+
+
+        /* =========================
+           MÓVIL HORIZONTAL
+        ========================= */
+
+        @media (min-width: 601px) and (max-height: 500px) {
+
+            .container {
+                padding-top: 25px;
+
+                padding-bottom: 40px;
+            }
+
+            h1 {
+                font-size: 36px;
+            }
+
+        }
 
     </style>
 </head>
@@ -1323,7 +1324,6 @@ button:active {
 
     <div class="calculator">
 
-
         <!-- =========================
              SELECCIÓN
         ========================= -->
@@ -1335,10 +1335,7 @@ button:active {
 
             <div class="game-container form-full">
 
-                <select
-                    id="game"
-                    onchange="showGame()"
-                >
+                <select id="game" onchange="showGame()">
 
                     <option value="">
                         Juego...
@@ -1368,10 +1365,7 @@ button:active {
 
             <div class="gpu-container">
 
-                <select
-                    id="gpu"
-                    onchange="showGPU()"
-                >
+                <select id="gpu" onchange="showGPU()">
 
                     <option value="">
                         GPU...
@@ -1401,10 +1395,7 @@ button:active {
 
             <div class="cpu-container">
 
-                <select
-                    id="cpu"
-                    onchange="showCPU()"
-                >
+                <select id="cpu" onchange="showCPU()">
 
                     <option value="">
                         CPU...
@@ -1474,96 +1465,47 @@ button:active {
                 </option>
 
             </select>
-            
-            <div class="cyberpunk-options" id="cyberpunk-options">
-
-    <div
-        class="cyberpunk-option"
-        id="raytracing-option"
-        onclick="toggleCyberpunkOption('raytracing')"
-    >
-        <span>Ray Tracing</span>
-        <div class="toggle"></div>
-    </div>
-
-    <div
-        class="cyberpunk-option"
-        id="framegen-option"
-        onclick="toggleCyberpunkOption('framegen')"
-    >
-        <span>Frame Generation</span>
-        <div class="toggle"></div>
-    </div>
-
-</div>
 
 
             <!-- =========================
                  OPCIONES CYBERPUNK
             ========================= -->
 
-            <div id="cyber-options">
+            <div
+                class="cyberpunk-options"
+                id="cyberpunk-options"
+            >
 
+                <div
+                    class="cyberpunk-option"
+                    id="raytracing-option"
+                    onclick="toggleCyberpunkOption('raytracing')"
+                >
 
-                <!-- RAY TRACING -->
-
-                <div class="cyber-option">
-
-                    <label>
-
+                    <span>
                         Ray Tracing
+                    </span>
 
-                        <small>
-                            Iluminación y reflejos avanzados
-                        </small>
-
-                        <select id="raytracing">
-
-                            <option value="off">
-                                Desactivado
-                            </option>
-
-                            <option value="on">
-                                Activado
-                            </option>
-
-                        </select>
-
-                    </label>
+                    <div class="toggle"></div>
 
                 </div>
 
 
-                <!-- FRAME GENERATION -->
+                <div
+                    class="cyberpunk-option"
+                    id="framegen-option"
+                    onclick="toggleCyberpunkOption('framegen')"
+                >
 
-                <div class="cyber-option">
-
-                    <label>
-
+                    <span>
                         Frame Generation
+                    </span>
 
-                        <small>
-                            Generación de frames mediante IA
-                        </small>
-
-                        <select id="framegeneration">
-
-                            <option value="off">
-                                Desactivado
-                            </option>
-
-                            <option value="on">
-                                Activado
-                            </option>
-
-                        </select>
-
-                    </label>
+                    <div class="toggle"></div>
 
                 </div>
 
             </div>
-
 
         </div>
 
@@ -1585,7 +1527,6 @@ button:active {
 
         <div id="result"></div>
 
-
     </div>
 
 </div>
@@ -1601,9 +1542,9 @@ button:active {
 let fpsData = {
 
 
-    /* =================================================
+    /* =========================
        FORTNITE
-    ================================================= */
+    ========================= */
 
     fortnite: {
 
@@ -1828,15 +1769,9 @@ let fpsData = {
     },
 
 
-    /* =================================================
+    /* =========================
        CYBERPUNK 2077
-       
-       Valores base:
-       RT OFF + FG OFF
-       
-       Los multiplicadores se aplican después
-       según Ray Tracing y Frame Generation.
-    ================================================= */
+    ========================= */
 
     cyberpunk: {
 
@@ -1845,21 +1780,21 @@ let fpsData = {
             "i5-14600kf": {
 
                 "1080": {
-                    low: 142,
-                    balanced: 112,
-                    quality: 86
+                    competitive: 105,
+                    balanced: 88,
+                    quality: 72
                 },
 
                 "1440": {
-                    low: 108,
-                    balanced: 84,
-                    quality: 65
+                    competitive: 82,
+                    balanced: 68,
+                    quality: 55
                 },
 
                 "2160": {
-                    low: 62,
-                    balanced: 49,
-                    quality: 38
+                    competitive: 48,
+                    balanced: 39,
+                    quality: 31
                 }
 
             },
@@ -1868,21 +1803,21 @@ let fpsData = {
             "ryzen 5 7600": {
 
                 "1080": {
-                    low: 137,
-                    balanced: 108,
-                    quality: 83
+                    competitive: 98,
+                    balanced: 82,
+                    quality: 68
                 },
 
                 "1440": {
-                    low: 103,
-                    balanced: 81,
-                    quality: 63
+                    competitive: 77,
+                    balanced: 64,
+                    quality: 52
                 },
 
                 "2160": {
-                    low: 60,
-                    balanced: 47,
-                    quality: 37
+                    competitive: 45,
+                    balanced: 37,
+                    quality: 29
                 }
 
             },
@@ -1891,21 +1826,21 @@ let fpsData = {
             "ryzen 7 7800X3D": {
 
                 "1080": {
-                    low: 150,
-                    balanced: 116,
-                    quality: 89
+                    competitive: 108,
+                    balanced: 91,
+                    quality: 75
                 },
 
                 "1440": {
-                    low: 112,
-                    balanced: 88,
-                    quality: 68
+                    competitive: 85,
+                    balanced: 71,
+                    quality: 58
                 },
 
                 "2160": {
-                    low: 64,
-                    balanced: 51,
-                    quality: 40
+                    competitive: 50,
+                    balanced: 41,
+                    quality: 33
                 }
 
             }
@@ -1918,21 +1853,21 @@ let fpsData = {
             "i5-14600kf": {
 
                 "1080": {
-                    low: 158,
-                    balanced: 125,
-                    quality: 96
+                    competitive: 112,
+                    balanced: 95,
+                    quality: 79
                 },
 
                 "1440": {
-                    low: 121,
-                    balanced: 95,
-                    quality: 74
+                    competitive: 88,
+                    balanced: 74,
+                    quality: 61
                 },
 
                 "2160": {
-                    low: 69,
-                    balanced: 55,
-                    quality: 43
+                    competitive: 52,
+                    balanced: 43,
+                    quality: 35
                 }
 
             },
@@ -1941,21 +1876,21 @@ let fpsData = {
             "ryzen 5 7600": {
 
                 "1080": {
-                    low: 151,
-                    balanced: 119,
-                    quality: 91
+                    competitive: 105,
+                    balanced: 89,
+                    quality: 74
                 },
 
                 "1440": {
-                    low: 115,
-                    balanced: 91,
-                    quality: 71
+                    competitive: 83,
+                    balanced: 69,
+                    quality: 57
                 },
 
                 "2160": {
-                    low: 66,
-                    balanced: 53,
-                    quality: 41
+                    competitive: 49,
+                    balanced: 41,
+                    quality: 33
                 }
 
             },
@@ -1964,21 +1899,21 @@ let fpsData = {
             "ryzen 7 7800X3D": {
 
                 "1080": {
-                    low: 165,
-                    balanced: 129,
-                    quality: 99
+                    competitive: 116,
+                    balanced: 98,
+                    quality: 82
                 },
 
                 "1440": {
-                    low: 125,
-                    balanced: 98,
-                    quality: 76
+                    competitive: 91,
+                    balanced: 76,
+                    quality: 63
                 },
 
                 "2160": {
-                    low: 71,
-                    balanced: 57,
-                    quality: 44
+                    competitive: 54,
+                    balanced: 45,
+                    quality: 37
                 }
 
             }
@@ -1991,21 +1926,21 @@ let fpsData = {
             "i5-14600kf": {
 
                 "1080": {
-                    low: 185,
-                    balanced: 147,
-                    quality: 113
+                    competitive: 128,
+                    balanced: 108,
+                    quality: 91
                 },
 
                 "1440": {
-                    low: 143,
-                    balanced: 113,
-                    quality: 88
+                    competitive: 101,
+                    balanced: 85,
+                    quality: 70
                 },
 
                 "2160": {
-                    low: 82,
-                    balanced: 65,
-                    quality: 51
+                    competitive: 61,
+                    balanced: 51,
+                    quality: 42
                 }
 
             },
@@ -2014,21 +1949,21 @@ let fpsData = {
             "ryzen 5 7600": {
 
                 "1080": {
-                    low: 177,
-                    balanced: 140,
-                    quality: 108
+                    competitive: 120,
+                    balanced: 101,
+                    quality: 85
                 },
 
                 "1440": {
-                    low: 136,
-                    balanced: 107,
-                    quality: 84
+                    competitive: 95,
+                    balanced: 79,
+                    quality: 65
                 },
 
                 "2160": {
-                    low: 78,
-                    balanced: 62,
-                    quality: 48
+                    competitive: 57,
+                    balanced: 47,
+                    quality: 39
                 }
 
             },
@@ -2037,21 +1972,248 @@ let fpsData = {
             "ryzen 7 7800X3D": {
 
                 "1080": {
-                    low: 193,
-                    balanced: 153,
-                    quality: 117
+                    competitive: 132,
+                    balanced: 112,
+                    quality: 94
                 },
 
                 "1440": {
-                    low: 149,
-                    balanced: 118,
-                    quality: 91
+                    competitive: 104,
+                    balanced: 88,
+                    quality: 73
                 },
 
                 "2160": {
-                    low: 85,
-                    balanced: 68,
-                    quality: 53
+                    competitive: 63,
+                    balanced: 53,
+                    quality: 44
+                }
+
+            }
+
+        }
+
+    },
+
+
+    /* =========================
+       WARZONE
+    ========================= */
+
+    warzone: {
+
+        rtx3080: {
+
+            "i5-14600kf": {
+
+                "1080": {
+                    competitive: 190,
+                    balanced: 155,
+                    quality: 120
+                },
+
+                "1440": {
+                    competitive: 150,
+                    balanced: 125,
+                    quality: 96
+                },
+
+                "2160": {
+                    competitive: 82,
+                    balanced: 70,
+                    quality: 55
+                }
+
+            },
+
+
+            "ryzen 5 7600": {
+
+                "1080": {
+                    competitive: 175,
+                    balanced: 145,
+                    quality: 112
+                },
+
+                "1440": {
+                    competitive: 138,
+                    balanced: 116,
+                    quality: 90
+                },
+
+                "2160": {
+                    competitive: 77,
+                    balanced: 65,
+                    quality: 51
+                }
+
+            },
+
+
+            "ryzen 7 7800X3D": {
+
+                "1080": {
+                    competitive: 205,
+                    balanced: 165,
+                    quality: 128
+                },
+
+                "1440": {
+                    competitive: 160,
+                    balanced: 132,
+                    quality: 102
+                },
+
+                "2160": {
+                    competitive: 87,
+                    balanced: 73,
+                    quality: 58
+                }
+
+            }
+
+        },
+
+
+        rtx4070: {
+
+            "i5-14600kf": {
+
+                "1080": {
+                    competitive: 205,
+                    balanced: 170,
+                    quality: 132
+                },
+
+                "1440": {
+                    competitive: 162,
+                    balanced: 137,
+                    quality: 106
+                },
+
+                "2160": {
+                    competitive: 89,
+                    balanced: 75,
+                    quality: 59
+                }
+
+            },
+
+
+            "ryzen 5 7600": {
+
+                "1080": {
+                    competitive: 190,
+                    balanced: 158,
+                    quality: 123
+                },
+
+                "1440": {
+                    competitive: 150,
+                    balanced: 128,
+                    quality: 99
+                },
+
+                "2160": {
+                    competitive: 84,
+                    balanced: 71,
+                    quality: 56
+                }
+
+            },
+
+
+            "ryzen 7 7800X3D": {
+
+                "1080": {
+                    competitive: 218,
+                    balanced: 180,
+                    quality: 140
+                },
+
+                "1440": {
+                    competitive: 172,
+                    balanced: 145,
+                    quality: 112
+                },
+
+                "2160": {
+                    competitive: 94,
+                    balanced: 79,
+                    quality: 62
+                }
+
+            }
+
+        },
+
+
+        rtx5070: {
+
+            "i5-14600kf": {
+
+                "1080": {
+                    competitive: 230,
+                    balanced: 190,
+                    quality: 148
+                },
+
+                "1440": {
+                    competitive: 182,
+                    balanced: 152,
+                    quality: 118
+                },
+
+                "2160": {
+                    competitive: 101,
+                    balanced: 85,
+                    quality: 67
+                }
+
+            },
+
+
+            "ryzen 5 7600": {
+
+                "1080": {
+                    competitive: 215,
+                    balanced: 178,
+                    quality: 139
+                },
+
+                "1440": {
+                    competitive: 170,
+                    balanced: 142,
+                    quality: 110
+                },
+
+                "2160": {
+                    competitive: 95,
+                    balanced: 80,
+                    quality: 63
+                }
+
+            },
+
+
+            "ryzen 7 7800X3D": {
+
+                "1080": {
+                    competitive: 242,
+                    balanced: 200,
+                    quality: 156
+                },
+
+                "1440": {
+                    competitive: 191,
+                    balanced: 160,
+                    quality: 124
+                },
+
+                "2160": {
+                    competitive: 106,
+                    balanced: 89,
+                    quality: 70
                 }
 
             }
@@ -2072,12 +2234,15 @@ function showGame() {
     let game =
         document.getElementById("game").value;
 
+
     if (game === "fortnite") {
 
         document.getElementById("game-preview").innerHTML =
             '<img src="./fortnite.PNG">';
 
     }
+
+
     else if (game === "cyberpunk") {
 
         document.getElementById("game-preview").innerHTML =
@@ -2087,17 +2252,24 @@ function showGame() {
             "flex";
 
     }
+
+
     else if (game === "warzone") {
 
         document.getElementById("game-preview").innerHTML =
             '<img src="./warzone.PNG">';
 
     }
+
+
     else {
 
         document.getElementById("game-preview").innerHTML = "";
 
     }
+
+
+    /* Ocultar opciones si no es Cyberpunk */
 
     if (game !== "cyberpunk") {
 
@@ -2111,23 +2283,41 @@ function showGame() {
             .classList.remove("active");
 
     }
+
 }
+
+
+/* =========================
+   CYBERPUNK — TOGGLES
+========================= */
 
 function toggleCyberpunkOption(option) {
 
     let element;
 
+
     if (option === "raytracing") {
+
         element =
-            document.getElementById("raytracing-option");
+            document.getElementById(
+                "raytracing-option"
+            );
+
     }
+
 
     if (option === "framegen") {
+
         element =
-            document.getElementById("framegen-option");
+            document.getElementById(
+                "framegen-option"
+            );
+
     }
 
+
     element.classList.toggle("active");
+
 }
 
 
@@ -2206,8 +2396,7 @@ function showGPU() {
 
     else {
 
-        document.getElementById("gpu-preview").innerHTML =
-            "";
+        document.getElementById("gpu-preview").innerHTML = "";
 
     }
 
@@ -2250,8 +2439,7 @@ function showCPU() {
 
     else {
 
-        document.getElementById("cpu-preview").innerHTML =
-            "";
+        document.getElementById("cpu-preview").innerHTML = "";
 
     }
 
@@ -2264,22 +2452,17 @@ function showCPU() {
 
 function calculateFPS() {
 
-
     let game =
         document.getElementById("game").value;
-
 
     let gpu =
         document.getElementById("gpu").value;
 
-
     let cpu =
         document.getElementById("cpu").value;
 
-
     let resolution =
         document.getElementById("resolution").value;
-
 
     let target =
         document.getElementById("target").value;
@@ -2306,177 +2489,71 @@ function calculateFPS() {
 
 
     /* =========================
-       VARIABLES
+       BUSCAR FPS
     ========================= */
 
     let fps = 60;
 
-    let objetivoTexto;
-
-    let configuracion;
-
-
-    /* =================================================
-       CYBERPUNK
-    ================================================= */
-
-    if (game === "cyberpunk") {
+    let data =
+        fpsData[game]?.[gpu]?.[cpu]?.[resolution];
 
 
-        /* Comprobar opciones */
+    if (
+        data &&
+        data[target] !== undefined
+    ) {
 
-        let raytracing =
-            document.getElementById("raytracing").value;
-
-
-        let framegeneration =
-            document.getElementById("framegeneration").value;
-
-
-        /* Datos base */
-
-        let cyberData =
-            fpsData.cyberpunk?.[gpu]?.[cpu]?.[resolution];
-
-
-        if (
-            cyberData &&
-            cyberData[target] !== undefined
-        ) {
-
-            fps =
-                cyberData[target];
-
-        }
-
-
-        /* =========================
-           RAY TRACING
-        ========================= */
-
-        if (raytracing === "on") {
-
-            /*
-                Penalización aproximada
-                por activar RT.
-            */
-
-            fps =
-                Math.round(
-                    fps * 0.68
-                );
-
-        }
-
-
-        /* =========================
-           FRAME GENERATION
-        ========================= */
-
-        if (framegeneration === "on") {
-
-            /*
-                Aumento aproximado
-                de FPS percibidos.
-            */
-
-            fps =
-                Math.round(
-                    fps * 1.65
-                );
-
-        }
-
-
-        /* =========================
-           OBJETIVO CYBERPUNK
-        ========================= */
-
-        if (target === "low") {
-
-            objetivoTexto =
-                "Bajo";
-
-            configuracion =
-                "Baja";
-
-        }
-
-        else if (target === "balanced") {
-
-            objetivoTexto =
-                "Equilibrado";
-
-            configuracion =
-                "Media / Alta";
-
-        }
-
-        else {
-
-            objetivoTexto =
-                "Calidad";
-
-            configuracion =
-                "Alta";
-
-        }
-
+        fps = data[target];
 
     }
 
 
-    /* =================================================
-       FORTNITE
-    ================================================= */
+    /* =========================
+       CYBERPUNK
+       RAY TRACING
+       FRAME GENERATION
+    ========================= */
 
-    else {
+    let rayTracing = false;
 
-
-        let data =
-            fpsData[game]?.[gpu]?.[cpu]?.[resolution];
-
-
-        if (
-            data &&
-            data[target] !== undefined
-        ) {
-
-            fps =
-                data[target];
-
-        }
+    let frameGeneration = false;
 
 
-        /* Resultado */
+    if (game === "cyberpunk") {
 
-        if (target === "competitive") {
+        rayTracing =
+            document
+                .getElementById("raytracing-option")
+                .classList.contains("active");
 
-            objetivoTexto =
-                "Competitivo";
 
-            configuracion =
-                "Baja";
+        frameGeneration =
+            document
+                .getElementById("framegen-option")
+                .classList.contains("active");
 
-        }
 
-        else if (target === "balanced") {
+        /*
+         * Ray Tracing reduce el rendimiento.
+         * El cálculo se mantiene separado para
+         * poder modificarlo fácilmente después.
+         */
 
-            objetivoTexto =
-                "Equilibrado";
+        if (rayTracing) {
 
-            configuracion =
-                "Media / Alta";
+            fps = Math.round(fps * 0.68);
 
         }
 
-        else {
 
-            objetivoTexto =
-                "Calidad";
+        /*
+         * Frame Generation aumenta los FPS
+         * mostrados después del renderizado.
+         */
 
-            configuracion =
-                "Alta";
+        if (frameGeneration) {
+
+            fps = Math.round(fps * 1.55);
 
         }
 
@@ -2497,13 +2574,6 @@ function calculateFPS() {
 
     }
 
-    else if (fps >= 60) {
-
-        resultado =
-            "Buen rendimiento";
-
-    }
-
     else {
 
         resultado =
@@ -2513,56 +2583,93 @@ function calculateFPS() {
 
 
     /* =========================
-       INFORMACIÓN EXTRA
+       TEXTO DEL OBJETIVO
     ========================= */
 
-    let extraHTML = "";
+    let objetivoTexto;
+
+    let configuracion;
+
+
+    if (target === "competitive") {
+
+        objetivoTexto =
+            "Competitivo";
+
+
+        /*
+         * En Cyberpunk queremos que aparezca
+         * como configuración Baja.
+         */
+
+        configuracion =
+            "Baja";
+
+    }
+
+
+    else if (target === "balanced") {
+
+        objetivoTexto =
+            "Equilibrado";
+
+        configuracion =
+            "Media / Alta";
+
+    }
+
+
+    else {
+
+        objetivoTexto =
+            "Calidad";
+
+        configuracion =
+            "Alta";
+
+    }
+
+
+    /* =========================
+       TEXTO DE OPCIONES
+    ========================= */
+
+    let opcionesExtra = "";
 
 
     if (game === "cyberpunk") {
 
-
-        let raytracing =
-            document.getElementById("raytracing").value;
-
-
-        let framegeneration =
-            document.getElementById("framegeneration").value;
+        let rtTexto =
+            rayTracing
+                ? "Activado"
+                : "Desactivado";
 
 
-        extraHTML +=
+        let fgTexto =
+            frameGeneration
+                ? "Activado"
+                : "Desactivado";
+
+
+        opcionesExtra =
 
             '<div class="result-row">' +
 
                 '<span>Ray Tracing</span>' +
 
                 '<strong>' +
-
-                    (
-                        raytracing === "on"
-                        ? "Activado"
-                        : "Desactivado"
-                    ) +
-
+                    rtTexto +
                 '</strong>' +
 
-            '</div>';
+            '</div>' +
 
-
-        extraHTML +=
 
             '<div class="result-row">' +
 
                 '<span>Frame Generation</span>' +
 
                 '<strong>' +
-
-                    (
-                        framegeneration === "on"
-                        ? "Activado"
-                        : "Desactivado"
-                    ) +
-
+                    fgTexto +
                 '</strong>' +
 
             '</div>';
@@ -2589,7 +2696,9 @@ function calculateFPS() {
 
         '<div class="result-card">' +
 
+
             '<h2>Resultado</h2>' +
+
 
             '<div class="fps-number">' +
 
@@ -2608,9 +2717,7 @@ function calculateFPS() {
                     '<span>Objetivo</span>' +
 
                     '<strong>' +
-
                         objetivoTexto +
-
                     '</strong>' +
 
                 '</div>' +
@@ -2621,11 +2728,8 @@ function calculateFPS() {
                     '<span>Resolución</span>' +
 
                     '<strong>' +
-
                         resolution +
-
                         'p' +
-
                     '</strong>' +
 
                 '</div>' +
@@ -2636,15 +2740,13 @@ function calculateFPS() {
                     '<span>Configuración</span>' +
 
                     '<strong>' +
-
                         configuracion +
-
                     '</strong>' +
 
                 '</div>' +
 
 
-                extraHTML +
+                opcionesExtra +
 
 
                 '<div class="result-row">' +
@@ -2652,9 +2754,7 @@ function calculateFPS() {
                     '<span>Rendimiento</span>' +
 
                     '<strong>' +
-
                         resultado +
-
                     '</strong>' +
 
                 '</div>' +
@@ -2673,9 +2773,9 @@ function calculateFPS() {
 
                         performance +
 
-                        '%;"' +
+                    '%;">' +
 
-                '></div>' +
+                '</div>' +
 
             '</div>' +
 
