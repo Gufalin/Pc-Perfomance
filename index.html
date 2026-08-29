@@ -1407,18 +1407,28 @@ function calculateFPS() {
                 ' FPS' +
             '</div>' +
             '<div class="result-info">' +
-                '🎯 Objetivo: ' +
-                objetivoTexto +
-                '<br>' +
-                '🖥️ Resolución: ' +
-                resolution +
-                'p<br>' +
-                '⚙️ Configuración: ' +
-                configuracion +
-                '<br>' +
-                '📊 Rendimiento: ' +
-                resultado +
-            '</div>' +
+
+    '<div class="result-row">' +
+        '<span>Objetivo</span>' +
+        '<strong>' + objetivoTexto + '</strong>' +
+    '</div>' +
+
+    '<div class="result-row">' +
+        '<span>Resolución</span>' +
+        '<strong>' + resolution + 'p</strong>' +
+    '</div>' +
+
+    '<div class="result-row">' +
+        '<span>Configuración</span>' +
+        '<strong>' + configuracion + '</strong>' +
+    '</div>' +
+
+    '<div class="result-row">' +
+        '<span>Rendimiento</span>' +
+        '<strong>' + resultado + '</strong>' +
+    '</div>' +
+
+'</div>' +
             '<div class="performance-bar">' +
     '<div class="performance-fill" style="--performance-width:' +
         performance +
