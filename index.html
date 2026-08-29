@@ -103,7 +103,31 @@
     height: 45px;
     object-fit: contain;
 }
+
+.result-card {
+    margin-top: 25px;
+    padding: 20px;
+    background: #222631;
+    border-radius: 12px;
+}
+
+.result-card h2 {
+    margin-top: 0;
+}
+
+.fps-number {
+    font-size: 42px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.result-info {
+    color: #aaa;
+    font-size: 16px;
+    line-height: 1.8;
+}
                         
+                                                                        
     </style>
 </head>
 
@@ -244,9 +268,22 @@ function calculateFPS() {
     }
 
     document.getElementById("result").innerHTML =
-        "FPS estimados: " + fps + "<br>" + resultado;
-}
 
+    '<div class="result-card">' +
+
+        '<h2>🎮 Resultado</h2>' +
+
+        '<div class="fps-number">' +
+            fps + ' FPS' +
+        '</div>' +
+
+        '<div class="result-info">' +
+            '🎯 Objetivo: ' + target + '<br>' +
+            '🖥️ Resolución: ' + resolution + 'p<br>' +
+            '📊 Rendimiento: ' + resultado +
+        '</div>' +
+
+    '</div>';
 </script>
 
 </body>
