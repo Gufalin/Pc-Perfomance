@@ -166,6 +166,32 @@
     height: 45px;
     object-fit: contain;
 }
+
+.cpu-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.cpu-container select {
+    flex: 1;
+    margin-top: 0;
+}
+
+#cpu-preview {
+    width: 55px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#cpu-preview img {
+    width: 55px;
+    height: 45px;
+    object-fit: contain;
+}
                         
                                                                         
     </style>
@@ -207,12 +233,18 @@
 
 </div>
 
-        <select id="cpu">
-            <option value="">Selecciona tu CPU</option>
-            <option value="i5-14600kf">i5-14600KF</option>
-            <option value="ryzen 7 7800X3D">Ryzen 7 7800X3D</option>
-            <option value="ryzen 5 7600">Ryzen 5 7600</option>
-        </select>
+        <div class="cpu-container">
+
+    <select id="cpu" onchange="showCPU()">
+        <option value="">Selecciona tu CPU</option>
+        <option value="i5-14600kf">i5-14600KF</option>
+        <option value="ryzen 7 7800X3D">Ryzen 7 7800X3D</option>
+        <option value="ryzen 5 7600">Ryzen 5 7600</option>
+    </select>
+
+    <div id="cpu-preview"></div>
+
+</div>
 
         <select id="resolution">
             <option value="">Resolución</option>
@@ -469,6 +501,31 @@ function showGPU() {
     } else {
 
         document.getElementById("gpu-preview").innerHTML = "";
+    }
+}
+
+function showCPU() {
+
+    let cpu = document.getElementById("cpu").value;
+
+    if (cpu === "i5-14600kf") {
+
+        document.getElementById("cpu-preview").innerHTML =
+            '<img src="./i5-14600kf.PNG">';
+
+    } else if (cpu === "ryzen 7 7800X3D") {
+
+        document.getElementById("cpu-preview").innerHTML =
+            '<img src="./ryzen7-7800x3d.PNG">';
+
+    } else if (cpu === "ryzen 5 7600") {
+
+        document.getElementById("cpu-preview").innerHTML =
+            '<img src="./ryzen5-7600.WEBP">';
+
+    } else {
+
+        document.getElementById("cpu-preview").innerHTML = "";
     }
 }
 
