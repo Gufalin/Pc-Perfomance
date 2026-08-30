@@ -1,0 +1,2673 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="v3g-o59Ws917jV7mmwsiECLS-nkyBbQ3T7-pXI6gUBk" />
+<title>PC Performance</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 50% -10%,
+            rgba(88,101,242,0.16),
+            transparent 38%
+        ),
+        #0b0d12;
+
+    color: white;
+    text-align: center;
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 55px 20px 70px;
+}
+
+h1 {
+    margin: 0;
+
+    font-size: clamp(34px,6vw,52px);
+    font-weight: 800;
+    letter-spacing: -1.5px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff 20%,
+            #aeb5ff 80%
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+p {
+    margin-top: 12px;
+    color: #858b9b;
+    font-size: 15px;
+}
+
+.calculator {
+    position: relative;
+
+    margin-top: 38px;
+    padding: 30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(30,34,46,0.96),
+            rgba(19,22,30,0.96)
+        );
+
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 22px;
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,0.45),
+        inset 0 1px 0 rgba(255,255,255,0.035);
+
+    overflow: hidden;
+}
+
+.calculator::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 10%;
+    right: 10%;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(88,101,242,0.8),
+            transparent
+        );
+}
+
+.form-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 14px;
+
+    width: 100%;
+}
+
+.form-full {
+    grid-column: 1 / -1;
+}
+
+
+/* =========================
+   SELECTORES
+========================= */
+
+select {
+    appearance: none;
+    -webkit-appearance: none;
+
+    width: 100%;
+    min-height: 54px;
+
+    padding: 0 45px 0 17px;
+
+    border-radius: 13px;
+
+    border: 1px solid #303644;
+
+    outline: none;
+
+    background:
+        linear-gradient(
+            145deg,
+            #1b1f29,
+            #151820
+        );
+
+    color: #dfe2ea;
+
+    font-size: 15px;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    background-image:
+        linear-gradient(
+            45deg,
+            transparent 50%,
+            #777f91 50%
+        ),
+        linear-gradient(
+            135deg,
+            #777f91 50%,
+            transparent 50%
+        );
+
+    background-position:
+        calc(100% - 20px) 50%,
+        calc(100% - 14px) 50%;
+
+    background-size:
+        6px 6px,
+        6px 6px;
+
+    background-repeat: no-repeat;
+
+    transition:
+        border-color .2s ease,
+        background-color .2s ease,
+        box-shadow .2s ease;
+}
+
+select:hover {
+    background-color: #1b1f29;
+    border-color: #41495a;
+}
+
+select:focus {
+    border-color: #5865f2;
+
+    box-shadow:
+        0 0 0 3px rgba(88,101,242,0.12);
+}
+
+select option {
+    background: #171a22;
+    color: white;
+}
+
+
+/* =========================
+   CONTENEDORES
+========================= */
+
+.game-container,
+.gpu-container,
+.cpu-container {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    width: 100%;
+    min-width: 0;
+
+    position: relative;
+
+    background:
+        linear-gradient(
+            145deg,
+            #1b1f29,
+            #151820
+        );
+
+    border: 1px solid rgba(255,255,255,0.07);
+
+    border-radius: 15px;
+
+    padding: 6px;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.025),
+        0 6px 18px rgba(0,0,0,0.12);
+
+    transition:
+        border-color .25s ease,
+        box-shadow .25s ease;
+}
+
+.game-container:hover,
+.gpu-container:hover,
+.cpu-container:hover {
+    border-color: rgba(255,255,255,0.13);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.035),
+        0 8px 22px rgba(0,0,0,0.18);
+}
+
+.game-container:focus-within,
+.gpu-container:focus-within,
+.cpu-container:focus-within {
+    border-color: rgba(88,101,242,0.75);
+
+    box-shadow:
+        0 0 0 3px rgba(88,101,242,0.08),
+        0 8px 25px rgba(0,0,0,0.2);
+}
+
+.game-container select,
+.gpu-container select,
+.cpu-container select {
+    flex: 1;
+    min-width: 0;
+
+    background: transparent;
+
+    border: none;
+    box-shadow: none;
+}
+
+.game-container select:focus,
+.gpu-container select:focus,
+.cpu-container select:focus {
+    border: none;
+    box-shadow: none;
+}
+
+
+/* =========================
+   PREVIEW JUEGO
+========================= */
+
+#game-preview {
+    width: 51px;
+    height: 48px;
+
+    margin-right: 3px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #222733,
+            #1c2029
+        );
+
+    border: 1px solid rgba(255,255,255,0.05);
+
+    overflow: hidden;
+}
+
+#game-preview img {
+    width: 40px;
+    height: 40px;
+
+    object-fit: contain;
+
+    filter:
+        drop-shadow(
+            0 4px 7px rgba(0,0,0,0.4)
+        );
+
+    animation: previewAppear .25s ease;
+}
+
+
+/* =========================
+   GPU
+========================= */
+
+#gpu-preview {
+    flex: 0 0 155px;
+}
+
+.gpu-info {
+    min-height: 48px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 5px 8px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #222733,
+            #1c2029
+        );
+
+    border: 1px solid rgba(255,255,255,0.05);
+
+    border-radius: 10px;
+
+    text-align: left;
+}
+
+.gpu-info img {
+    width: 43px;
+    height: 37px;
+
+    object-fit: contain;
+
+    filter:
+        drop-shadow(
+            0 4px 7px rgba(0,0,0,0.4)
+        );
+}
+
+.gpu-info div {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.gpu-info strong {
+    font-size: 12px;
+    color: #f2f4f8;
+    white-space: nowrap;
+}
+
+.gpu-info span {
+    margin-top: 3px;
+
+    color: #858c9d;
+
+    font-size: 10px;
+
+    white-space: nowrap;
+}
+
+
+/* =========================
+   CPU
+========================= */
+
+#cpu-preview {
+    width: 51px;
+    height: 48px;
+
+    margin-right: 3px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #222733,
+            #1c2029
+        );
+
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+#cpu-preview img {
+    width: 40px;
+    height: 40px;
+
+    object-fit: contain;
+
+    filter:
+        drop-shadow(
+            0 4px 7px rgba(0,0,0,0.4)
+        );
+
+    animation: previewAppear .25s ease;
+}
+
+
+/* =========================
+   SELECTORES SIMPLES
+========================= */
+
+#resolution,
+#target {
+    min-height: 54px;
+    border-radius: 15px;
+}
+
+
+/* =========================
+   OPCIONES EXTRA
+========================= */
+
+.cyberpunk-options {
+    display: none;
+
+    grid-column: 1 / -1;
+
+    gap: 10px;
+
+    margin-top: -2px;
+}
+
+.cyberpunk-option {
+    flex: 1;
+
+    min-height: 46px;
+
+    padding: 0 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: #151820;
+
+    border: 1px solid rgba(255,255,255,0.07);
+
+    border-radius: 12px;
+
+    color: #aeb4c3;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        border-color .2s ease,
+        background .2s ease,
+        color .2s ease;
+}
+
+.cyberpunk-option:hover {
+    background: #1a1e27;
+    border-color: rgba(255,190,80,.35);
+}
+
+.cyberpunk-option.active {
+    background: rgba(190,125,40,.10);
+
+    border-color: rgba(255,190,80,.55);
+
+    color: #f0c77a;
+}
+
+.cyberpunk-option .toggle {
+    width: 32px;
+    height: 18px;
+
+    position: relative;
+
+    background: #292e38;
+
+    border-radius: 20px;
+}
+
+.cyberpunk-option .toggle::after {
+    content: "";
+
+    position: absolute;
+
+    width: 12px;
+    height: 12px;
+
+    top: 3px;
+    left: 3px;
+
+    background: #858b99;
+
+    border-radius: 50%;
+
+    transition:
+        transform .2s ease,
+        background .2s ease;
+}
+
+.cyberpunk-option.active .toggle {
+    background: rgba(190,125,40,.65);
+}
+
+.cyberpunk-option.active .toggle::after {
+    transform: translateX(14px);
+    background: white;
+}
+
+
+/* =========================
+   BOTÓN
+========================= */
+
+button {
+    width: 100%;
+
+    min-height: 64px;
+
+    margin-top: 22px;
+
+    padding: 0 24px;
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #263b8f,
+            #3156c9
+        );
+
+    color: white;
+
+    font-size: 15px;
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 25px rgba(35,67,160,.25),
+        inset 0 1px 0 rgba(255,255,255,.08);
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        filter .2s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+
+    filter: brightness(1.12);
+
+    box-shadow:
+        0 12px 32px rgba(35,67,160,.35),
+        inset 0 1px 0 rgba(255,255,255,.1);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+
+/* =========================
+   RESULTADO
+========================= */
+
+#result {
+    margin-top: 25px;
+}
+
+.result-card {
+    position: relative;
+
+    margin-top: 25px;
+
+    padding: 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #202531,
+            #171a22
+        );
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 18px 40px rgba(0,0,0,.28),
+        inset 0 1px 0 rgba(255,255,255,.035);
+
+    animation: resultAppear .4s ease;
+}
+
+.result-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 15%;
+    right: 15%;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(88,101,242,.9),
+            transparent
+        );
+}
+
+.result-card h2 {
+    margin: 0;
+
+    font-size: 17px;
+    font-weight: 600;
+
+    color: #aeb4c3;
+}
+
+.fps-number {
+    margin: 8px 0 8px;
+
+    font-size: clamp(42px,8vw,58px);
+
+    font-weight: 800;
+
+    letter-spacing: -2px;
+
+    color: white;
+
+    text-shadow:
+        0 5px 25px rgba(88,101,242,.25);
+}
+
+.fps-label {
+    color: #777f90;
+    font-size: 12px;
+    margin-bottom: 18px;
+}
+
+.result-info {
+    margin-top: 8px;
+
+    color: #8f96a6;
+
+    font-size: 14px;
+}
+
+.result-row {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 11px 0;
+
+    border-bottom:
+        1px solid rgba(255,255,255,.055);
+}
+
+.result-row:last-child {
+    border-bottom: none;
+}
+
+.result-row span {
+    color: #777f90;
+
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.result-row strong {
+    color: #e8ebf2;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* =========================
+   BARRA
+========================= */
+
+.performance-bar {
+    width: 100%;
+    height: 12px;
+
+    margin-top: 20px;
+
+    background: #10131a;
+
+    border: 1px solid #292e39;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+.performance-fill {
+    height: 100%;
+
+    width: var(--performance-width);
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #4652d8,
+            #6974ff
+        );
+
+    box-shadow:
+        0 0 12px rgba(88,101,242,.35);
+
+    animation:
+        fillPerformance .9s
+        cubic-bezier(.22,1,.36,1)
+        forwards;
+}
+
+
+/* =========================
+   AVISO DATOS
+========================= */
+
+.data-note {
+    margin-top: 18px;
+
+    color: #676e7d;
+
+    font-size: 11px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================
+   ANIMACIONES
+========================= */
+
+@keyframes previewAppear {
+
+    from {
+        opacity: 0;
+        transform: scale(.85);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+@keyframes resultAppear {
+
+    from {
+        opacity: 0;
+        transform:
+            translateY(8px)
+            scale(.98);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+@keyframes fillPerformance {
+
+    from {
+        width: 0;
+    }
+
+    to {
+        width: var(--performance-width);
+    }
+
+}
+
+
+/* =========================
+   MÓVIL
+========================= */
+
+@media (max-width:600px) {
+
+    .container {
+        padding:
+            32px 12px 50px;
+    }
+
+    h1 {
+        font-size: 34px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    .calculator {
+        margin-top: 28px;
+
+        padding: 17px;
+
+        border-radius: 18px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+
+        gap: 11px;
+    }
+
+    .form-full {
+        grid-column: auto;
+    }
+
+    select {
+        min-height: 52px;
+
+        font-size: 14px;
+    }
+
+    #gpu-preview {
+        flex: 0 0 135px;
+    }
+
+    .gpu-info {
+        min-height: 52px;
+        padding: 5px 7px;
+    }
+
+    .gpu-info img {
+        width: 40px;
+        height: 36px;
+    }
+
+    .gpu-info strong {
+        font-size: 11px;
+    }
+
+    .gpu-info span {
+        font-size: 9px;
+    }
+
+    #game-preview,
+    #cpu-preview {
+        width: 48px;
+        height: 46px;
+    }
+
+    #game-preview img,
+    #cpu-preview img {
+        width: 38px;
+        height: 38px;
+    }
+
+    button {
+        min-height: 58px;
+        margin-top: 17px;
+    }
+
+    .result-card {
+        padding: 24px 17px;
+    }
+
+    .fps-number {
+        font-size: 44px;
+    }
+
+    .cyberpunk-options {
+        flex-direction: column;
+    }
+
+    .cyberpunk-option {
+        width: 100%;
+    }
+
+}
+
+
+/* =========================
+   MÓVIL HORIZONTAL
+========================= */
+
+@media (min-width:601px) and (max-height:500px) {
+
+    .container {
+        padding-top: 25px;
+        padding-bottom: 40px;
+    }
+
+    h1 {
+        font-size: 36px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div class="container">
+
+    <h1>PC Performance</h1>
+
+    <p>
+        Calcula el rendimiento estimado de tu PC.
+    </p>
+
+
+    <div class="calculator">
+
+        <div class="form-grid">
+
+
+            <!-- JUEGO -->
+
+            <div class="game-container form-full">
+
+                <select id="game">
+
+                    <option value="">
+                        Juego...
+                    </option>
+
+                    <option value="fortnite">
+                        Fortnite
+                    </option>
+
+                    <option value="cyberpunk">
+                        Cyberpunk 2077
+                    </option>
+
+                    <option value="warzone">
+                        Call of Duty: Warzone
+                    </option>
+
+                    <option value="eldenring">
+                        Elden Ring
+                    </option>
+
+                    <option value="valorant">
+                        Valorant
+                    </option>
+
+                    <option value="rdr2">
+                        Red Dead Redemption 2
+                    </option>
+
+                    <option value="tlou2">
+                        The Last of Us Part II
+                    </option>
+
+                </select>
+
+                <div id="game-preview"></div>
+
+            </div>
+
+
+            <!-- GPU -->
+
+            <div class="gpu-container">
+
+                <select id="gpu">
+
+                    <option value="">
+                        GPU...
+                    </option>
+
+                    <option value="rtx3080">
+                        RTX 3080
+                    </option>
+
+                    <option value="rtx4070">
+                        RTX 4070
+                    </option>
+
+                    <option value="rtx4070ti">
+                        RTX 4070 Ti
+                    </option>
+
+                    <option value="rtx4070tisuper">
+                        RTX 4070 Ti SUPER
+                    </option>
+
+                    <option value="rtx4080">
+                        RTX 4080
+                    </option>
+
+                    <option value="rtx5060">
+                        RTX 5060
+                    </option>
+
+                    <option value="rtx5070">
+                        RTX 5070
+                    </option>
+
+                </select>
+
+                <div id="gpu-preview"></div>
+
+            </div>
+
+
+            <!-- CPU -->
+
+            <div class="cpu-container">
+
+                <select id="cpu">
+
+                    <option value="">
+                        CPU...
+                    </option>
+
+                    <option value="i5-14600kf">
+                        i5-14600KF
+                    </option>
+
+                    <option value="ryzen 7 7800x3d">
+                        Ryzen 7 7800X3D
+                    </option>
+
+                    <option value="ryzen 5 7600">
+                        Ryzen 5 7600
+                    </option>
+
+                    <option value="i5-13600kf">
+                        i5-13600KF
+                    </option>
+
+                    <option value="ryzen 7 9800x3d">
+                        Ryzen 7 9800X3D
+                    </option>
+
+                    <option value="i7-14700kf">
+                        i7-14700KF
+                    </option>
+
+                    <option value="ryzen 7 5800x3d">
+                        Ryzen 7 5800X3D
+                    </option>
+
+                </select>
+
+                <div id="cpu-preview"></div>
+
+            </div>
+
+
+            <!-- RESOLUCIÓN -->
+
+            <select id="resolution">
+
+                <option value="">
+                    Resolución...
+                </option>
+
+                <option value="1080">
+                    1080p
+                </option>
+
+                <option value="1440">
+                    1440p
+                </option>
+
+                <option value="2160">
+                    4K
+                </option>
+
+            </select>
+
+
+            <!-- CALIDAD -->
+
+            <select id="target">
+
+                <option value="">
+                    Calidad...
+                </option>
+
+                <option value="competitive">
+                    Baja
+                </option>
+
+                <option value="balanced">
+                    Media
+                </option>
+
+                <option value="quality">
+                    Alta
+                </option>
+
+            </select>
+
+
+            <!-- OPCIONES EXTRA -->
+
+            <div
+                class="cyberpunk-options"
+                id="cyberpunk-options"
+            >
+
+                <!-- RAY TRACING -->
+
+                <div
+                    class="cyberpunk-option"
+                    id="raytracing-option"
+                    onclick="toggleCyberpunkOption('raytracing')"
+                >
+
+                    <span>
+                        Ray Tracing
+                    </span>
+
+                    <div class="toggle"></div>
+
+                </div>
+
+
+                <!-- FRAME GENERATION -->
+
+                <div
+                    class="cyberpunk-option"
+                    id="framegen-option"
+                    onclick="toggleCyberpunkOption('framegen')"
+                >
+
+                    <span>
+                        Frame Generation
+                    </span>
+
+                    <div class="toggle"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <button onclick="calculateFPS()">
+            CALCULAR RENDIMIENTO
+        </button>
+
+
+        <div id="result"></div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+
+/* =========================================================
+   DATOS BASE
+========================================================= */
+
+const baseData = {
+
+    fortnite: {
+
+        "1080": {
+            competitive: 324,
+            balanced: 228,
+            quality: 177
+        },
+
+        "1440": {
+            competitive: 206,
+            balanced: 145,
+            quality: 112
+        },
+
+        "2160": {
+            competitive: 109,
+            balanced: 77,
+            quality: 59
+        }
+
+    },
+
+
+    warzone: {
+
+        "1080": {
+            competitive: 204,
+            balanced: 203,
+            quality: 184
+        },
+
+        "1440": {
+            competitive: 182,
+            balanced: 177,
+            quality: 160
+        },
+
+        "2160": {
+            competitive: 155,
+            balanced: 153,
+            quality: 137
+        }
+
+    },
+
+
+    cyberpunk: {
+
+        "1080": {
+            competitive: 136,
+            balanced: 103,
+            quality: 73
+        },
+
+        "1440": {
+            competitive: 103,
+            balanced: 75,
+            quality: 54
+        },
+
+        "2160": {
+            competitive: 69,
+            balanced: 48,
+            quality: 38
+        }
+
+    },
+
+
+    eldenring: {
+
+        "1080": {
+            competitive: 145,
+            balanced: 105,
+            quality: 88
+        },
+
+        "1440": {
+            competitive: 125,
+            balanced: 92,
+            quality: 76
+        },
+
+        "2160": {
+            competitive: 82,
+            balanced: 61,
+            quality: 52
+        }
+
+    },
+
+
+    valorant: {
+
+        "1080": {
+            competitive: 430,
+            balanced: 340,
+            quality: 285
+        },
+
+        "1440": {
+            competitive: 370,
+            balanced: 300,
+            quality: 250
+        },
+
+        "2160": {
+            competitive: 275,
+            balanced: 225,
+            quality: 190
+        }
+
+    },
+
+
+    rdr2: {
+
+        "1080": {
+            competitive: 165,
+            balanced: 105,
+            quality: 78
+        },
+
+        "1440": {
+            competitive: 130,
+            balanced: 88,
+            quality: 64
+        },
+
+        "2160": {
+            competitive: 82,
+            balanced: 57,
+            quality: 42
+        }
+
+    },
+
+
+    tlou2: {
+
+        "1080": {
+            competitive: 145,
+            balanced: 105,
+            quality: 82
+        },
+
+        "1440": {
+            competitive: 115,
+            balanced: 84,
+            quality: 65
+        },
+
+        "2160": {
+            competitive: 72,
+            balanced: 52,
+            quality: 41
+        }
+
+    }
+
+};
+
+
+/* =========================================================
+   GPU
+========================================================= */
+
+const gpuFactors = {
+
+    rtx3080: 1.00,
+
+    rtx4070: 1.08,
+
+    rtx4070ti: 1.18,
+
+    rtx4070tisuper: 1.27,
+
+    rtx4080: 1.43,
+
+    rtx5060: 0.78,
+
+    rtx5070: 1.17
+
+};
+
+
+/* =========================================================
+   VRAM
+========================================================= */
+
+const gpuVRAM = {
+
+    rtx3080: "10 GB",
+
+    rtx4070: "12 GB",
+
+    rtx4070ti: "12 GB",
+
+    rtx4070tisuper: "16 GB",
+
+    rtx4080: "16 GB",
+
+    rtx5060: "8 GB",
+
+    rtx5070: "12 GB"
+
+};
+
+
+/* =========================================================
+   CPU
+========================================================= */
+
+const cpuFactors = {
+
+    "i5-14600kf": 1.00,
+
+    "ryzen 5 7600": 0.94,
+
+    "ryzen 7 7800x3d": 1.06,
+
+    "i5-13600kf": 0.98,
+
+    "ryzen 7 9800x3d": 1.10,
+
+    "i7-14700kf": 1.07,
+
+    "ryzen 7 5800x3d": 1.03
+
+};
+
+
+/* =========================================================
+   IMPACTO CPU
+========================================================= */
+
+const gameCPUImpact = {
+
+    fortnite: 0.55,
+
+    warzone: 0.45,
+
+    cyberpunk: 0.20,
+
+    eldenring: 0.30,
+
+    valorant: 0.70,
+
+    rdr2: 0.25,
+
+    tlou2: 0.25
+
+};
+
+
+/* =========================================================
+   NOMBRES GPU
+========================================================= */
+
+const gpuNames = {
+
+    rtx3080: "RTX 3080",
+
+    rtx4070: "RTX 4070",
+
+    rtx4070ti: "RTX 4070 Ti",
+
+    rtx4070tisuper: "RTX 4070 Ti SUPER",
+
+    rtx4080: "RTX 4080",
+
+    rtx5060: "RTX 5060",
+
+    rtx5070: "RTX 5070"
+
+};
+
+
+/* =========================================================
+   IMÁGENES GPU
+========================================================= */
+
+const gpuImages = {
+
+    rtx3080: "./rtx3080.PNG",
+
+    rtx4070: "./rtx4070.PNG",
+
+    rtx4070ti: "./rtx4070ti.PNG",
+
+    rtx4070tisuper: "./rtx4070tisuper.PNG",
+
+    rtx4080: "./rtx4080.PNG",
+
+    rtx5060: "./rtx5060.PNG",
+
+    rtx5070: "./rtx5070.PNG"
+
+};
+
+
+/* =========================================================
+   NOMBRES CPU
+========================================================= */
+
+const cpuNames = {
+
+    "i5-14600kf": "i5-14600KF",
+
+    "ryzen 7 7800x3d": "Ryzen 7 7800X3D",
+
+    "ryzen 5 7600": "Ryzen 5 7600",
+
+    "i5-13600kf": "i5-13600KF",
+
+    "ryzen 7 9800x3d": "Ryzen 7 9800X3D",
+
+    "i7-14700kf": "i7-14700KF",
+
+    "ryzen 7 5800x3d": "Ryzen 7 5800X3D"
+
+};
+
+
+/* =========================================================
+   IMÁGENES CPU
+========================================================= */
+
+const cpuImages = {
+
+    "i5-14600kf":
+        "./i5-14600kf.PNG",
+
+    "ryzen 7 7800x3d":
+        "./ryzen7-7800x3d.PNG",
+
+    "ryzen 5 7600":
+        "./ryzen5-7600.WEBP",
+
+    "i5-13600kf":
+        "./i5-13600kf.PNG",
+
+    "ryzen 7 9800x3d":
+        "./ryzen7-9800x3d.PNG",
+
+    "i7-14700kf":
+        "./i7-14700kf.PNG",
+
+    "ryzen 7 5800x3d":
+        "./ryzen7-5800x3d.PNG"
+
+};
+
+
+/* =========================================================
+   OBTENER FPS BASE
+========================================================= */
+
+function getFPS(
+    game,
+    gpu,
+    cpu,
+    resolution,
+    target
+) {
+
+    const base =
+        baseData[game]
+        ?. [resolution]
+        ?. [target];
+
+    if (!base) {
+        return 0;
+    }
+
+    const gpuFactor =
+        gpuFactors[gpu] || 1;
+
+    const cpuFactor =
+        cpuFactors[cpu] || 1;
+
+    const cpuImpact =
+        gameCPUImpact[game] || 0.30;
+
+    const gpuContribution =
+        1 - cpuImpact;
+
+    const cpuContribution =
+        cpuImpact;
+
+    const relativePerformance =
+
+        Math.pow(
+            gpuFactor,
+            gpuContribution
+        )
+
+        *
+
+        Math.pow(
+            cpuFactor,
+            cpuContribution
+        );
+
+    return Math.round(
+        base * relativePerformance
+    );
+
+}
+
+
+/* =========================================================
+   CREAR RANGO DE FPS
+========================================================= */
+
+function createFPSRange(fps) {
+
+    let variation;
+
+    if (fps < 50) {
+
+        variation = 7;
+
+    }
+
+    else if (fps < 80) {
+
+        variation = 9;
+
+    }
+
+    else if (fps < 120) {
+
+        variation = 12;
+
+    }
+
+    else if (fps < 180) {
+
+        variation = 15;
+
+    }
+
+    else if (fps < 250) {
+
+        variation = 20;
+
+    }
+
+    else {
+
+        variation = 25;
+
+    }
+
+    const minimum =
+        Math.max(
+            1,
+            Math.round(fps - variation)
+        );
+
+    const maximum =
+        Math.round(fps + variation);
+
+    return {
+        min: minimum,
+        max: maximum
+    };
+
+}
+
+
+/* =========================================================
+   RAY TRACING
+========================================================= */
+
+function applyRayTracing(
+    fps,
+    gpu,
+    resolution,
+    game
+) {
+
+    const rtLoss = {
+
+        cyberpunk: {
+
+            "1080": 0.69,
+
+            "1440": 0.66,
+
+            "2160": 0.60
+
+        },
+
+        eldenring: {
+
+            "1080": 0.82,
+
+            "1440": 0.78,
+
+            "2160": 0.70
+
+        }
+
+    };
+
+
+    const gameLoss =
+        rtLoss[game] || rtLoss.cyberpunk;
+
+
+    return Math.round(
+        fps *
+        (gameLoss[resolution] || 0.65)
+    );
+
+}
+
+
+/* =========================================================
+   FRAME GENERATION
+========================================================= */
+
+function applyFrameGeneration(fps) {
+
+    return Math.round(
+        fps * 1.55
+    );
+
+}
+
+
+/* =========================================================
+   MOSTRAR JUEGO
+========================================================= */
+
+function showGame() {
+
+    const game =
+        document.getElementById("game").value;
+
+    const preview =
+        document.getElementById("game-preview");
+
+    const extraOptions =
+        document.getElementById("cyberpunk-options");
+
+
+    /* =========================
+       IMAGEN
+    ========================= */
+
+    if (game === "fortnite") {
+
+        preview.innerHTML =
+            '<img src="./fortnite.PNG" alt="Fortnite">';
+
+    }
+
+    else if (game === "cyberpunk") {
+
+        preview.innerHTML =
+            '<img src="./cyberpunk.JPG" alt="Cyberpunk 2077">';
+
+    }
+
+    else if (game === "warzone") {
+
+        preview.innerHTML =
+            '<img src="./warzone.PNG" alt="Warzone">';
+
+    }
+
+    else if (game === "eldenring") {
+
+        preview.innerHTML =
+            '<img src="./elden-ring.JPG" alt="Elden Ring">';
+
+    }
+
+    else if (game === "valorant") {
+
+        preview.innerHTML =
+            '<img src="./valorant.JPG" alt="Valorant">';
+
+    }
+
+    else if (game === "rdr2") {
+
+        preview.innerHTML =
+            '<img src="./rdr2.JPG" alt="Red Dead Redemption 2">';
+
+    }
+
+    else if (game === "tlou2") {
+
+        preview.innerHTML =
+            '<img src="./tlou2.png" alt="The Last of Us Part II">';
+
+    }
+
+    else {
+
+        preview.innerHTML = "";
+
+    }
+
+
+    /* =========================
+       OPCIONES EXTRA
+    ========================= */
+
+    if (
+        game === "cyberpunk" ||
+        game === "eldenring" ||
+        game === "tlou2"
+    ) {
+
+        extraOptions.style.display =
+            "flex";
+
+    }
+
+    else {
+
+        extraOptions.style.display =
+            "none";
+
+    }
+
+
+    /* =========================
+       RAY TRACING
+    ========================= */
+
+    const rayTracingOption =
+        document.getElementById("raytracing-option");
+
+    if (
+        game === "cyberpunk" ||
+        game === "eldenring"
+    ) {
+
+        rayTracingOption.style.display =
+            "flex";
+
+    }
+
+    else {
+
+        rayTracingOption.style.display =
+            "none";
+
+        rayTracingOption.classList.remove("active");
+
+    }
+
+
+    updateFrameGenerationVisibility();
+
+}
+
+
+/* =========================================================
+   MOSTRAR GPU
+========================================================= */
+
+function showGPU() {
+
+    const gpu =
+        document.getElementById("gpu").value;
+
+    const preview =
+        document.getElementById("gpu-preview");
+
+
+    if (!gpu) {
+
+        preview.innerHTML = "";
+
+        updateFrameGenerationVisibility();
+
+        return;
+
+    }
+
+
+    preview.innerHTML =
+
+        '<div class="gpu-info">' +
+
+            '<img src="' +
+                gpuImages[gpu] +
+                '" alt="' +
+                gpuNames[gpu] +
+            '">' +
+
+            '<div>' +
+
+                '<strong>' +
+                    gpuNames[gpu] +
+                '</strong>' +
+
+                '<span>' +
+                    gpuVRAM[gpu] +
+                    ' VRAM' +
+                '</span>' +
+
+            '</div>' +
+
+        '</div>';
+
+
+    updateFrameGenerationVisibility();
+
+}
+
+
+/* =========================================================
+   FRAME GENERATION VISIBILIDAD
+========================================================= */
+
+function updateFrameGenerationVisibility() {
+
+    const game =
+        document.getElementById("game").value;
+
+    const gpu =
+        document.getElementById("gpu").value;
+
+    const framegen =
+        document.getElementById("framegen-option");
+
+
+    if (!framegen) {
+        return;
+    }
+
+
+    /*
+       Frame Generation disponible para:
+
+       - Cyberpunk 2077
+       - The Last of Us Part II
+
+       RTX 3080 queda excluida.
+    */
+
+    if (
+        (
+            game === "cyberpunk" ||
+            game === "tlou2"
+        )
+        &&
+        gpu
+        &&
+        gpu !== "rtx3080"
+    ) {
+
+        framegen.style.display =
+            "flex";
+
+    }
+
+    else {
+
+        framegen.style.display =
+            "none";
+
+        framegen.classList.remove("active");
+
+    }
+
+}
+
+
+/* =========================================================
+   MOSTRAR CPU
+========================================================= */
+
+function showCPU() {
+
+    const cpu =
+        document.getElementById("cpu").value;
+
+    const preview =
+        document.getElementById("cpu-preview");
+
+
+    if (!cpu) {
+
+        preview.innerHTML = "";
+
+        return;
+
+    }
+
+
+    preview.innerHTML =
+
+        '<img src="' +
+            cpuImages[cpu] +
+            '" alt="' +
+            cpuNames[cpu] +
+        '">';
+
+}
+
+
+/* =========================================================
+   TOGGLE OPCIONES
+========================================================= */
+
+function toggleCyberpunkOption(option) {
+
+    const game =
+        document.getElementById("game").value;
+
+    const gpu =
+        document.getElementById("gpu").value;
+
+
+    /* =========================
+       FRAME GENERATION
+    ========================= */
+
+    if (
+        option === "framegen"
+        &&
+        (
+            (
+                game !== "cyberpunk"
+                &&
+                game !== "tlou2"
+            )
+            ||
+            gpu === "rtx3080"
+            ||
+            !gpu
+        )
+    ) {
+
+        return;
+
+    }
+
+
+    /* =========================
+       RAY TRACING
+    ========================= */
+
+    if (
+        option === "raytracing"
+        &&
+        game !== "cyberpunk"
+        &&
+        game !== "eldenring"
+    ) {
+
+        return;
+
+    }
+
+
+    const element =
+
+        document.getElementById(
+
+            option === "raytracing"
+                ? "raytracing-option"
+                : "framegen-option"
+
+        );
+
+
+    element.classList.toggle("active");
+
+}
+
+
+/* =========================================================
+   CALCULAR FPS
+========================================================= */
+
+function calculateFPS() {
+
+    const game =
+        document.getElementById("game").value;
+
+    const gpu =
+        document.getElementById("gpu").value;
+
+    const cpu =
+        document.getElementById("cpu").value;
+
+    const resolution =
+        document.getElementById("resolution").value;
+
+    const target =
+        document.getElementById("target").value;
+
+    const result =
+        document.getElementById("result");
+
+
+    /* =========================
+       VALIDACIÓN
+    ========================= */
+
+    if (
+        !game ||
+        !gpu ||
+        !cpu ||
+        !resolution ||
+        !target
+    ) {
+
+        result.innerHTML = `
+
+            <div class="result-card">
+
+                <h2>
+                    Completa todos los campos
+                </h2>
+
+                <div class="result-info">
+
+                    Selecciona juego, GPU, CPU,
+                    resolución y calidad.
+
+                </div>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    /* =========================
+       FPS BASE
+    ========================= */
+
+    let fps =
+        getFPS(
+            game,
+            gpu,
+            cpu,
+            resolution,
+            target
+        );
+
+
+    if (!fps) {
+
+        result.innerHTML = `
+
+            <div class="result-card">
+
+                <h2>
+                    Datos no disponibles
+                </h2>
+
+                <div class="result-info">
+
+                    No se ha podido calcular
+                    esta combinación.
+
+                </div>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    /* =========================
+       OPCIONES EXTRA
+    ========================= */
+
+    let rayTracing = false;
+
+    let frameGeneration = false;
+
+
+    /* =========================
+       RAY TRACING
+    ========================= */
+
+    if (
+        game === "cyberpunk" ||
+        game === "eldenring"
+    ) {
+
+        rayTracing =
+
+            document
+                .getElementById("raytracing-option")
+                .classList
+                .contains("active");
+
+
+        if (rayTracing) {
+
+            fps =
+                applyRayTracing(
+                    fps,
+                    gpu,
+                    resolution,
+                    game
+                );
+
+        }
+
+    }
+
+
+    /* =========================
+       FRAME GENERATION
+    ========================= */
+
+    if (
+        game === "cyberpunk" ||
+        game === "tlou2"
+    ) {
+
+        frameGeneration =
+
+            document
+                .getElementById("framegen-option")
+                .classList
+                .contains("active");
+
+
+        /*
+           RTX 3080 no utiliza Frame Generation
+           en esta calculadora.
+        */
+
+        if (gpu === "rtx3080") {
+
+            frameGeneration = false;
+
+            document
+                .getElementById("framegen-option")
+                .classList
+                .remove("active");
+
+        }
+
+
+        if (frameGeneration) {
+
+            fps =
+                applyFrameGeneration(
+                    fps
+                );
+
+        }
+
+    }
+
+
+    /* =========================
+       RANGO
+    ========================= */
+
+    const range =
+        createFPSRange(fps);
+
+
+    /* =========================
+       CONFIGURACIÓN
+    ========================= */
+
+    let configuracion;
+
+
+    if (target === "competitive") {
+
+        configuracion = "Baja";
+
+    }
+
+    else if (target === "balanced") {
+
+        configuracion = "Media";
+
+    }
+
+    else {
+
+        configuracion = "Alta";
+
+    }
+
+
+    /* =========================
+       VALORACIÓN
+    ========================= */
+
+    let resultado;
+
+
+    if (range.min >= 240) {
+
+        resultado =
+            "Excelente para altas tasas de refresco";
+
+    }
+
+    else if (range.min >= 144) {
+
+        resultado =
+            "Excelente rendimiento";
+
+    }
+
+    else if (range.min >= 100) {
+
+        resultado =
+            "Muy buen rendimiento";
+
+    }
+
+    else if (range.min >= 60) {
+
+        resultado =
+            "Buen rendimiento";
+
+    }
+
+    else if (range.min >= 40) {
+
+        resultado =
+            "Rendimiento aceptable";
+
+    }
+
+    else {
+
+        resultado =
+            "Rendimiento limitado";
+
+    }
+
+
+    /* =========================
+       OPCIONES EXTRA RESULTADO
+    ========================= */
+
+    let opcionesExtra = "";
+
+
+    if (
+        game === "cyberpunk" ||
+        game === "eldenring" ||
+        game === "tlou2"
+    ) {
+
+        if (
+            game === "cyberpunk" ||
+            game === "eldenring"
+        ) {
+
+            opcionesExtra += `
+
+                <div class="result-row">
+
+                    <span>
+                        Ray Tracing
+                    </span>
+
+                    <strong>
+                        ${
+                            rayTracing
+                            ? "Activado"
+                            : "Desactivado"
+                        }
+                    </strong>
+
+                </div>
+
+            `;
+
+        }
+
+
+        if (
+            game === "cyberpunk" ||
+            game === "tlou2"
+        ) {
+
+            opcionesExtra += `
+
+                <div class="result-row">
+
+                    <span>
+                        Frame Generation
+                    </span>
+
+                    <strong>
+                        ${
+                            frameGeneration
+                            ? "Activado"
+                            : "Desactivado"
+                        }
+                    </strong>
+
+                </div>
+
+            `;
+
+        }
+
+    }
+
+
+    /* =========================
+       RESOLUCIÓN
+    ========================= */
+
+    const resolutionText = {
+
+        "1080": "1080p",
+
+        "1440": "1440p",
+
+        "2160": "4K"
+
+    }[resolution];
+
+
+    /* =========================
+       VRAM
+    ========================= */
+
+    const vramText =
+        gpuVRAM[gpu] || "—";
+
+
+    /* =========================
+       BARRA
+    ========================= */
+
+    const performance =
+
+        Math.min(
+            (fps / 240) * 100,
+            100
+        );
+
+
+    /* =========================
+       RESULTADO FINAL
+    ========================= */
+
+    result.innerHTML = `
+
+        <div class="result-card">
+
+            <h2>
+                Rendimiento estimado
+            </h2>
+
+
+            <div class="fps-number">
+
+                ≈ ${range.min}–${range.max} FPS
+
+            </div>
+
+
+            <div class="fps-label">
+
+                Rango aproximado de rendimiento
+
+            </div>
+
+
+            <div class="result-info">
+
+
+                <div class="result-row">
+
+                    <span>
+                        GPU
+                    </span>
+
+                    <strong>
+                        ${gpuNames[gpu]}
+                    </strong>
+
+                </div>
+
+
+                <div class="result-row">
+
+                    <span>
+                        VRAM
+                    </span>
+
+                    <strong>
+                        ${vramText}
+                    </strong>
+
+                </div>
+
+
+                <div class="result-row">
+
+                    <span>
+                        CPU
+                    </span>
+
+                    <strong>
+                        ${cpuNames[cpu]}
+                    </strong>
+
+                </div>
+
+
+                <div class="result-row">
+
+                    <span>
+                        Resolución
+                    </span>
+
+                    <strong>
+                        ${resolutionText}
+                    </strong>
+
+                </div>
+
+
+                <div class="result-row">
+
+                    <span>
+                        Configuración
+                    </span>
+
+                    <strong>
+                        ${configuracion}
+                    </strong>
+
+                </div>
+
+
+                ${opcionesExtra}
+
+
+                <div class="result-row">
+
+                    <span>
+                        Rendimiento
+                    </span>
+
+                    <strong>
+                        ${resultado}
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="performance-bar">
+
+                <div
+                    class="performance-fill"
+                    style="
+                        --performance-width:
+                        ${performance}%;
+                    "
+                ></div>
+
+            </div>
+
+
+            <div class="data-note">
+
+                FPS aproximados, no datos exactos.
+                El resultado puede variar según los
+                ajustes gráficos, versión del juego,
+                drivers, mapa, temperatura, memoria RAM,
+                procesos en segundo plano y configuración
+                general del sistema.
+
+            </div>
+
+        </div>
+
+    `;
+
+}
+
+
+/* =========================================================
+   EVENTOS
+========================================================= */
+
+document
+    .getElementById("game")
+    .addEventListener(
+        "change",
+        showGame
+    );
+
+
+document
+    .getElementById("gpu")
+    .addEventListener(
+        "change",
+        showGPU
+    );
+
+
+document
+    .getElementById("cpu")
+    .addEventListener(
+        "change",
+        showCPU
+    );
+
+
+/* =========================================================
+   INICIALIZACIÓN
+========================================================= */
+
+showGame();
+
+showGPU();
+
+showCPU();
+
+updateFrameGenerationVisibility();
+
+</script>
+
+</body>
+</html>
