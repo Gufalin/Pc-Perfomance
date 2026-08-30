@@ -5,7 +5,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="v3g-o59Ws917jV7mmwsiECLS-nkyBbQ3T7-pXI6gUBk" />
-<title>PC Performance</title>
+<title>Calculadora de FPS para PC | PC Performance</title>
+
+<meta name="description" content="Calcula los FPS aproximados de tu PC en juegos como Fortnite, Cyberpunk 2077, Warzone, Elden Ring y más. Selecciona tu GPU, CPU, resolución y calidad gráfica.">
+
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://gufalin.github.io/Pc-Perfomance/">
+
+<meta property="og:title" content="Calculadora de FPS para PC | PC Performance">
+<meta property="og:description" content="Calcula el rendimiento aproximado de tu PC en tus juegos favoritos según tu GPU, CPU, resolución y calidad gráfica.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://gufalin.github.io/Pc-Perfomance/">
 
 <style>
 
@@ -956,6 +967,54 @@ button:active {
 
 }
 
+/* =========================
+   SEO CONTENT
+========================= */
+
+.seo-content {
+    max-width: 900px;
+    margin: 55px auto 0;
+    padding: 0 20px 70px;
+    text-align: left;
+}
+
+.seo-content h2 {
+    margin-top: 42px;
+    margin-bottom: 12px;
+
+    font-size: 24px;
+    font-weight: 750;
+
+    color: #f2f4f8;
+}
+
+.seo-content p {
+    margin: 0 0 18px;
+
+    color: #858b9b;
+
+    font-size: 15px;
+    line-height: 1.75;
+}
+
+@media (max-width: 600px) {
+
+    .seo-content {
+        margin-top: 40px;
+        padding: 0 17px 50px;
+    }
+
+    .seo-content h2 {
+        font-size: 21px;
+    }
+
+    .seo-content p {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+}
+
 </style>
 </head>
 
@@ -1212,13 +1271,58 @@ button:active {
     </div>
 
 </div>
-
+<section class="seo-content">
+    <h2>Calculadora de FPS para PC</h2>
+    <p>
+        PC Performance es una calculadora de rendimiento que permite
+        estimar los FPS que puede alcanzar un ordenador en diferentes
+        juegos según la tarjeta gráfica, el procesador, la resolución
+        y la calidad gráfica seleccionada.
+    </p>
+    <h2>¿Cómo calcular los FPS de mi PC?</h2>
+    <p>
+        Selecciona el juego que quieres probar, tu GPU, tu CPU,
+        la resolución y la calidad gráfica. La calculadora mostrará
+        un rango aproximado de FPS para esa configuración.
+    </p>
+    <p>
+        Los resultados son estimaciones y pueden variar dependiendo
+        de los controladores, la versión del juego, la memoria RAM,
+        la temperatura del ordenador, los procesos en segundo plano
+        y otros ajustes del sistema.
+    </p>
+    <h2>¿Qué GPU necesito para jugar?</h2>
+    <p>
+        La tarjeta gráfica es uno de los componentes que más influye
+        en el rendimiento de los juegos, especialmente al utilizar
+        resoluciones altas como 1440p y 4K. Sin embargo, el procesador
+        también puede tener una influencia importante dependiendo del
+        juego y de la configuración utilizada.
+    </p>
+    <h2>¿Qué resolución debería utilizar?</h2>
+    <p>
+        1080p ofrece una mayor cantidad de FPS y suele requerir menos
+        potencia gráfica. 1440p ofrece una mayor calidad de imagen
+        manteniendo un buen equilibrio entre calidad y rendimiento.
+        4K requiere una GPU considerablemente más potente para mantener
+        tasas de FPS elevadas.
+    </p>
+    <h2>FPS en juegos</h2>
+    <p>
+        Puedes utilizar la calculadora para comparar el rendimiento
+        aproximado de diferentes configuraciones en juegos como
+        Fortnite, Cyberpunk 2077, Call of Duty: Warzone, Elden Ring,
+        Valorant, Red Dead Redemption 2 y The Last of Us Part II.
+    </p>
+</section>
 
 <script>
 
 
 /* =========================================================
    DATOS BASE
+   RTX 3080 + CPU DE REFERENCIA
+   FPS NATIVOS, SIN DLSS/FG
 ========================================================= */
 
 const baseData = {
@@ -1226,21 +1330,21 @@ const baseData = {
     fortnite: {
 
         "1080": {
-            competitive: 324,
-            balanced: 228,
-            quality: 177
+            competitive: 430,
+            balanced: 320,
+            quality: 220
         },
 
         "1440": {
-            competitive: 206,
-            balanced: 145,
-            quality: 112
+            competitive: 390,
+            balanced: 285,
+            quality: 195
         },
 
         "2160": {
-            competitive: 109,
-            balanced: 77,
-            quality: 59
+            competitive: 250,
+            balanced: 175,
+            quality: 115
         }
 
     },
@@ -1249,21 +1353,21 @@ const baseData = {
     warzone: {
 
         "1080": {
-            competitive: 204,
-            balanced: 203,
-            quality: 184
+            competitive: 171,
+            balanced: 137,
+            quality: 125
         },
 
         "1440": {
-            competitive: 182,
-            balanced: 177,
-            quality: 160
+            competitive: 150,
+            balanced: 102,
+            quality: 77
         },
 
         "2160": {
-            competitive: 155,
-            balanced: 153,
-            quality: 137
+            competitive: 92,
+            balanced: 72,
+            quality: 58
         }
 
     },
@@ -1272,21 +1376,21 @@ const baseData = {
     cyberpunk: {
 
         "1080": {
-            competitive: 136,
-            balanced: 103,
-            quality: 73
+            competitive: 162,
+            balanced: 125,
+            quality: 74
         },
 
         "1440": {
-            competitive: 103,
-            balanced: 75,
-            quality: 54
+            competitive: 136,
+            balanced: 105,
+            quality: 62
         },
 
         "2160": {
-            competitive: 69,
-            balanced: 48,
-            quality: 38
+            competitive: 90,
+            balanced: 70,
+            quality: 41
         }
 
     },
@@ -1295,21 +1399,21 @@ const baseData = {
     eldenring: {
 
         "1080": {
-            competitive: 145,
-            balanced: 105,
-            quality: 88
+            competitive: 269,
+            balanced: 208,
+            quality: 122
         },
 
         "1440": {
-            competitive: 125,
-            balanced: 92,
-            quality: 76
+            competitive: 225,
+            balanced: 174,
+            quality: 102
         },
 
         "2160": {
-            competitive: 82,
-            balanced: 61,
-            quality: 52
+            competitive: 132,
+            balanced: 102,
+            quality: 60
         }
 
     },
@@ -1318,21 +1422,21 @@ const baseData = {
     valorant: {
 
         "1080": {
-            competitive: 430,
-            balanced: 340,
-            quality: 285
+            competitive: 500,
+            balanced: 420,
+            quality: 344
         },
 
         "1440": {
-            competitive: 370,
-            balanced: 300,
-            quality: 250
+            competitive: 470,
+            balanced: 390,
+            quality: 303
         },
 
         "2160": {
-            competitive: 275,
-            balanced: 225,
-            quality: 190
+            competitive: 390,
+            balanced: 310,
+            quality: 234
         }
 
     },
@@ -1341,21 +1445,21 @@ const baseData = {
     rdr2: {
 
         "1080": {
-            competitive: 165,
-            balanced: 105,
-            quality: 78
+            competitive: 188,
+            balanced: 146,
+            quality: 86
         },
 
         "1440": {
-            competitive: 130,
-            balanced: 88,
-            quality: 64
+            competitive: 158,
+            balanced: 122,
+            quality: 72
         },
 
         "2160": {
-            competitive: 82,
-            balanced: 57,
-            quality: 42
+            competitive: 98,
+            balanced: 76,
+            quality: 44
         }
 
     },
@@ -1364,21 +1468,21 @@ const baseData = {
     tlou2: {
 
         "1080": {
-            competitive: 145,
-            balanced: 105,
-            quality: 82
+            competitive: 176,
+            balanced: 136,
+            quality: 80
         },
 
         "1440": {
-            competitive: 115,
-            balanced: 84,
-            quality: 65
+            competitive: 148,
+            balanced: 114,
+            quality: 67
         },
 
         "2160": {
-            competitive: 72,
-            balanced: 52,
-            quality: 41
+            competitive: 95,
+            balanced: 73,
+            quality: 43
         }
 
     }
@@ -1388,23 +1492,24 @@ const baseData = {
 
 /* =========================================================
    GPU
+   RELACIÓN APROXIMADA RESPECTO A RTX 3080
 ========================================================= */
 
 const gpuFactors = {
 
     rtx3080: 1.00,
 
-    rtx4070: 1.08,
+    rtx4070: 1.06,
 
     rtx4070ti: 1.18,
 
-    rtx4070tisuper: 1.27,
+    rtx4070tisuper: 1.29,
 
     rtx4080: 1.43,
 
-    rtx5060: 0.78,
+    rtx5060: 0.76,
 
-    rtx5070: 1.17
+    rtx5070: 1.18
 
 };
 
@@ -1440,17 +1545,17 @@ const cpuFactors = {
 
     "i5-14600kf": 1.00,
 
-    "ryzen 5 7600": 0.94,
+    "ryzen 7 7800x3d": 1.07,
 
-    "ryzen 7 7800x3d": 1.06,
+    "ryzen 5 7600": 0.93,
 
-    "i5-13600kf": 0.98,
+    "i5-13600kf": 0.97,
 
-    "ryzen 7 9800x3d": 1.10,
+    "ryzen 7 9800x3d": 1.11,
 
-    "i7-14700kf": 1.07,
+    "i7-14700kf": 1.05,
 
-    "ryzen 7 5800x3d": 1.03
+    "ryzen 7 5800x3d": 0.96
 
 };
 
@@ -1461,17 +1566,17 @@ const cpuFactors = {
 
 const gameCPUImpact = {
 
-    fortnite: 0.55,
+    fortnite: 0.65,
 
-    warzone: 0.45,
+    warzone: 0.50,
 
     cyberpunk: 0.20,
 
-    eldenring: 0.30,
+    eldenring: 0.25,
 
-    valorant: 0.70,
+    valorant: 0.80,
 
-    rdr2: 0.25,
+    rdr2: 0.30,
 
     tlou2: 0.25
 
@@ -1627,9 +1732,32 @@ function getFPS(
             cpuContribution
         );
 
-    return Math.round(
-        base * relativePerformance
-    );
+    let result =
+        Math.round(
+            base * relativePerformance
+        );
+
+
+    /*
+       Evita resultados exagerados en juegos
+       donde la CPU limita especialmente.
+    */
+
+    if (
+        game === "valorant" &&
+        resolution === "2160"
+    ) {
+
+        result =
+            Math.min(
+                result,
+                500
+            );
+
+    }
+
+
+    return result;
 
 }
 
@@ -1644,37 +1772,43 @@ function createFPSRange(fps) {
 
     if (fps < 50) {
 
-        variation = 7;
+        variation = 6;
 
     }
 
     else if (fps < 80) {
 
-        variation = 9;
+        variation = 8;
 
     }
 
     else if (fps < 120) {
 
-        variation = 12;
+        variation = 10;
 
     }
 
     else if (fps < 180) {
 
-        variation = 15;
+        variation = 14;
 
     }
 
     else if (fps < 250) {
 
-        variation = 20;
+        variation = 18;
+
+    }
+
+    else if (fps < 400) {
+
+        variation = 25;
 
     }
 
     else {
 
-        variation = 25;
+        variation = 35;
 
     }
 
@@ -1712,9 +1846,9 @@ function applyRayTracing(
 
             "1080": 0.69,
 
-            "1440": 0.66,
+            "1440": 0.64,
 
-            "2160": 0.60
+            "2160": 0.58
 
         },
 
@@ -1749,8 +1883,16 @@ function applyRayTracing(
 
 function applyFrameGeneration(fps) {
 
+    /*
+       FG aumenta los FPS mostrados,
+       pero no equivale a un aumento real
+       de rendimiento de renderizado.
+
+       1.50 es una estimación moderada.
+    */
+
     return Math.round(
-        fps * 1.55
+        fps * 1.50
     );
 
 }
@@ -2265,7 +2407,7 @@ function calculateFPS() {
 
         /*
            RTX 3080 no utiliza Frame Generation
-           en esta calculadora.
+           DLSS Frame Generation de NVIDIA.
         */
 
         if (gpu === "rtx3080") {
