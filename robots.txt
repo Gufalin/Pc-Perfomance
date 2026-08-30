@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gufalin.github.io/Pc-Perfomance/sitemap.xml
